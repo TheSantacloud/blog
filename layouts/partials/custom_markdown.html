@@ -1,0 +1,2 @@
+{{- $content := .Content | replaceRE "\\[\\[([^\\]]+)\\]\\]" "<b>$1</b>" | markdownify -}}
+{{- $content | safeHTML -}}
