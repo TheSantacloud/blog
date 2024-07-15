@@ -1,12 +1,13 @@
-<!DOCTYPE html><html lang="en-us" class="dark"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="en-us"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title itemprop="name">Santacloud | Santacloud</title>
-<meta property="og:title" content="Santacloud | Santacloud" />
-<meta name="twitter:title" content="Santacloud | Santacloud" />
-<meta itemprop="name" content="Santacloud | Santacloud" />
-<meta name="application-name" content="Santacloud | Santacloud" />
+<title itemprop="name">Large-Model inference on Mac | Santacloud</title>
+<meta property="og:title" content="Large-Model inference on Mac | Santacloud" />
+<meta name="twitter:title" content="Large-Model inference on Mac | Santacloud" />
+<meta itemprop="name" content="Large-Model inference on Mac | Santacloud" />
+<meta name="application-name" content="Large-Model inference on Mac | Santacloud" />
 <meta property="og:site_name" content="Santacloud" />
 
 <meta name="description" content="A blog about tech stuff">
@@ -17,7 +18,7 @@
 <meta property="og:locale" content="en-us" />
 <meta name="language" content="en-us" />
 
-  <link rel="alternate" hreflang="en" href="http://localhost:1313/" title="" />
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/posts/large-model-inference-on-mac/" title="" />
 
 
 
@@ -29,14 +30,49 @@
 
 
 
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2024-07-06T11:06:24&#43;0300 />
+    <meta property="article:published_time" content=2024-07-06T11:06:24&#43;0300 />
+
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "Large-Model inference on Mac",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2024-07-06",
+        "description": "",
+        "wordCount":  550 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2024-07-06",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Santacloud"
+        }
+    }
+    </script>
+
 
 <meta name="generator" content="Hugo 0.128.2">
 
     
 
-    <link rel="canonical" href="http://localhost:1313/">
-    <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Santacloud">
-    <link href="/index.xml" rel="feed" type="application/rss+xml" title="Santacloud">
+    <link rel="canonical" href="http://localhost:1313/posts/large-model-inference-on-mac/">
     <link href="/style.min.d43bc6c79baa87f006efb2b92be952faeedeb1a3ab626c1d6abda52eae049355.css" rel="stylesheet">
     <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
 
@@ -60,7 +96,7 @@
     <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
 
     </head>
-<body data-theme="dark" class="notransition">
+<body data-theme = "dark" class="notransition">
 
 <script src="/js/theme.js"></script>
 
@@ -87,14 +123,14 @@ stroke-linejoin="round" class="feather feather-home">
                 
                 
                 <li>
-                    <a class="menu-link active" href="/">
+                    <a class="menu-link " href="/">
                         Home
                     </a>
                     
                 </li>
                 
                 <li>
-                    <a class="menu-link " href="/posts/">
+                    <a class="menu-link active" href="/posts/">
                         Posts
                     </a>
                     
@@ -115,39 +151,53 @@ stroke-linejoin="round" class="feather feather-home">
         </div>
     </nav>
 </div>
-<div class="wrapper">
-        
 
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Large-Model inference on Mac</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-07-06T11:06:24&#43;03:00" itemprop="datePublished"> Jul 6, 2024
+                    </time>
+                </div>
+                
+            </header>
+            
+            <div class="page-content">
+                <p>This is a log of my journey on how do large-model inference on my Macbook, rather than having to use a cloud service or buying an expensive PC with a more expensive GPU. And then seeing how fast I can make it go.</p>
+<h2 id="introduction">Introduction</h2>
+<p>So in case you haven&rsquo;t noticed - everybody&rsquo;s talking about AI. And as a software developer, I wanted to test some stuff out and play around with different frameworks, methods, algorithms. But the thing is, that like a lot of developers, I own a Macbook. And to my surprise almost <strong>NOTHING</strong> is supported, and you&rsquo;re just stuck with &ldquo;Oh well, this is for data scientists and it requires a GPU and/or the cloud&hellip; so either buy those or leave the job to the pros&rdquo;. That bothered me.</p>
+<p>I mean, I&rsquo;ve been a software developer since 2nd grade, I tinker with things. We didn&rsquo;t have resources then and we made things works. Why shouldn&rsquo;t this be the case now?
+When I got my first Macbook somewhere around 8 years ago from one of my earlier jobs, I was surprised by the product efficiency and quality - and only looked back once when they had that god-awful flat keyboard somewhere around 2020. I&rsquo;ve used this Macbook to design things in 3D, played games, and created some pretty great software on this machine. This is a great piece of technology with the Apple Silicon chip, with both a CPU and GPU, and it performs like a champ.
+And then comes this thing, which is basically running a freaking program, and suddenly that is &ldquo;Data Science&rdquo; domain. Doesn&rsquo;t seem right. I think that (generally speaking) I should be able to use this machine to tinker and work and try out new things. And from that tinkering there might come great things, with great value and scale for other people.</p>
+<p>I&rsquo;m a firm believer that innovation comes from constraints, rather than abundance. Constraints make you think outside the box.
+And I wanted to see how much I could push it. I wanted to learn.</p>
+<h2 id="initial-research-of-existing-solutions">Initial research of existing solutions</h2>
+<p>After some investigation (and a lot of trials with a lot of different tools and engine), I came up with:</p>
+<ul>
+<li><b>llama.cpp</b> - lets you run some models using MacOS that works <strong>great(!)</strong> but it wasn&rsquo;t easily hackable with its insane llama.cpp file, and I wanted to experiment with different optimization algorithms (and perhaps try some of my own)</li>
+<li><b>Ollama</b> - lets you play around with some models, and its very high level just inferencing (and it uses llama.cpp under the hood). This makes llama.cpp more approachable with a <b>Docker</b>-like experience (which is awesome). But still you have no control over the actual throughput of inference.</li>
+<li>Using paid serverless GPU providers like <b>Modal</b> or <b>baseten</b> - I wanted to be able to run stuff and iterate locally, and this just doesn&rsquo;t do that. I&rsquo;m sure that these solutions are great, but this failed to meet my criteria. Also I hate DSLs for deployment.</li>
+<li><b>Google Colab</b> - playing around with actual code with model, however - in their extremely janky notebook experience, and also it&rsquo;s on somebody else&rsquo;s machine.</li>
+</ul>
+<p><strong>Not viable for Macs (or somewhat viable, but REALLY slow and inefficient):</strong></p>
+<ul>
+<li><b>DeepSpeed-MII</b></li>
+<li><b>CTranslate2</b></li>
+<li><b>vLLM</b></li>
+<li><b>pytorch</b></li>
+<li><b>text-generation-inference</b></li>
+</ul>
+<h2 id="what-language-to-pick">What language to pick?</h2>
+<p>This was another consideration</p>
 
-<div class="author">
-    
-    <h2 class="author-name">Santacloud</h2>
-    <p class="author-bio">I tinker with software and hardware and make machines do what I want</p>
+            </div>
+        </article></main>
 </div>
-
-        <main aria-label="Content">
-            <h3 class="posts-item-note" aria-label="Recent Posts"></h3>
-            
-            
-            
-            
-            <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/">Creating My Blog: A Developer&#39;s Tale of Over-Engineering (Using Obsidian, Hugo and GitHub Pages)</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-07-14T20:48:37&#43;0300">
-        14 Jul 2024
-        
-    </time>
-</article>
-
-            
-            
-        </main>
-    </div><footer class="footer">
+<footer class="footer">
     <span class="footer_item"> </span>
     &nbsp;
 
@@ -202,5 +252,4 @@ stroke-linejoin="round" class="feather feather-home">
     
 
 </body>
-
 </html>

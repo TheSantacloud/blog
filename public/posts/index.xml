@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Santacloud</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on Santacloud</description>
+    <title>Posts on Santacloud</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on Santacloud</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 14 Jul 2024 20:48:37 +0300</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Jul 2024 20:48:37 +0300</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Creating My Blog: A Developer&#39;s Tale of Over-Engineering (Using Obsidian, Hugo and GitHub Pages)</title>
       <link>http://localhost:1313/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/</link>

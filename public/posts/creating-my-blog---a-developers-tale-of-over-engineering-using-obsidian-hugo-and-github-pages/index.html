@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">Creating My Blog: A Developer&#39;s Tale of Over-Engineering (Using Obsidian, Hugo and GitHub Pages) | Santacloud</title>
+<meta property="og:title" content="Creating My Blog: A Developer&#39;s Tale of Over-Engineering (Using Obsidian, Hugo and GitHub Pages) | Santacloud" />
+<meta name="twitter:title" content="Creating My Blog: A Developer&#39;s Tale of Over-Engineering (Using Obsidian, Hugo and GitHub Pages) | Santacloud" />
+<meta itemprop="name" content="Creating My Blog: A Developer&#39;s Tale of Over-Engineering (Using Obsidian, Hugo and GitHub Pages) | Santacloud" />
+<meta name="application-name" content="Creating My Blog: A Developer&#39;s Tale of Over-Engineering (Using Obsidian, Hugo and GitHub Pages) | Santacloud" />
+<meta property="og:site_name" content="Santacloud" />
+
+<meta name="description" content="A blog about tech stuff">
+<meta itemprop="description" content="A blog about tech stuff" />
+<meta property="og:description" content="A blog about tech stuff" />
+<meta name="twitter:description" content="A blog about tech stuff" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/" title="" />
+
+
+
+  <meta itemprop="image" content="http://localhost:1313/" />
+  <meta property="og:image" content="http://localhost:1313/" />
+  <meta name="twitter:image" content="http://localhost:1313/" />
+  <meta name="twitter:image:src" content="http://localhost:1313/" />
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2024-07-14T20:48:37&#43;0300 />
+    <meta property="article:published_time" content=2024-07-14T20:48:37&#43;0300 />
+
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "Creating My Blog: A Developer's Tale of Over-Engineering (Using Obsidian, Hugo and GitHub Pages)",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2024-07-14",
+        "description": "",
+        "wordCount":  3436 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2024-07-14",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Santacloud"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.128.2">
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/">
+    <link href="/style.min.d43bc6c79baa87f006efb2b92be952faeedeb1a3ab626c1d6abda52eae049355.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    </head>
+<body data-theme = "dark" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Creating My Blog: A Developer&#39;s Tale of Over-Engineering (Using Obsidian, Hugo and GitHub Pages)</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-07-14T20:48:37&#43;03:00" itemprop="datePublished"> Jul 14, 2024
+                    </time>
+                </div>
+                
+            </header>
+            
+            <div class="page-content">
+                <h2 id="intro">Intro</h2>
+<p>I&rsquo;ve wanted to start a blog for quite a while now, and never got around to it because of various nonsense excuses. When I finally decided to start, I struggled to choose the content for the first post. And so I did what every decent software developer would do when they begin: over-engineered shit out of the blog itself rather than focus on what matters - the content. But this over-engineering was quick, integrated smoothly with my workflow, was relatively isolated and not super opinionated, and presented an integration issue that, once solved, ended up being pretty damn convenient.</p>
+<p><em>Lightbulb</em> - this would be the topic of my first post! Instead of just a tutorial, it will be a walkthrough on how an actual development process of something pretty simple actually goes and how I personally approach things (I&rsquo;ll save the obligatory &lsquo;what I think about all this AI shenanigans&rsquo; post for later. This is not LinkedIn after all.)</p>
+<p><strong>P.S.:</strong> I&rsquo;m well aware that there are probably more blog creation platforms available out there than the amount of stars in the visible universe. And I guess that with some research I would probably find something pretty damn fantastic. But I wanted do it myself because of reasons. So there.</p>
+<p><strong>P.S. 2:</strong> You can absolutely just skim through this blog post and just run the commands and copy some files. I can&rsquo;t guarantee it&rsquo;ll work, but it worked for me at the time of writing this post.</p>
+<h2 id="what-i-want">What I want</h2>
+<ol>
+<li>Use <a href="https://obsidian.md/">Obsidian</a> exclusively for writing, editing, and managing posts. No extra vaults. The blog should integrate smoothly with my existing workflow.</li>
+<li>No extra Obsidian <a href="https://help.obsidian.md/Files+and+folders/Manage+vaults">vaults</a>, my blog posts should be just like any other note I have (because I have automatic backups and versioning, and because I said so.)</li>
+<li>Nice looking blog - plain HTML with won&rsquo;t cut it because of my Obsidian requirement, so I need a markdown parser of some sort.</li>
+<li>Use <a href="https://github.com">GitHub</a> as a static website server.</li>
+</ol>
+<h2 id="how-i-chose-the-tools">How I chose the tools</h2>
+<ol>
+<li><a href="https://obsidian.md/">Obsidian</a> - My go-to for all note-taking. I use a <a href="https://zettelkasten.de/introduction/">Zettlekasten</a>-esque method, dumping all notes into one directory with timestamps and links. Its vim-mode, plugins, and markdown support while leveraging its powerful <a href="https://help.obsidian.md/Linking+notes+and+files/Internal+links">internal linking</a> and <a href="https://help.obsidian.md/Plugins/Search">searching</a> capabilities made it a no-brainer for me.</li>
+<li><a href="https://github.com">GitHub</a> - I&rsquo;ve been using GitHub for years, so it was the obvious choice for hosting and publishing. Static pages fit my needs perfectly, avoiding unnecessary complexity. I was thinking about hosting it on one of my Raspberry PIs I have lying around but then I figure&hellip; nah.</li>
+<li><a href="https://gohugo.io/">Hugo</a> - This Go-based website framework won out after some research (Googling &ldquo;Github static blog serving&rdquo; and then &ldquo;Jekyll vs. &ldquo;). I considered <a href="https://jekyllrb.com/">Jekyll</a>, <a href="https://www.11ty.dev/">11ty</a>, and <a href="https://astro.build/">Astro</a>, and since this is a website building framework, I was pretty sure Hugo&rsquo;s use of Go will use its native templating language. Plus, Go &gt; Ruby, tsx, and JavaScript in my book.</li>
+</ol>
+<h2 id="hello-blorg---initial-setup">Hello blorg - initial setup</h2>
+<p>Nice, We&rsquo;ve got the tools. Let&rsquo;s put them to use.</p>
+<p>A <a href="https://gohugo.io/getting-started/quick-start/">quick intro to Hugo</a> yielded the following to get started:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo new site quickstart
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> quickstart
+</span></span><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl">git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;theme = &#39;ananke&#39;&#34;</span> &gt;&gt; hugo.toml
+</span></span><span class="line"><span class="cl">hugo server
+</span></span></code></pre></div><p>But hold on a minute, we can&rsquo;t have just any old regular theme. A quick search got led me to <a href="https://themes.gohugo.io/tags/blog">this lovely gallery</a> to choose from. <a href="https://themes.gohugo.io/themes/hugo-blog-awesome/">hugo-blog-awesome</a> looks nice, scrolling down the page a bit we get how to install it instead of that <code>ananke</code> theme (which I didn&rsquo;t even look at <strong>once</strong>, because fuck default values). Nice.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo mod get github.com/hugo-sid/hugo-blog-awesome <span class="c1"># good old Go</span>
+</span></span></code></pre></div><p>and also adding this to the <code>hugo.toml</code> file:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">module</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p"><b></span><span class="nx">module</span><span class="p">.</span><span class="nx">imports</span><span class="p"></b></span>
+</span></span><span class="line"><span class="cl">    <span class="nx">path</span> <span class="p">=</span> <span class="s2">&#34;github.com/hugo-sid/hugo-blog-awesome&#34;</span>
+</span></span></code></pre></div><p>Now that I&rsquo;ve set this up, I wandered around the directory to understand the file structure:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">➜ website <span class="o">(</span>main<span class="o">)</span> ✗ ls -lh
+</span></span><span class="line"><span class="cl">total <span class="m">16</span>
+</span></span><span class="line"><span class="cl">drwxr-xr-x@ <span class="m">16</span> santacloud  staff   512B Jul  <span class="m">6</span> 23:20 .
+</span></span><span class="line"><span class="cl">drwxr-xr-x  <span class="m">24</span> santacloud  staff   768B Jul  <span class="m">6</span> 19:58 ..
+</span></span><span class="line"><span class="cl">drwxr-xr-x@  <span class="m">3</span> santacloud  staff    96B Jul  <span class="m">6</span> 21:39 archetypes
+</span></span><span class="line"><span class="cl">drwxr-xr-x@  <span class="m">2</span> santacloud  staff    64B Jul  <span class="m">6</span> 19:58 assets
+</span></span><span class="line"><span class="cl">drwxr-xr-x@  <span class="m">2</span> santacloud  staff    64B Jul  <span class="m">6</span> 21:45 content
+</span></span><span class="line"><span class="cl">drwxr-xr-x@  <span class="m">2</span> santacloud  staff    64B Jul  <span class="m">6</span> 19:58 data
+</span></span><span class="line"><span class="cl">-rw-r--r--@  <span class="m">1</span> santacloud  staff   1.3K Jul  <span class="m">6</span> 23:20 hugo.toml
+</span></span><span class="line"><span class="cl">drwxr-xr-x@  <span class="m">2</span> santacloud  staff    64B Jul  <span class="m">6</span> 19:58 i18n
+</span></span><span class="line"><span class="cl">drwxr-xr-x@  <span class="m">4</span> santacloud  staff   128B Jul  <span class="m">6</span> 23:26 layouts
+</span></span><span class="line"><span class="cl">drwxr-xr-x@ <span class="m">17</span> santacloud  staff   544B Jul <span class="m">14</span> 21:21 public
+</span></span><span class="line"><span class="cl">drwxr-xr-x@  <span class="m">3</span> santacloud  staff    96B Jul  <span class="m">6</span> 20:03 resources
+</span></span><span class="line"><span class="cl">drwxr-xr-x@  <span class="m">2</span> santacloud  staff    64B Jul  <span class="m">6</span> 19:58 static
+</span></span><span class="line"><span class="cl">drwxr-xr-x@  <span class="m">3</span> santacloud  staff    96B Jul  <span class="m">6</span> 22:34 themes
+</span></span></code></pre></div><p>Quickly visiting some directories showed me that:</p>
+<ul>
+<li><code>content</code> is where the markdown files go.</li>
+<li><code>hugo.toml</code> contains the site configuration.</li>
+<li><code>themes</code> is for theme-related files.</li>
+</ul>
+<ul>
+<li><code>archetypes</code> is interesting. It has a <code>default.md</code> file with some following content:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="err">+++</span>
+</span></span><span class="line"><span class="cl"><span class="nx">date</span> <span class="p">=</span> <span class="s1">&#39;{{ .Date }}&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">draft</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="nx">title</span> <span class="p">=</span> <span class="s1">&#39;{{ replace .File.ContentBaseName `-` ` ` | title }}&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="err">+++</span>
+</span></span></code></pre></div><p>This is interesting. Because Obsidian has a similar metadata section called <a href="https://help.obsidian.md/Editing+and+formatting/Properties">properties</a>. I should make a note of this.</p>
+<ul>
+<li><code>layouts</code> has a single directory called <code>_default</code>, with a single item called (conveniently) <code>single.html</code> that looks like HTML (duh) and our beloved Go template (called it!). This looks like the template for the actual blogpost page. Oki-doki</li>
+</ul>
+<ul>
+<li>The other directories are currently empty or not immediately relevant.</li>
+</ul>
+<p>This directory exploration helped me understand how Hugo organizes its files and gave me a head start on integrating it with Obsidian.</p>
+<h3 id="accumulating-experience">Accumulating experience</h3>
+<p>There&rsquo;s a reason I examined the directory structure, even though it wasn&rsquo;t immediately necessary.</p>
+<p>Throughout our careers we encounter many tools and frameworks, and we need to use, create and integrate with them. This process helps us develop a sense for how things work. That&rsquo;s raw experience right there, but it needs to be indexed. Ultimately, this is what helps us estimate better, break down tasks easier and be more confident.</p>
+<p>Understanding a tool&rsquo;s structure <strong>before</strong> reading the documentation (notice how I didn&rsquo;t say instead?) helps me develop an intuition about how it works and what the developer&rsquo;s intentions were because at this point in time, the docs are just a bunch of words and terminology I don&rsquo;t know yet. The more I do this, the better I get at predicting how tools function and how to operate them.</p>
+<p>I&rsquo;ve seen many developers ask, &ldquo;How would you know that? We&rsquo;ve never seen this before.&rdquo; The (annoying) answer often is, &ldquo;I just had a feeling.&rdquo; (or &ldquo;I don&rsquo;t know.&rdquo;) This is why. It&rsquo;s not because they know everything but because they&rsquo;ve developed an intuition from past experiences.</p>
+<h2 id="obsidian-integration">Obsidian integration</h2>
+<p>OK we got something that looks like something. And I think that I have a rough understand of how Hugo works (enough to get started). But before that I formulate a rough plan in mind:</p>
+<ol>
+<li>I&rsquo;ll create a dedicated directory for the blog in my Obsidian vault</li>
+<li>Find some plugin/script that allows me to automatically move notes that are tagged (or something of that sort) to that directory automatically</li>
+<li>I&rsquo;ll <a href="https://en.wikipedia.org/wiki/Symbolic_link">symlink</a> <code>./content</code> and my <code>./obsidian-vault/blog</code> directory (remember this moment)</li>
+<li>Find some way to inject the necessary metadata to each note (probably using Obsidian <a href="https://help.obsidian.md/Plugins/Templates">templates</a> that I&rsquo;ve been using for a long time)</li>
+<li>Make it look nicer</li>
+<li>Automate the publish process using <a href="https://docs.github.com/en/actions">GitHub Actions</a></li>
+</ol>
+<p>Cool. Now it&rsquo;s time for the interesting part - integration.</p>
+<h3 id="first-page">First page</h3>
+<p>Now let&rsquo;s create a dummy markdown file. But I need to understand what kind of file&hellip; I have a rough idea, but lets just <code>hugo --help</code> just in case.</p>
+<pre tabindex="0"><code>➜ website (main) ✗ hugo --help
+hugo is the main command, used to build your Hugo site.
+...
+Available Commands:
+  completion  Generate the autocompletion script for the specified shell
+  ... lots of commands
+  new         Create new content for your site
+  server      A high performance webserver
+  version     Print Hugo version and environment info
+Flags:
+  -b, --baseURL string             hostname (and path) to the root, e.g. https://spf13.com/
+  -D, --buildDrafts                include content marked as draft
+  ... lots of flags
+  -w, --watch                      watch filesystem for changes and recreate as needed
+</code></pre><p>Nice. I like good help menus.
+First of all - I learned from the flags that in order to see the drafts (I remember seeing this keyword in the archetypes) I need to pass on the <code>-D</code> flag to the <code>hugo server -D</code>. Alright, good to know.</p>
+<p>Anyway - <code>new</code> looks like the right thing to do. And indeed this seems to do the job.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo new content first-post.md
+</span></span><span class="line"><span class="cl">cat ./content/first-post.md
+</span></span></code></pre></div><p>Shows the following:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="err">+++</span>
+</span></span><span class="line"><span class="cl"><span class="nx">date</span> <span class="p">=</span> <span class="s1">&#39;2024-07-14T22:20:52+03:00&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">draft</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="nx">title</span> <span class="p">=</span> <span class="s1">&#39;First Post&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="err">+++</span>
+</span></span></code></pre></div><p>OK. I understand, it uses the default <code>archetype</code> of the single page.</p>
+<p>Serving the page (like we did before when we first started Hugo) shows the post, and adding some markdown down seems to update it. Nice.</p>
+<h3 id="first-page-using-obsidian">First page using Obsidian</h3>
+<p>OK, we got a page. Now lets just make a directory in my obsidian vault (which is easy enough), and symlink that.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir /location/of/obsidian-vault/blog <span class="c1"># create the directory in my vault</span>
+</span></span><span class="line"><span class="cl">mv ./content/first-page.md /location/of/obsidian-vault/blog <span class="c1"># moving the existing page to that directory</span>
+</span></span><span class="line"><span class="cl">rm -r ./content <span class="c1"># removing the existing one before creating the symlink</span>
+</span></span><span class="line"><span class="cl">ln -s /location/of/obsidian-vault/blog ./content <span class="c1"># creating the symlink</span>
+</span></span></code></pre></div><p>Nice. Let&rsquo;s serve and see the page.</p>
+<p>Aaaand&hellip;. It doesn&rsquo;t work. I mean, it does - the site is served, but there are no pages there.</p>
+<h3 id="solving-the-issue">Solving the issue</h3>
+<p>This is why I wanted to write this blog post- not just a dead-eyed tutorial. To me, this is the essence of programming: solving unexpected issues.</p>
+<p>There were no logs or errors (even when using debug logs), <strong>but it didn&rsquo;t work</strong>. This moment is crucial in programming. Developers often create tools without anticipating every possible use case, leading to unexpected issues.</p>
+<p>When I encounter these situations, it&rsquo;s important to:</p>
+<ol>
+<li><strong>Isolate the unknowns</strong></li>
+<li><strong>Revisit plans and adjust</strong></li>
+</ol>
+<h4 id="isolating-unknowns">Isolating unknowns</h4>
+<p>I gotta admit, I cheated here a little bit.</p>
+<p>In those drawing tutorials, artists start with basic shapes and build from there. When you watch them work, they skip these steps because it&rsquo;s already ingrained in them. They see the whole picture.</p>
+<p>When I broke down the steps of creating this blog, I kinda did the same thing. Notice the pattern:</p>
+<ol>
+<li>Install Hugo</li>
+<li>Learn just enough to serve it</li>
+<li>Ensuring I actually like it (theme, folder structure)</li>
+<li>Creating a first page with Hugo in the recommended and well documented way</li>
+<li>Move that same first page to another (Obsidian) directory and symlink it</li>
+</ol>
+<p>These steps might seem trivial, but many developers jump straight into coding without testing along the way. This leads to too many unknowns piling onto one another, making debugging a nightmare. When integrating tools, people often overlook the connection as a component of complexity. In this case, we have Hugo, Obsidian, and the connection between them—those are three points of failure, not just two!</p>
+<p>The issue arose when integrating Obsidian. Let&rsquo;s gather the facts:</p>
+<ol>
+<li>Hugo worked with its default setup</li>
+<li>The issue occurred when I tried to use a symlinked directory.</li>
+<li>Obsidian wasn&rsquo;t actually used yet</li>
+</ol>
+<p>So what went wrong? <strong>the symlink</strong>.</p>
+<ol>
+<li>Google searches yielded nothing.</li>
+<li>ChatGPT is almost never helpful in these situations (especially when you can&rsquo;t really describe what&rsquo;s wrong).</li>
+</ol>
+<p>If Hugo isn&rsquo;t the problem, it might be macOS handling symlinks or Go itself.</p>
+<ol>
+<li><strong>Permissions</strong>: Gave all permissions with <code>chmod 777 &lt;location&gt;</code>—Nothing.</li>
+<li><strong>Go handling symlinks</strong>: Googling &ldquo;Golang symlink&rdquo; led to <a href="https://stackoverflow.com/questions/18062026/resolve-symlinks-in-go">this result</a>, showing Go&rsquo;s way to follow symlinks with <code>filepath.EvalSymlink</code> or <code>os.Readlink</code> (after checking with <code>os.Lstat</code>):</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">filePath</span> <span class="o">:=</span> <span class="s">&#34;path/to/your/file&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">fileInfo</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Lstat</span><span class="p">(</span><span class="nx">filePath</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// error reading file
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">return</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">target</span> <span class="o">:=</span> <span class="nx">filePath</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">fileInfo</span><span class="p">.</span><span class="nf">Mode</span><span class="p">()</span> <span class="o">&amp;</span> <span class="nx">os</span><span class="p">.</span><span class="nx">ModeSymlink</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// It is a symbolic link
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">target</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Readlink</span><span class="p">(</span><span class="nx">filePath</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">data</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadFile</span><span class="p">(</span><span class="nx">target</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><em>(Illustrative, not actually implemented)</em></p>
+<p>I didn&rsquo;t need to know these details in Go, just that reputable languages have ways to handle symlinks. I could dive into Hugo&rsquo;s code or use my experience.
+Since it didn&rsquo;t work, I assumed:</p>
+<ol>
+<li>Either there&rsquo;s a flag for following symlinks, or there&rsquo;s no support.</li>
+<li>Or there&rsquo;s a built-in way to do it.</li>
+</ol>
+<p>Remember when you thought this was a tutorial on integrating Hugo, Obsidian, and GitHub? This is the moment my experience &ldquo;betrayed&rdquo; me. I <strong>know</strong> about symlinks, which should solve the problem seamlessly. But this way was not supported. This doesn&rsquo;t make my experience irrelevant. I now have a new marker in my knowledge of &ldquo;linking between files and directories.&rdquo;</p>
+<p>My options:</p>
+<ol>
+<li>Using a builtin function - preferable if found</li>
+<li>Automate copying files from Obsidian—not ideal due to more moving parts and potential sync issues.</li>
+<li>Use <a href="https://git-scm.com/docs/gitmodules">gitmodules</a> - this would require me to manage my blog posts in a separate git, and have an automation to update it. Lets leave this as an absolute last resort</li>
+</ol>
+<p>The assumptions rabbit-hole ends here. <strong>Time to read the docs</strong>. I&rsquo;m looking for a flag for symlinks/shortcuts/modules/links/mounts or ways to import another directory.</p>
+<p>The docs&rsquo; side-panel showed:</p>
+<ol>
+<li><strong>Content management</strong> - Mainly about formatting.</li>
+<li><strong>Hugo modules</strong> - Interesting!</li>
+<li>Hosting and deployment - remember for later.</li>
+</ol>
+<blockquote>
+<p><strong>Hugo Modules</strong> are the core building blocks in Hugo. A <em>module</em> can be your main project or a smaller module providing one or more of the 7 component types defined in Hugo: <strong>static</strong>, <strong>content</strong>, <strong>layouts</strong>, <strong>data</strong>, <strong>assets</strong>, <strong>i18n</strong>, and <strong>archetypes</strong>.</p>
+</blockquote>
+<p>Yep, that’s it. Configuring a content module within <code>hugo.toml</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">module</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p"><b></span><span class="nx">module</span><span class="p">.</span><span class="nx">mounts</span><span class="p"></b></span>
+</span></span><span class="line"><span class="cl">    <span class="nx">source</span> <span class="p">=</span> <span class="s1">&#39;/path/to/source/content&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">target</span> <span class="p">=</span> <span class="s1">&#39;/path/to/target/content&#39;</span>
+</span></span></code></pre></div><p>Got it.</p>
+<h3 id="revisit-plans-and-adjust">Revisit plans and adjust</h3>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> I&rsquo;ll create a dedicated directory for the blog in my Obsidian vault</li>
+<li><input checked="" disabled="" type="checkbox"> <del>I&rsquo;ll <a href="https://en.wikipedia.org/wiki/Symbolic_link">symlink</a> <code>./content</code> and my <code>./obsidian-vault/blog</code> directory</del>  Mount my blog source directory to Hugo</li>
+<li><input disabled="" type="checkbox"> Find some way to inject the necessary metadata to each note (probably using Obsidian <a href="https://help.obsidian.md/Plugins/Templates">templates</a> that I&rsquo;ve been using for a long time)</li>
+<li><input disabled="" type="checkbox"> Find some plugin/script that allows me to automatically move notes that are tagged (or something of that sort) to that directory automatically</li>
+<li><input disabled="" type="checkbox"> Make it look nicer</li>
+<li><input disabled="" type="checkbox"> Automate the publish process using <a href="https://docs.github.com/en/actions">GitHub Actions</a></li>
+</ul>
+<h3 id="automatically-injecting-the-metadata">Automatically injecting the metadata</h3>
+<p>OK now that I know that this works, all I need to do is to make Obsidian create the files like Hugo wants it to. Since the files can be created within Obsidian I have 3 ways to go about it:</p>
+<ol>
+<li>Make Hugo read Obsidian metadata—preferable.</li>
+<li>Inject metadata automatically on push—possible but error-prone.</li>
+<li>Make Obsidian behave like Hugo&rsquo;s metadata—last resort.</li>
+</ol>
+<p>Now let&rsquo;s use some experience, and the docs again - this format that we&rsquo;ve seen before</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="err">+++</span>
+</span></span><span class="line"><span class="cl"><span class="nx">date</span> <span class="p">=</span> <span class="s1">&#39;{{ .Date }}&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">draft</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="nx">title</span> <span class="p">=</span> <span class="s1">&#39;{{ replace .File.ContentBaseName `-` ` ` | title }}&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="err">+++</span>
+</span></span></code></pre></div><p>Looks awful similar to the Obsidian format, isn&rsquo;t it?</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;date&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">draft</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">Some title</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span></code></pre></div><p>How was this thing called when we went over the directory? archetypes? Yeah lets find that in the docs under Content Management.</p>
+<p>What do you know? it appears that this is the default <a href="https://toml.io/en/">TOML</a> format, clicking on the YAML format shows me exactly what I want to see. Nice.</p>
+<p>OK. Now - either there&rsquo;s a flag to use TOML/YAML/JSON, or it just works. Let&rsquo;s try YAML. What do you know x2? It works right off the bat.</p>
+<p>Obsidian integration almost complete, all I have to do is massage the metadata like Hugo expects it to be, and we&rsquo;re done. gg ez.</p>
+<h3 id="injecting-metadata-content">Injecting metadata content</h3>
+<p>I&rsquo;ve been using Obsidian long enough, and have been using <a href="https://help.obsidian.md/Plugins/Templates">templates</a> for a while now, I know what I have to do -</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{date:YYYY-MM-DDTHH:mm:ss+03:00}}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{title}}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">draft</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span></code></pre></div><p>All I need to do is move the file to the <code>/path/to/obsidian-vault/blog</code> directory and serve Hugo to test it. Yep - works. Next.</p>
+<h3 id="moving-the-note-automatically">Moving the note automatically</h3>
+<p>Since I&rsquo;ve been using Obsidian for a while I know that it has multiple functions that I can access pressing CMD+O, and just searching what I want. I see that there&rsquo;s a move file to directory option so I know that it&rsquo;s possible. I also know that Obsidian is written in Javascript and all of its plugins are as well, and I also know that you can inject a script to do what I want.</p>
+<p>Let&rsquo;s Google: &ldquo;move files automatically Obsidian template.&rdquo; This yielded <a href="https://forum.obsidian.md/t/templater-rename-a-file-and-move-it-to-a-folder/39287">this result</a>.</p>
+<p>Oh I remember this plugin! I used to use <a href="https://github.com/SilentVoid13/Templater">Templater</a> before there was an official support for templates in Obsidian. I thought it was redundant but if it&rsquo;s really as easy as just putting this in the file - let&rsquo;s just get back to it.</p>
+<p>A quick install and going over the <a href="https://silentvoid13.github.io/Templater/">Templater documentation</a>, and a new Blog template was born:</p>
+<pre tabindex="0"><code>---
+timestamp: &lt;% tp.file.creation_date(&#34;YYYY-MM-DDTHH:mm:ss+03:00&#34;) %&gt;
+modified: &lt;% tp.file.last_modified_date(&#34;YYYY-MM-DDTHH:mm:ss+03:00&#34;) %&gt;
+draft: &#34;true&#34;
+title: &lt;% tp.file.title %&gt;
+creation_date: &lt;% tp.file.creation_date(&#34;YYYY-MM-DDTHH:mm:ss+03:00&#34;) %&gt;
+---
+&lt;% tp.file.move(&#39;/blog/&#39; + tp.file.title) %&gt;%
+</code></pre><p>Also this plugin is seriously cool. It has some features like <a href="https://silentvoid13.github.io/Templater/internal-functions/internal-modules/file-module.html#tpfilecursororder-number">tp.file.cursor</a> that puts the cursor where I tell it to rather than having it in the end - which helped out my other templates.</p>
+<p>This took me on a side-quest of making my other templates better that I won&rsquo;t get into here, because by now you&rsquo;re probably hungry and tired. It was important for me to note this, because we often get distracted, and often link things to other things. The important things is to know yourself - should this be done later? should I write a note to myself to maybe do this in the future? should I even do this? is it small enough for me to do it now? There are no good answers here and it really depends on the project, its priority, your goal and yourself. But we&rsquo;re humans - and we get excited, and that&rsquo;s fine. We just have to be self aware about it.</p>
+<h2 id="automatic-publish">Automatic publish</h2>
+<p>So to recap - in order to create a post, I  need to:</p>
+<ol>
+<li>Create a new note/navigate to an existing note in Obsidian</li>
+<li>CMD+T (my binding for templates) and choose Blog - this automatically moves the file to the blog directory, which is in turn mounted to Hugo&rsquo;s content</li>
+</ol>
+<p>Nice. Simple.</p>
+<p>All I have to do it push the website whenever I want (using git) and for it to automatically publish it to the blog.</p>
+<p>Enter GitHub Actions. Luckily, we saw earlier in the docs the exact thing we need - Hosting and deployment (in the side bar), and what do you know - <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">Host on GitHub Pages</a>.</p>
+<p>Their tutorial is a bit out-dated, I had to switch to GitHub actions and select a Hugo template that is given there - a quick comparison between what was in their instructions and the actual template from GitHub showed the the template is fine and I just committed it using the GitHub UI.</p>
+<h2 id="summary">Summary</h2>
+<p>That does it. We&rsquo;ve got a blog!</p>
+<p>By isolating issues, revisiting plans, and leveraging existing tools, I turned a potential roadblock into a learning experience. Now, creating and publishing a blog post is seamless and integrated into my daily workflow.</p>
+<p>While I skipped some details like handling Obsidian inner links, customizing and making the blog look nicer and registering the domain name, but I invite you to customize and do things however the hell you wanna do them.</p>
+<p>This felt like a great blog post to start my writing journey (which took WAY too long) because it was about the nature of programming and why I love it so much using a very simple and isolated example. I went to each detail in-depth, and it might seem intimidating at first - but these things become second nature pretty quickly, and this is how experience is built!</p>
+<p>If you&rsquo;ve reached this far, thank you very much! I appreciate you very much, and hope to see you again in the next post!</p>
+<h2 id="dead-eyed-tutorial">Dead-eyed tutorial</h2>
+<p>For all you people who just wanna follow the recipe, here it is:</p>
+<h3 id="tools-overview">Tools Overview</h3>
+<ul>
+<li><strong>Obsidian:</strong> For writing and managing notes.</li>
+<li><strong>GitHub:</strong> For hosting and publishing the blog.</li>
+<li><strong>Hugo:</strong> For generating the static site.</li>
+</ul>
+<h3 id="step-by-step-instructions">Step-by-Step Instructions</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># install hugo</span>
+</span></span><span class="line"><span class="cl">brew install hugo
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># create new hugo website</span>
+</span></span><span class="line"><span class="cl">hugo new site deadeye-tut 
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> deadeye-tut
+</span></span><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#  install theme</span>
+</span></span><span class="line"><span class="cl">git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.gitthemes/ananke
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;theme = &#39;ananke&#39;&#34;</span> &gt;&gt; hugo.toml
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># serve</span>
+</span></span><span class="line"><span class="cl">hugo server -D
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># create dedicated blog directory in obsidian</span>
+</span></span><span class="line"><span class="cl">mkdir /path/to/obsidian-vault/blog
+</span></span></code></pre></div><p>Add the following to <code>hugo.toml</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">module</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p"><b></span><span class="nx">module</span><span class="p">.</span><span class="nx">mounts</span><span class="p"></b></span>
+</span></span><span class="line"><span class="cl">    <span class="nx">source</span> <span class="p">=</span> <span class="s1">&#39;/path/to/obsidian-vault/blog&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">target</span> <span class="p">=</span> <span class="s1">&#39;content&#39;</span>
+</span></span></code></pre></div><p>Install Templater in Obsidian:</p>
+<ul>
+<li>Go to Obsidian Settings</li>
+<li>Community Plugins</li>
+<li>Browse</li>
+<li>Search for &ldquo;Templater&rdquo;</li>
+<li>Install and enable it</li>
+</ul>
+<p>Create a Templater template:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;% tp.file.creation_date(&#34;YYYY-MM-DDTHH:mm:ss+03:00&#34;) %&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">draft</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;% tp.file.title %&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">&lt;% tp.file.move(&#39;/blog/&#39; + tp.file.title) %&gt;</span><span class="w">
+</span></span></span></code></pre></div><p>GitHub integration and automation:</p>
+<ol>
+<li>Create a GitHub repo</li>
+<li>Push the code from your local repo</li>
+<li>In the repo&rsquo;s page, go to &ldquo;Settings&rdquo; and &ldquo;Pages&rdquo; in the side-bar</li>
+<li>Change &ldquo;Source&rdquo; to GitHub actions and choose the Hugo template -&gt; next next next until you&rsquo;re done and commit</li>
+</ol>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/thesantacloud" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://x.com/thesantacloud" target="_blank" rel="noopener noreferrer me"
+    title="X">
+    <svg viewBox="0 0 1200 1227" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path
+        d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/>
+</svg>
+</a>
+<a href="dor@santacloud.dev" target="_blank" rel="noopener noreferrer me"
+    title="Email">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 Dor Munis.
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
+
+    
+
+</body>
+</html>
