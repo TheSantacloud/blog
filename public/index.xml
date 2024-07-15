@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Santacloud</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Santacloud</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 14 Jul 2024 20:48:37 +0300</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creating My Blog: A Developer&#39;s Tale of Over-Engineering (Using Obsidian, Hugo and GitHub Pages)</title>
+      <link>http://localhost:1313/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/</link>
+      <pubDate>Sun, 14 Jul 2024 20:48:37 +0300</pubDate>
+      
+      <guid>http://localhost:1313/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/</guid>
+      
+      <description>Intro I&amp;rsquo;ve wanted to start a blog for quite a while now, and never got around to it because of various nonsense excuses. When I finally decided to start, I struggled to choose the content for the first post. And so I did what every decent software developer would do when they begin: over-engineered shit out of the blog itself rather than focus on what matters - the content. But this over-engineering was quick, integrated smoothly with my workflow, was relatively isolated and not super opinionated, and presented an integration issue that, once solved, ended up being pretty damn convenient.</description>
+      
+    </item>
+    
+    <item>
+      <title>Large-Model inference on Mac</title>
+      <link>http://localhost:1313/posts/large-model-inference-on-mac/</link>
+      <pubDate>Sat, 06 Jul 2024 11:06:24 +0300</pubDate>
+      
+      <guid>http://localhost:1313/posts/large-model-inference-on-mac/</guid>
+      
+      <description>This is a log of my journey on how do large-model inference on my Macbook, rather than having to use a cloud service or buying an expensive PC with a more expensive GPU. And then seeing how fast I can make it go.
+Introduction So in case you haven&amp;rsquo;t noticed - everybody&amp;rsquo;s talking about AI. And as a software developer, I wanted to test some stuff out and play around with different frameworks, methods, algorithms.</description>
+      
+    </item>
+    
+  </channel>
+</rss>
