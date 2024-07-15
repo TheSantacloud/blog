@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<html lang="en-us"><head><meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,14 +18,14 @@
 <meta property="og:locale" content="en-us" />
 <meta name="language" content="en-us" />
 
-  <link rel="alternate" hreflang="en" href="http://localhost:1313/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/" title="" />
+  <link rel="alternate" hreflang="en" href="https://santacloud.dev/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/" title="" />
 
 
 
-  <meta itemprop="image" content="http://localhost:1313/" />
-  <meta property="og:image" content="http://localhost:1313/" />
-  <meta name="twitter:image" content="http://localhost:1313/" />
-  <meta name="twitter:image:src" content="http://localhost:1313/" />
+  <meta itemprop="image" content="https://santacloud.dev/" />
+  <meta property="og:image" content="https://santacloud.dev/" />
+  <meta name="twitter:image" content="https://santacloud.dev/" />
+  <meta name="twitter:image:src" content="https://santacloud.dev/" />
 
 
 
@@ -53,7 +53,7 @@
         },
         "datePublished": "2024-07-14",
         "description": "",
-        "wordCount":  3436 ,
+        "wordCount":  3505 ,
         "mainEntityOfPage": "True",
         "dateModified": "2024-07-14",
         "image": {
@@ -72,7 +72,7 @@
 
     
 
-    <link rel="canonical" href="http://localhost:1313/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/">
+    <link rel="canonical" href="https://santacloud.dev/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/">
     <link href="/style.min.d43bc6c79baa87f006efb2b92be952faeedeb1a3ab626c1d6abda52eae049355.css" rel="stylesheet">
     <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
 
@@ -86,7 +86,7 @@
 
 
 
-<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+<link rel="manifest" href="https://santacloud.dev/site.webmanifest">
 
 <meta name="msapplication-config" content="/browserconfig.xml">
 <meta name="msapplication-TileColor" content="#2d89ef">
@@ -95,14 +95,18 @@
     
     <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
 
-    </head>
+    
+    
+  
+
+</head>
 <body data-theme = "dark" class="notransition">
 
-<script src="/js/theme.js"></script>
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
 
 <div class="navbar" role="navigation">
     <nav class="menu" aria-label="Main Navigation">
-        <a href="http://localhost:1313/" class="logo">
+        <a href="https://santacloud.dev/" class="logo">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
 stroke-linejoin="round" class="feather feather-home">
@@ -437,13 +441,20 @@ creation_date: &lt;% tp.file.creation_date(&#34;YYYY-MM-DDTHH:mm:ss+03:00&#34;) 
 <li>CMD+T (my binding for templates) and choose Blog - this automatically moves the file to the blog directory, which is in turn mounted to Hugo&rsquo;s content</li>
 </ol>
 <p>Nice. Simple.</p>
-<p>All I have to do it push the website whenever I want (using git) and for it to automatically publish it to the blog.</p>
+<p>Lets set up a <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">pre-commit hook in git</a> in <code>.git/hooks/pre-commit</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo 
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> 
+</span></span><span class="line"><span class="cl">	<span class="nb">echo</span> <span class="s2">&#34;Hugo build failed. Aborting commit.&#34;</span> 
+</span></span><span class="line"><span class="cl">	<span class="nb">exit</span> <span class="m">1</span> 
+</span></span><span class="line"><span class="cl"><span class="k">fi</span> 
+</span></span><span class="line"><span class="cl">git add public resources
+</span></span></code></pre></div><p>All I have to do it push the website whenever I want (using git) and for it to automatically publish it to the blog.</p>
 <p>Enter GitHub Actions. Luckily, we saw earlier in the docs the exact thing we need - Hosting and deployment (in the side bar), and what do you know - <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">Host on GitHub Pages</a>.</p>
 <p>Their tutorial is a bit out-dated, I had to switch to GitHub actions and select a Hugo template that is given there - a quick comparison between what was in their instructions and the actual template from GitHub showed the the template is fine and I just committed it using the GitHub UI.</p>
 <h2 id="summary">Summary</h2>
 <p>That does it. We&rsquo;ve got a blog!</p>
 <p>By isolating issues, revisiting plans, and leveraging existing tools, I turned a potential roadblock into a learning experience. Now, creating and publishing a blog post is seamless and integrated into my daily workflow.</p>
-<p>While I skipped some details like handling Obsidian inner links, customizing and making the blog look nicer and registering the domain name, but I invite you to customize and do things however the hell you wanna do them.</p>
+<p>While I skipped some details like hooking automatic local build before push, handling Obsidian inner links, customizing and making the blog look nicer and registering the domain name, but I invite you to customize and do things however the hell you wanna do them.</p>
 <p>This felt like a great blog post to start my writing journey (which took WAY too long) because it was about the nature of programming and why I love it so much using a very simple and isolated example. I went to each detail in-depth, and it might seem intimidating at first - but these things become second nature pretty quickly, and this is how experience is built!</p>
 <p>If you&rsquo;ve reached this far, thank you very much! I appreciate you very much, and hope to see you again in the next post!</p>
 <h2 id="dead-eyed-tutorial">Dead-eyed tutorial</h2>
@@ -499,7 +510,16 @@ creation_date: &lt;% tp.file.creation_date(&#34;YYYY-MM-DDTHH:mm:ss+03:00&#34;) 
 <li>In the repo&rsquo;s page, go to &ldquo;Settings&rdquo; and &ldquo;Pages&rdquo; in the side-bar</li>
 <li>Change &ldquo;Source&rdquo; to GitHub actions and choose the Hugo template -&gt; next next next until you&rsquo;re done and commit</li>
 </ol>
-
+<p>Add pre-commit hook in <code>.git/hooks/pre-commit</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo 
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> 
+</span></span><span class="line"><span class="cl">	<span class="nb">echo</span> <span class="s2">&#34;Hugo build failed. Aborting commit.&#34;</span> 
+</span></span><span class="line"><span class="cl">	<span class="nb">exit</span> <span class="m">1</span> 
+</span></span><span class="line"><span class="cl"><span class="k">fi</span> 
+</span></span><span class="line"><span class="cl">git add public resources
+</span></span></code></pre></div><p>Lastly:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git push -u origin main
+</span></span></code></pre></div>
             </div>
         </article></main>
 </div>
@@ -553,7 +573,7 @@ creation_date: &lt;% tp.file.creation_date(&#34;YYYY-MM-DDTHH:mm:ss+03:00&#34;) 
 
 
     
-    <script async src="http://localhost:1313/js/main.js" ></script>
+    <script src="https://santacloud.dev/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
 
     
 
