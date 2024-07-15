@@ -45,9 +45,9 @@ sitename = "Santacloud"
 defaultColor = "dark"
 description = "A blog about tech stuff"
 mainSections = ['posts']
-# toc = true                              # set to false to disable table of contents 'globally'
-tocOpen = false                # set to true to open table of contents by default
-goToTop = true                 # set to false to disable 'go to top' button
+toc = false                             # set to false to disable table of contents 'globally'
+tocOpen = false                         # set to true to open table of contents by default
+goToTop = true                          # set to false to disable 'go to top' button
 rssFeedDescription = "summary"
 
 [params.author]
