@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Santacloud</title>
-    <link>https://santacloud.dev/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on Santacloud</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 14 Jul 2024 20:48:37 +0300</lastBuildDate><atom:link href="https://santacloud.dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Jul 2024 20:48:37 +0300</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Creating My Blog: A Developer&#39;s Tale of Over-Engineering (Using Obsidian, Hugo and GitHub Pages)</title>
-      <link>https://santacloud.dev/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/</link>
+      <link>http://localhost:1313/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/</link>
       <pubDate>Sun, 14 Jul 2024 20:48:37 +0300</pubDate>
       
-      <guid>https://santacloud.dev/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/</guid>
+      <guid>http://localhost:1313/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/</guid>
       
       <description>Intro TL;DR: If you just wanna know how to do this, and don&amp;rsquo;t care about the actual post.
 I&amp;rsquo;ve wanted to start a blog for quite a while now, and never got around to it because of various nonsense excuses. When I finally decided to start, I struggled to choose the content for the first post. And so I did what every decent software developer would do when they begin: over-engineered the shit out of the blog itself rather than focus on what matters - the content.</description>
