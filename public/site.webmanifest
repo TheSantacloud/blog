@@ -1,7 +1,7 @@
 {
     "name": "Santacloud",
     "short_name": "Santacloud",
-    "start_url": "https://santacloud.dev/",
+    "start_url": "http://localhost:1313/",
     "theme_color": "#434648",
     "background_color": "#131418",
     "display": "standalone",
