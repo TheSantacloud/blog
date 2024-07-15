@@ -177,7 +177,7 @@ stroke-linejoin="round" class="feather feather-home">
 <h2 id="how-i-chose-the-tools">How I chose the tools</h2>
 <ol>
 <li><a href="https://obsidian.md/">Obsidian</a> - My go-to for all note-taking. I use a <a href="https://zettelkasten.de/introduction/">Zettlekasten</a>-esque method, dumping all notes into one directory with timestamps and links. It&rsquo;s markdown-based and has vim-mode, plugins, <a href="https://help.obsidian.md/Linking+notes+and+files/Internal+links">internal linking</a> and <a href="https://help.obsidian.md/Plugins/Search">searching</a> capabilities. This made it a no-brainer for me.</li>
-<li><a href="https://github.com">GitHub</a> - I&rsquo;ve been using GitHub for years, so it was the obvious choice for hosting and publishing. Static pages fit my needs perfectly, avoiding unnecessary complexity. I was thinking about hosting it on one of my Raspberry PIs I have lying around but then I figure&hellip; nah.</li>
+<li><a href="https://github.com">GitHub</a> - I&rsquo;ve been using GitHub for years, so it was the obvious choice for hosting and publishing. Static pages fit my needs perfectly, avoiding unnecessary complexity. I was thinking about hosting it on one of my Raspberry PIs I have lying around but then I figured&hellip; nah.</li>
 <li><a href="https://gohugo.io/">Hugo</a> - This Go-based website framework won out after some research (Googling &ldquo;Github static blog serving&rdquo; and then &ldquo;Jekyll vs. &ldquo;). I considered <a href="https://jekyllrb.com/">Jekyll</a>, <a href="https://www.11ty.dev/">11ty</a>, and <a href="https://astro.build/">Astro</a>, and since this is a website building framework, I was pretty sure Hugo&rsquo;s use of Go will use its native templating language. Plus, Go &gt; Ruby, tsx, and JavaScript in my book.</li>
 </ol>
 <h2 id="hello-blorg-nailed-it---initial-setup">Hello blorg (nailed it) - initial setup</h2>
@@ -239,7 +239,7 @@ stroke-linejoin="round" class="feather feather-home">
 <p>Understanding a tool&rsquo;s structure <strong>before</strong> reading the documentation (notice how I didn&rsquo;t say instead?) helps me develop an intuition about how it works and what the developer&rsquo;s intentions were because at this point in time, the docs are just a bunch of words and terminology I don&rsquo;t know yet. The more I do this, the better I get at predicting how tools function and how to operate them.</p>
 <p>I&rsquo;ve seen many developers ask, &ldquo;How would you know that? We&rsquo;ve never seen this before.&rdquo; The (annoying) answer often is, &ldquo;I just had a feeling.&rdquo; (or &ldquo;I don&rsquo;t know.&rdquo;) This is why. It&rsquo;s not because they know everything but because they&rsquo;ve developed an intuition from past experiences.</p>
 <h2 id="obsidian-integration">Obsidian integration</h2>
-<p>OK we got something that looks like something. And I think that I have a rough understand of how Hugo works (enough to get started). But before that I formulate a rough plan in mind:</p>
+<p>OK we got something that looks like something. And I think that I have a rough understanding of how Hugo works (enough to get started). But before that - I formulate a rough plan in mind:</p>
 <ol>
 <li>I&rsquo;ll create a dedicated directory for the blog in my Obsidian vault</li>
 <li>Find some plugin/script that allows me to automatically move notes that are tagged (or something of that sort) to that directory automatically</li>
@@ -287,8 +287,8 @@ First of all - I learned from the flags that in order to see the drafts (I remem
 </span></span></code></pre></div><p>Nice. Let&rsquo;s serve and see the page.</p>
 <p>Aaaand&hellip;. It doesn&rsquo;t work. I mean, it does - the site is served, but there are no pages there.</p>
 <h3 id="solving-the-issue">Solving the issue</h3>
-<p>This is why I wanted to write this blog post- not just a dead-eyed tutorial. To me, this is the essence of programming: solving unexpected issues.</p>
-<p>There were no logs or errors (even when using debug logs), <strong>but it didn&rsquo;t work</strong>. This moment is crucial in programming. Developers often create tools without anticipating every possible use case, leading to unexpected issues.</p>
+<p>This is why I wanted to write this blog post- and not just another <a href="#dead-eyed-tutorial">dead-eyed tutorial</a>. To me, this is the essence of programming: solving unexpected issues.</p>
+<p>There were no logs or errors (even when using debug logs), <strong>yet it didn&rsquo;t work</strong>. This moment is crucial in programming. Developers often create tools without anticipating every possible use case, leading to unexpected issues.</p>
 <p>When I encounter these situations, it&rsquo;s important to:</p>
 <ol>
 <li><strong>Isolate the unknowns</strong></li>
@@ -347,7 +347,7 @@ Since it didn&rsquo;t work, I assumed:</p>
 <li>Either there&rsquo;s a flag for following symlinks, or there&rsquo;s no support.</li>
 <li>Or there&rsquo;s a built-in way to do it.</li>
 </ol>
-<p>Remember when you thought this was a tutorial on integrating Hugo, Obsidian, and GitHub? This is the moment my experience &ldquo;betrayed&rdquo; me. I <strong>know</strong> about symlinks, which should solve the problem seamlessly. But this way was not supported. This doesn&rsquo;t make my experience irrelevant. I now have a new marker in my knowledge of &ldquo;linking between files and directories.&rdquo;</p>
+<p>This is the moment my experience &ldquo;betrayed&rdquo; me. I <strong>know</strong> about symlinks, which should solve the problem seamlessly. But this way was not supported. This doesn&rsquo;t make my experience irrelevant. I now have a new marker in my knowledge of &ldquo;linking between files and directories.&rdquo;</p>
 <p>My options:</p>
 <ol>
 <li>Using a builtin function - preferable if found</li>
@@ -355,7 +355,7 @@ Since it didn&rsquo;t work, I assumed:</p>
 <li>Use <a href="https://git-scm.com/docs/gitmodules">gitmodules</a> - this would require me to manage my blog posts in a separate git, and have an automation to update it. Lets leave this as an absolute last resort</li>
 </ol>
 <p>The assumptions rabbit-hole ends here. <strong>Time to read the docs</strong>. I&rsquo;m looking for a flag for symlinks/shortcuts/modules/links/mounts or ways to import another directory.</p>
-<p>The docs&rsquo; side-panel showed:</p>
+<p>The docs&rsquo; side-panel showed (along many more items):</p>
 <ol>
 <li><strong>Content management</strong> - Mainly about formatting.</li>
 <li><strong>Hugo modules</strong> - Interesting!</li>
@@ -376,7 +376,6 @@ Since it didn&rsquo;t work, I assumed:</p>
 <li><input checked="" disabled="" type="checkbox"> <del>I&rsquo;ll <a href="https://en.wikipedia.org/wiki/Symbolic_link">symlink</a> <code>./content</code> and my <code>./obsidian-vault/blog</code> directory</del>  Mount my blog source directory to Hugo</li>
 <li><input disabled="" type="checkbox"> Find some way to inject the necessary metadata to each note (probably using Obsidian <a href="https://help.obsidian.md/Plugins/Templates">templates</a> that I&rsquo;ve been using for a long time)</li>
 <li><input disabled="" type="checkbox"> Find some plugin/script that allows me to automatically move notes that are tagged (or something of that sort) to that directory automatically</li>
-<li><input disabled="" type="checkbox"> Make it look nicer</li>
 <li><input disabled="" type="checkbox"> Automate the publish process using <a href="https://docs.github.com/en/actions">GitHub Actions</a></li>
 </ul>
 <h3 id="automatically-injecting-the-metadata">Automatically injecting the metadata</h3>
@@ -400,7 +399,7 @@ Since it didn&rsquo;t work, I assumed:</p>
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
 </span></span></span></code></pre></div><p>How was this thing called when we went over the directory? archetypes? Yeah lets find that in the docs under Content Management.</p>
 <p>What do you know? it appears that this is the default <a href="https://toml.io/en/">TOML</a> format, clicking on the YAML format shows me exactly what I want to see. Nice.</p>
-<p>OK. Now - either there&rsquo;s a flag to use TOML/YAML/JSON, or it just works. Let&rsquo;s try YAML. What do you know x2? It works right off the bat.</p>
+<p>OK. Now - either there&rsquo;s a flag to use TOML/YAML/JSON, or it just works. Let&rsquo;s try YAML just because its easy before trying to find it in the docs. What do you know x2? It works right off the bat.</p>
 <p>Obsidian integration almost complete, all I have to do is massage the metadata like Hugo expects it to be, and we&rsquo;re done. gg ez.</p>
 <h3 id="injecting-metadata-content">Injecting metadata content</h3>
 <p>I&rsquo;ve been using Obsidian long enough, and have been using <a href="https://help.obsidian.md/Plugins/Templates">templates</a> for a while now, I know what I have to do -</p>
@@ -444,7 +443,7 @@ creation_date: &lt;% tp.file.creation_date(&#34;YYYY-MM-DDTHH:mm:ss+03:00&#34;) 
 <p>Their tutorial is a bit out-dated, I had to switch to GitHub actions and select a Hugo template that is given there - a quick comparison between what was in their instructions and the actual template from GitHub showed the the template is fine and I just committed it using the GitHub UI.</p>
 <h2 id="summary">Summary</h2>
 <p>That does it. We&rsquo;ve got a blog!</p>
-<p>By isolating issues, revisiting plans, and leveraging existing tools, I turned a potential roadblock into a learning experience. Now, creating and publishing a blog post is seamless and integrated into my daily workflow.</p>
+<p>By isolating issues, revisiting plans, and leveraging existing tools, we&rsquo;ve turned a potential roadblock into a learning experience. Now, creating and publishing a blog post is seamless and integrated into my daily workflow.</p>
 <p>While I skipped some details like hooking automatic local build before push, add a &ldquo;Sync Blog&rdquo; command to Obsidian, handling Obsidian inner links, customizing and making the blog look nicer and registering the domain name, but I invite you to customize and do things however the hell you wanna do them.</p>
 <p>This felt like a great blog post to start my writing journey (which took WAY too long) because it was about the nature of programming and why I love it so much, using a very simple and isolated example. I went into each detail in-depth, and it might seem intimidating at first - but these things become second nature pretty quickly, and this is how experience is built!</p>
 <p>If you&rsquo;ve reached this far, thank you very much! I appreciate you very much, and hope to see you again in the next post!</p>
