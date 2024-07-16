@@ -58,8 +58,6 @@ jobs:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
         run: |
-          cat config.toml
-          ls -l
           hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/" --config config.toml
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
