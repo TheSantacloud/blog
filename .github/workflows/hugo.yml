@@ -57,7 +57,7 @@ jobs:
           HUGO_ENVIRONMENT: production
           HUGO_GOOGLE_ANALYTICS_ID: ${{ secrets.HUGO_GOOGLE_ANALYTICS_ID }}
         run: |
-          hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+          hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/" --config config.toml
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
