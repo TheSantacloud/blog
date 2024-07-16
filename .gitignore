@@ -1,4 +1,4 @@
-hugo.toml
+config.toml
 
 public/*
 !public/posts
