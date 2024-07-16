@@ -55,7 +55,6 @@ intro = "Santacloud"
 name = "Dor Munis"
 description = "I tinker with software and hardware and make machines do what I want"
 
-[module]
-[[module.mounts]]
-source = '/Users/dormunis/Documents/obsidian-vault/blog/'
-target = 'content/posts'
+[services]
+[services.googleAnalytics]
+ID = "$HUGO_GOOGLE_ANALYTICS_ID"
