@@ -55,11 +55,11 @@ name = "Dor Munis"
 description = "I tinker with software and hardware and make machines do what I want"
 
 [params.webmanifest]
-name = "sitename"
-short_name = "sitename"
-start_url = "/"
-theme_color = "#434648"   # default is "#434648" (base color of text). Also will override html `<meta name="theme-color" />`
-background_color = "#fff" # by default depend on "params.defaultColor" for "light" or "auto" will be set to "#fff" for dark will be "#131418" (color of dark mode background)
+name = "Santacloud"
+short_name = "Santacloud"
+start_url = "https://santacloud.dev/"
+theme_color = "#434648"               # default is "#434648" (base color of text). Also will override html `<meta name="theme-color" />`
+background_color = "#fff"             # by default depend on "params.defaultColor" for "light" or "auto" will be set to "#fff" for dark will be "#131418" (color of dark mode background)
 display = "standalone"
 
 [services]
