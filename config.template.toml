@@ -2,7 +2,6 @@ baseURL = 'https://santacloud.dev/'
 languageCode = 'en-us'
 title = 'Santacloud'
 theme = 'hugo-blog-awesome'
-
 enableEmoji = true
 ignoreErrors = ["additional-script-loading-error"]
 
