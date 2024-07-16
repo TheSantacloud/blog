@@ -36,6 +36,7 @@ jobs:
     steps:
       - name: Process config file
         run: |
+          ls
           envsubst < hugo.template.toml > hugo.toml
       - name: Install Hugo CLI
         run: |
