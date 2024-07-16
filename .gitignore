@@ -1,1 +1,5 @@
 hugo.toml
+
+public/*
+!public/posts
+!public/posts/**
