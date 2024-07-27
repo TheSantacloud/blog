@@ -52,6 +52,7 @@ rssFeedDescription = "summary"
 [params.author]
 intro = "Santacloud"
 name = "Dor Munis"
+avatar = "santacloud-logo-red.svg"
 description = "I tinker with software and hardware and make machines do what I want"
 
 [params.webmanifest]
