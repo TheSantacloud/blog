@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<html lang="en-us"><head><meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,7 +18,7 @@
 <meta property="og:locale" content="en-us" />
 <meta name="language" content="en-us" />
 
-  <link rel="alternate" hreflang="en" href="http://localhost:1313/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/" title="" />
+  <link rel="alternate" hreflang="en" href="https://santacloud.dev/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/" title="" />
 
 
 
@@ -31,7 +31,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:article:published_time" content=2024-07-14T20:48:37&#43;0300 />
     <meta property="article:published_time" content=2024-07-14T20:48:37&#43;0300 />
-    <meta property="og:url" content="http://localhost:1313/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/" />
+    <meta property="og:url" content="https://santacloud.dev/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/" />
 
     
     <meta property="og:article:author" content="Dor Munis" />
@@ -53,7 +53,7 @@
         },
         "datePublished": "2024-07-14",
         "description": "",
-        "wordCount":  3474 ,
+        "wordCount":  3492 ,
         "mainEntityOfPage": "True",
         "dateModified": "2024-07-14",
         "image": {
@@ -72,7 +72,7 @@
 
     
 
-    <link rel="canonical" href="http://localhost:1313/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/">
+    <link rel="canonical" href="https://santacloud.dev/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/">
     <link href="/style.min.d43bc6c79baa87f006efb2b92be952faeedeb1a3ab626c1d6abda52eae049355.css" rel="stylesheet">
     <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
 
@@ -86,7 +86,7 @@
 
 
 
-<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+<link rel="manifest" href="https://santacloud.dev/site.webmanifest">
 
 <meta name="msapplication-config" content="/browserconfig.xml">
 <meta name="msapplication-TileColor" content="#2d89ef">
@@ -95,14 +95,35 @@
     
     <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
 
-    </head>
+    
+    
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-31GQMZ5FW8"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-31GQMZ5FW8');
+        }
+      </script>
+    
+  
+
+</head>
 <body data-theme = "dark" class="notransition">
 
-<script src="/js/theme.js"></script>
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
 
 <div class="navbar" role="navigation">
     <nav class="menu" aria-label="Main Navigation">
-        <a href="http://localhost:1313/" class="logo">
+        <a href="https://santacloud.dev/" class="logo">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
 stroke-linejoin="round" class="feather feather-home">
@@ -173,15 +194,16 @@ stroke-linejoin="round" class="feather feather-home">
 <p><em>Lightbulb</em> - this would be the topic of my first post! Instead of just a tutorial, it will be a walkthrough on how an actual development process of something pretty simple actually goes and how I personally approach things (I&rsquo;ll save the obligatory &lsquo;what I think about all this AI shenanigans&rsquo; post for later. This is not LinkedIn after all.)</p>
 <p><strong>P.S.:</strong> I&rsquo;m well aware that there are probably more blog creation platforms available out there than the amount of stars in the visible universe. And I guess that with some research I would probably find something pretty damn fantastic. But I wanted do it myself because of reasons. So there.</p>
 <h2 id="what-i-want">What I want</h2>
+<p>I want a blog that will blend seamlessly with my daily driver for note taking, and feel seamless and smooth.</p>
+<p><strong>My requirements:</strong></p>
 <ol>
 <li>Use <a href="https://obsidian.md/">Obsidian</a> exclusively for writing, editing, and managing posts. No extra <a href="https://help.obsidian.md/Files+and+folders/Manage+vaults">vaults</a>. The blog should integrate smoothly with my existing workflow (because I have automatic backups and versioning, and because I said so.)</li>
 <li>Nice looking blog - plain HTML with won&rsquo;t cut it because of my Obsidian requirement, so I need a markdown parser of some sort.</li>
-<li>Use <a href="https://github.com">GitHub</a> as a static website server.</li>
 </ol>
 <h2 id="how-i-chose-the-tools">How I chose the tools</h2>
 <ol>
 <li><a href="https://obsidian.md/">Obsidian</a> - My go-to for all note-taking. I use a <a href="https://zettelkasten.de/introduction/">Zettlekasten</a>-esque method, dumping all notes into one directory with timestamps and links. It&rsquo;s markdown-based and has vim-mode, plugins, <a href="https://help.obsidian.md/Linking+notes+and+files/Internal+links">internal linking</a> and <a href="https://help.obsidian.md/Plugins/Search">searching</a> capabilities. This made it a no-brainer for me.</li>
-<li><a href="https://github.com">GitHub</a> - I&rsquo;ve been using GitHub for years, so it was the obvious choice for hosting and publishing. Static pages fit my needs perfectly, avoiding unnecessary complexity. I was thinking about hosting it on one of my Raspberry PIs I have lying around but then I figured&hellip; nah.</li>
+<li><a href="https://pages.github.com/">GitHub Pages</a> - I&rsquo;ve been using <a href="https://github.com">GitHub</a> for years, so it was the obvious choice for hosting and publishing. Static pages fit my needs perfectly, avoiding unnecessary complexity. I was thinking about hosting it on one of my Raspberry PIs I have lying around but then I figured&hellip; nah.</li>
 <li><a href="https://gohugo.io/">Hugo</a> - This Go-based website framework won out after some research (Googling &ldquo;Github static blog serving&rdquo; and then &ldquo;Jekyll vs. &ldquo;). I considered <a href="https://jekyllrb.com/">Jekyll</a>, <a href="https://www.11ty.dev/">11ty</a>, and <a href="https://astro.build/">Astro</a>, and since this is a website building framework, I was pretty sure Hugo&rsquo;s use of Go will use its native templating language. Plus, Go &gt; Ruby, tsx, and JavaScript in my book.</li>
 </ol>
 <h2 id="hello-blorgd-nailed-it---initial-setup">Hello blorgd (nailed it) - initial setup</h2>
@@ -394,7 +416,7 @@ Since it didn&rsquo;t work, I assumed:</p>
 </span></span><span class="line"><span class="cl"><span class="nx">draft</span> <span class="p">=</span> <span class="kc">true</span>
 </span></span><span class="line"><span class="cl"><span class="nx">title</span> <span class="p">=</span> <span class="s1">&#39;{{ replace .File.ContentBaseName `-` ` ` | title }}&#39;</span>
 </span></span><span class="line"><span class="cl"><span class="err">+++</span>
-</span></span></code></pre></div><p>Looks awful similar to the Obsidian format, isn&rsquo;t it?</p>
+</span></span></code></pre></div><p>Looks awful similar to the Obsidian format for metadata, isn&rsquo;t it?</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;date&gt;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">draft</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -566,7 +588,7 @@ creation_date: &lt;% tp.file.creation_date(&#34;YYYY-MM-DDTHH:mm:ss+03:00&#34;) 
 
 
     
-    <script async src="http://localhost:1313/js/main.js" ></script>
+    <script src="https://santacloud.dev/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
 
     
 

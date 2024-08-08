@@ -17,14 +17,16 @@ I've wanted to start a blog for quite a while now, and never got around to it be
 
 ## What I want
 
+I want a blog that will blend seamlessly with my daily driver for note taking, and feel seamless and smooth.
+
+**My requirements:**
 1. Use [Obsidian](https://obsidian.md/) exclusively for writing, editing, and managing posts. No extra [vaults](https://help.obsidian.md/Files+and+folders/Manage+vaults). The blog should integrate smoothly with my existing workflow (because I have automatic backups and versioning, and because I said so.)
 2. Nice looking blog - plain HTML with won't cut it because of my Obsidian requirement, so I need a markdown parser of some sort.
-3. Use [GitHub](https://github.com) as a static website server.
 
 ## How I chose the tools 
 
 1. [Obsidian](https://obsidian.md/) - My go-to for all note-taking. I use a [Zettlekasten](https://zettelkasten.de/introduction/)-esque method, dumping all notes into one directory with timestamps and links. It's markdown-based and has vim-mode, plugins, [internal linking](https://help.obsidian.md/Linking+notes+and+files/Internal+links) and [searching](https://help.obsidian.md/Plugins/Search) capabilities. This made it a no-brainer for me.
-3. [GitHub](https://github.com) - I've been using GitHub for years, so it was the obvious choice for hosting and publishing. Static pages fit my needs perfectly, avoiding unnecessary complexity. I was thinking about hosting it on one of my Raspberry PIs I have lying around but then I figured... nah.
+3. [GitHub Pages](https://pages.github.com/) - I've been using [GitHub](https://github.com) for years, so it was the obvious choice for hosting and publishing. Static pages fit my needs perfectly, avoiding unnecessary complexity. I was thinking about hosting it on one of my Raspberry PIs I have lying around but then I figured... nah.
 4. [Hugo](https://gohugo.io/) - This Go-based website framework won out after some research (Googling "Github static blog serving" and then "Jekyll vs. "). I considered [Jekyll](https://jekyllrb.com/), [11ty](https://www.11ty.dev/), and [Astro](https://astro.build/), and since this is a website building framework, I was pretty sure Hugo's use of Go will use its native templating language. Plus, Go > Ruby, tsx, and JavaScript in my book. 
 
 ## Hello blorgd (nailed it) - initial setup
@@ -290,7 +292,7 @@ title = '{{ replace .File.ContentBaseName `-` ` ` | title }}'
 +++
 ```
 
-Looks awful similar to the Obsidian format, isn't it?
+Looks awful similar to the Obsidian format for metadata, isn't it?
 ```yaml
 ---
 date: <date>
