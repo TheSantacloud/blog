@@ -1,9 +1,9 @@
 ---
-timestamp: 2024-07-14T20:48:37+03:00
-modified: 2024-07-14T20:48:37+03:00
+timestamp: 2024-08-10T20:48:37+03:00
+modified: 2024-08-10T20:48:37+03:00
 draft: "false"
 title: "Creating My Blog: A Developer's Tale of Over-Engineering (Using Obsidian, Hugo and GitHub Pages)"
-creation_date: 2024-07-14T20:48:37+03:00
+creation_date: 2024-08-10T20:48:37+03:00
 ---
 ## Intro
 
