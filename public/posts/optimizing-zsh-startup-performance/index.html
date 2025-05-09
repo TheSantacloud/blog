@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">Speed Matters: How I Optimized My ZSH Startup to Under 70ms | Santacloud</title>
+<meta property="og:title" content="Speed Matters: How I Optimized My ZSH Startup to Under 70ms | Santacloud" />
+<meta name="twitter:title" content="Speed Matters: How I Optimized My ZSH Startup to Under 70ms | Santacloud" />
+<meta itemprop="name" content="Speed Matters: How I Optimized My ZSH Startup to Under 70ms | Santacloud" />
+<meta name="application-name" content="Speed Matters: How I Optimized My ZSH Startup to Under 70ms | Santacloud" />
+<meta property="og:site_name" content="Santacloud" />
+
+<meta name="description" content="A blog about tech stuff">
+<meta itemprop="description" content="A blog about tech stuff" />
+<meta property="og:description" content="A blog about tech stuff" />
+<meta name="twitter:description" content="A blog about tech stuff" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/posts/optimizing-zsh-startup-performance/" title="" />
+
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2025-05-09T20:07:07&#43;0300 />
+    <meta property="article:published_time" content=2025-05-09T20:07:07&#43;0300 />
+    <meta property="og:url" content="http://localhost:1313/posts/optimizing-zsh-startup-performance/" />
+
+    
+    <meta property="og:article:author" content="Dor Munis" />
+    <meta property="article:author" content="Dor Munis" />
+    <meta name="author" content="Dor Munis" />
+    
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "Speed Matters: How I Optimized My ZSH Startup to Under 70ms",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2025-05-09",
+        "description": "",
+        "wordCount":  3094 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2025-05-09",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Santacloud"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.135.0">
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/posts/optimizing-zsh-startup-performance/">
+    <link href="/style.min.d43bc6c79baa87f006efb2b92be952faeedeb1a3ab626c1d6abda52eae049355.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+    integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" crossorigin="anonymous" />
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+    integrity="sha512-LQNxIMR5rXv7o+b1l8+N1EZMfhG7iFZ9HhnbJkTp4zjNr5Wvst75AqUeFDxeRUa7l5vEDyUiAip//r+EFLLCyA=="
+    crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    integrity="sha512-iWiuBS5nt6r60fCz26Nd0Zqe0nbk1ZTIQbl3Kv7kYsX+yKMUFHzjaH2+AnM6vp2Xs+gNmaBAVWJjSmuPw76Efg==" crossorigin="anonymous" onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+</head>
+<body data-theme = "dark" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<style>
+.meta-line {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.25rem;
+    font-size: 0.9rem;
+    color: var(--secondary-text-color, #aaa);
+    margin-top: 0.5rem;
+}
+.meta-line span {
+    opacity: 0.8;
+}
+</style>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Speed Matters: How I Optimized My ZSH Startup to Under 70ms</h1>
+
+                <div class="meta-line">
+                    
+                        
+                        <time datetime="2025-05-09T20:07:07&#43;03:00" itemprop="datePublished">May 9, 2025</time>
+                    
+                    <span id="reading-time" class="reading-time"></span>
+                </div>
+
+                <span id="reading-time" class="post-meta"></span>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const content = document.querySelector('.page-content');
+        if (!content) return;
+
+        const rawText = content.innerText || content.textContent || '';
+        const noCodeBlocks = rawText.replace(/```[\s\S]*?```/g, '');
+        const words = noCodeBlocks.trim().split(/\s+/).filter(Boolean);
+        const wordCount = words.length;
+        const minutes = Math.ceil(wordCount / 250);
+
+        document.getElementById('reading-time').textContent =
+            `Estimated Reading time: ${minutes} minute${minutes !== 1 ? 's' : ''}`;
+    });
+</script>
+
+            </header>
+
+            
+            <div class="page-content">
+                <h1 id="speed-matters-how-i-optimized-my-zsh-startup-to-under-70ms">Speed Matters: How I Optimized My ZSH Startup to Under 70ms</h1>
+<p>Speed isn’t just about shaving milliseconds for fun (although&hellip; that <em>is</em> kind of fun). It’s about protecting <strong>flow</strong>.</p>
+<p>When you’re in the zone, every interruption counts - even a half-second delay opening a terminal. These delays break momentum. They add friction. And over time, they affect your behavior subconsciously: you stop opening new shells, hesitate to try quick commands, avoid the very tools that should be helping you.</p>
+<p>That’s the thing - tools should feel like extensions of your body. You shouldn’t <em>think</em> about them. They should just be there, ready, seamless. When your tools are fast, they disappear into the background and let you focus entirely on the work.</p>
+<p>That’s why I care. Speed isn’t just a metric - it’s a multiplier on creativity, productivity, and joy.</p>
+<p>This is the story of how I fixed one of my most important tools in my toolkit when it started slowing me down.</p>
+<blockquote>
+<p>You can find my existing <a href="https://github.com/TheSantacloud/dotfiles">dotfiles</a> with my <a href="https://github.com/TheSantacloud/dotfiles/blob/main/zsh/.zshrc">zshrc</a> config on my <a href="https://github.com/TheSantacloud">GitHub page</a>.</p>
+</blockquote>
+<h2 id="start-with-why">Start with why</h2>
+<p>I got up this morning, started working on some project (<a href="https://github.com/TheSantacloud/lance">Lance</a>, fyi), put on some music to get the flow going, and opened up my terminal - and then I noticed that my shell takes FOREVER to load. Which is weird because I fixed it like a year ago. It <strong>really</strong> bugged me. I tried ignoring it, but it has a compounding effect every time I opened a new shell (which is ALL the time, in my workflow).</p>
+<p>This wasn&rsquo;t the &ldquo;right&rdquo; thing to do at the moment, I thought&hellip; but I knew that I had a hard stop in 1 hour anyway, so down the rabbit-hole I went.</p>
+<h2 id="what-im-using">What I&rsquo;m using</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&amp;pp=ygUJcmljayByb2xs">Macbook Pro M1</a> 2020, 8-core 3.2GHz CPU</li>
+</ul>
+<ul>
+<li>macOS Sequoia 15.4.1</li>
+</ul>
+<ul>
+<li><a href="https://ghostty.org/">Ghostty</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Z_shell">ZSH</a> obviously</li>
+<li>My IP address is 127.0.0.1</li>
+</ul>
+<h2 id="initial-state">Initial state</h2>
+<h3 id="why-are-you-not-using-zsh-defer-oh-my-zsh-zplug-zdeeznut">Why are you not using <code>zsh-defer</code>, <code>oh-my-zsh</code>, <code>zplug</code>, <code>zdeeznut</code></h3>
+<p>I did use <a href="https://ohmyz.sh/">oh-my-zsh</a> for a long time (years, actually) - but it became too tedious and slow. I had a lot of custom plugins that modified my prompt in zsh so I was somewhat familiar with zsh, so I just resorted to creating my own <code>~/.zshrc</code> file, because I figured - how hard can it be? it wasn&rsquo;t. It also gave me power that I didn&rsquo;t have before - in not using this &ldquo;declarative&rdquo; style configuration for it with oh-my-zsh (by just having a list that contains all the plugins I want from a magical and unknown location), I gained the ability to control my shell <strong>and its load order</strong> myself using ✨code✨.</p>
+<p>As for the other things - I haven&rsquo;t tried most of them. But I find it hard to believe that they are something that I HAVE TO HAVE. They just sound simple enough&hellip; defer is just doing something later. zplug? just use a <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">git submodule</a>. Less dependencies == Less things to break (I actually briefly wrote about it in my first blogpost about <a href="https://santacloud.dev/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/#isolating-unknowns">isolating unknowns</a>)</p>
+<p>I should really write sometime about the dependency hellscape jungle in the modern software age that we live in right now, but that&rsquo;s not the point right now.</p>
+<h3 id="so--my-baseline-was-452ms-startup-time">So- my baseline was 452ms startup time</h3>
+<p>Honestly, at that point I didn&rsquo;t measure how much my startup time takes. It just felt slow and tedious. For this blogpost I reverted and measured it and got that it takes ~<strong>452ms</strong> to load using:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">time</span> zsh -i -c <span class="nb">exit</span>
+</span></span></code></pre></div><p>Feel free to <a href="#initial-zsh-config">skip this rant</a>, this next part is me trying to put into words why I think it&rsquo;s absurd that it takes this long.</p>
+<p><a href="https://www.pngall.com/clown-face-png/download/149439/">ChatGPT</a> says it&rsquo;s OK, but this just feels insane to me. I create new shells <em>constantly</em>, for everything. This was a very noticeable thing for me, and it really bugged me. With my current setup, having 8 cores (4 performance, 4 energy-efficient) with a rough average of 2.5GHz (1GHz == 1B cycles per second), and a conservative rough average of 2.5 <a href="https://en.wikipedia.org/wiki/Instructions_per_cycle">IPC</a> between them, and removing around 10% for general purpose computer stuff (and also to account for i/o access etc) this brings us to:</p>
+$$
+((8 \times 2.5 \times 2.5 \times 10^9) - 10\%) \times 0.452  \approx 20,340,000,000
+$$<p>That&rsquo;s ~<strong>20.34B</strong> instructions for EVERY TIME I run the shell (and that&rsquo;s being VERY conservative). This is crazy town. So I tried measuring vanilla ZSH using the same approach (just emptied out my <code>zshrc</code> file) - it took ~<strong>38ms</strong>. So basically, launching ZSH, which (at the very minimum):</p>
+<ul>
+<li>Spawns the process</li>
+<li>Reads from disk (I guess we call it drive now) and loads system wide config</li>
+<li>Some terminal emulator overhead</li>
+</ul>
+<p>takes ~<strong>38ms</strong>, or ~<strong>1.71B</strong> instructions (according to previous calculation).</p>
+<p>This means that my very custom setup takes ~<strong>414ms</strong> / ~<strong>18.63B</strong> instructions / <strong>91.59%</strong> of the time for every shell spawn.</p>
+<p>To put this into perspective, if this were a game, and the amount of resources spent for the general benefit to load my pretty colors and auto-complete functionality, we would be playing at 2.41 FPS. I know that this is not the case, and it&rsquo;s a tough comparison (because it&rsquo;s meant to only load once, not 60 times per second), but I mean&hellip; why did we get so complex? it&rsquo;s just input listeners and hashmap retrieval for completions, some aliases, and a splash of color. How is it so bloated for what it&rsquo;s doing?!</p>
+<p>I know I got too deep into the numbers, and yeah - I know most of it isn&rsquo;t really just instructions; it&rsquo;s mostly I/O latency, and the numbers are not accurate by any means necessary. What mattered was that <strong>I felt slowed down, it frustrated me, and I couldn&rsquo;t justify the benefit I got for the time and frustration spent</strong>.</p>
+$$ Benefit < F(Time, Frustration) $$<h3 id="initial-zsh-config">Initial ZSH Config</h3>
+<p>You can see it in my <a href="https://github.com/TheSantacloud/dotfiles/blob/32793e3d5ca136f71a5c363bc8d5298478e9d54e/zsh/.zshrc">GitHub</a> as well, but I&rsquo;ll put it here so that we can refer to specific things as we go:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># use this for profiling in case the shell becomes slow</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PROFILING_MODE</span><span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$PROFILING_MODE</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    zmodload zsh/zprof
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># general settings</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ZSH</span><span class="o">=</span><span class="k">$(</span>readlink -f <span class="nv">$HOME</span>/.config/zsh<span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HISTFILE</span><span class="o">=</span><span class="nv">$ZSH</span>/.zsh_history
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HISTSIZE</span><span class="o">=</span><span class="m">10000</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SAVEHIST</span><span class="o">=</span><span class="m">10000</span>
+</span></span><span class="line"><span class="cl">setopt HIST_IGNORE_ALL_DUPS
+</span></span><span class="line"><span class="cl">setopt HIST_FIND_NO_DUPS
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PATH</span><span class="s2">:</span><span class="nv">$HOME</span><span class="s2">/.local/bin/&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># theme</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/themes/dracula/dracula.zsh-theme
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># plugins</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+</span></span><span class="line"><span class="cl">zstyle <span class="s1">&#39;:completion:*:*:git:*&#39;</span> script <span class="nv">$ZSH</span>/plugins/git-completions/git-completion.bash
+</span></span><span class="line"><span class="cl"><span class="nv">fpath</span><span class="o">=(</span><span class="nv">$ZSH</span>/plugins/zsh-completions/src <span class="nv">$ZSH</span>/plugins/git-completions <span class="nv">$fpath</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">autoload -Uz compinit <span class="o">&amp;&amp;</span> compinit
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># golang</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="k">$(</span>go env GOPATH<span class="k">)</span>/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># python (uv)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.local/bin/env&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># platformio</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/.platformio/packages/toolchain-xtensa/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># docker</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> &lt;<span class="o">(</span>docker completion zsh<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># pnpm</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PNPM_HOME</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Library/pnpm&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">case</span> <span class="s2">&#34;:</span><span class="nv">$PATH</span><span class="s2">:&#34;</span> in
+</span></span><span class="line"><span class="cl">  *<span class="s2">&#34;:</span><span class="nv">$PNPM_HOME</span><span class="s2">:&#34;</span>*<span class="o">)</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">  *<span class="o">)</span> <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PNPM_HOME</span><span class="s2">:</span><span class="nv">$PATH</span><span class="s2">&#34;</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl"><span class="k">esac</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># tmux</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span> -f ~/.fzf.zsh <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">source</span> ~/.fzf.zsh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># aliases</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/aliases/customized.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/aliases/kubectl.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/aliases/git.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">KUBE_EDITOR</span><span class="o">=</span>nvim
+</span></span><span class="line"><span class="cl">bindkey -s <span class="s1">&#39;^f&#39;</span> <span class="s2">&#34;tmux-sessionizer\n&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># pyenv</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PYENV_ROOT</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.pyenv&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">command</span> -v pyenv &gt;/dev/null <span class="o">||</span> <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PYENV_ROOT</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>pyenv init -<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$PROFILING_MODE</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    zprof
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># google sdk</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/path.zsh.inc&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> . <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/path.zsh.inc&#34;</span><span class="p">;</span> <span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/completion.zsh.inc&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> . <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/completion.zsh.inc&#34;</span><span class="p">;</span> <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">desc
+</span></span></code></pre></div><h2 id="profiling-and-optimizing">Profiling and optimizing</h2>
+<p>What do you know - thank you past-self for giving me this profiling thing to work with (literally the first line of code), I had absolutely no recollection of doing this.</p>
+<h3 id="figuring-out-the-primary-culprits">Figuring out the primary culprits</h3>
+<p>I switched the <code>PROFILING_MODE</code> flag to 1 and fired a new shell (I won&rsquo;t show the output here, because it&rsquo;s very big and the formatting just doesn&rsquo;t work here. Just try it for yourself to see) -</p>
+<p><code>compaudit</code> and <code>compinit</code> take the most time, and they&rsquo;re constructed from different things in their description below. This is helpful, but not for everything in my configurations, so I resorted to using:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">zsh_start_time</span><span class="o">=</span><span class="k">$(</span>python3 -c <span class="s1">&#39;import time; print(int(time.time() * 1000))&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">...&lt;content of zshrc&gt;
+</span></span><span class="line"><span class="cl"><span class="nv">zsh_end_time</span><span class="o">=</span><span class="k">$(</span>python3 -c <span class="s1">&#39;import time; print(int(time.time() * 1000))&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Shell init time: </span><span class="k">$((</span>zsh_end_time <span class="o">-</span> zsh_start_time<span class="k">))</span><span class="s2"> ms&#34;</span>
+</span></span></code></pre></div><p>This wouldn&rsquo;t give me the initial shell startup (that we already know takes 38ms), but I have nothing I can do about it, so this is plenty good enough, and I just subtracted this time (21ms) in the table below.</p>
+<p>I proceeded to comment out everything, and start with a basic binary search to find the major culprits. For this test I created a new shell to avoid cache as much as possible (since the issue I wanted to solve was <strong>new</strong> shell spawns). This here is the breakdown I did after the fact (for the purposes of this blogpost. In reality I just binary searched, and squashed the biggest problems in order until I was happy)</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Component</th>
+          <th style="text-align: left">Duration (in milliseconds)</th>
+          <th style="text-align: left">Comment</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">general settings</td>
+          <td style="text-align: left">3ms</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">dracula theme</td>
+          <td style="text-align: left">25ms</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">compinit (with nothing else)</td>
+          <td style="text-align: left">242ms / 25ms</td>
+          <td style="text-align: left">Baseline, coldstart</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">fast-syntax-highlighting (w/ compinit)</td>
+          <td style="text-align: left">225ms / 13ms</td>
+          <td style="text-align: left">Coldstart</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">zsh-autosuggestions (w/ compinit)</td>
+          <td style="text-align: left">195ms / 26ms</td>
+          <td style="text-align: left">Coldstart</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">git-completions (w/ compinit)</td>
+          <td style="text-align: left">242ms / 28ms</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">golang PATH</td>
+          <td style="text-align: left">9ms</td>
+          <td style="text-align: left">This is a funny one</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">python uv</td>
+          <td style="text-align: left">66ms</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">platformio PATH</td>
+          <td style="text-align: left">1ms</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">docker (w/ compinit)</td>
+          <td style="text-align: left">218ms / 40ms</td>
+          <td style="text-align: left">Coldstart</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pnpm</td>
+          <td style="text-align: left">1ms</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">fzf</td>
+          <td style="text-align: left">3ms</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">aliases - customized</td>
+          <td style="text-align: left">1ms</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">aliases - kubectl</td>
+          <td style="text-align: left">3ms</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">aliases - git</td>
+          <td style="text-align: left">30ms</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">bindkey tmux-sessionizer</td>
+          <td style="text-align: left">1ms</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pyenv</td>
+          <td style="text-align: left">172ms</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">google-sdk</td>
+          <td style="text-align: left">1ms</td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="removing-everything-i-dont-need">Removing everything I don&rsquo;t need</h3>
+<p>Pretty straight forward, and easiest</p>
+<ol>
+<li>python UV - I forgot you existed (using mostly <a href="https://python-poetry.org/">poetry</a>). Outta here, you and your 66ms.</li>
+<li>pnpm - don&rsquo;t use it</li>
+<li>git aliases - I just never use them, and I mostly use <a href="https://github.com/tpope/vim-fugitive">vim-fugitive</a> anyways (also, 30ms? come on man)</li>
+</ol>
+<h2 id="pyenv---you-172ms-bastard">pyenv - you 172ms bastard</h2>
+<p>This one bugged me. I use Python pretty frequently, and <a href="https://github.com/pyenv/pyenv">pyenv</a> is a good tool to manage python versions, and integrates well with the rest of the python virtualenv programs like <code>poetry</code>.</p>
+<p>But this program man&hellip; Just try to type in <code>poetry</code> in your terminal to get the help menu.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ <span class="nb">time</span> poetry
+</span></span><span class="line"><span class="cl">&lt;<span class="nb">help</span> content&gt;
+</span></span><span class="line"><span class="cl">poetry  0.22s user 0.05s system 97% cpu 0.276 total
+</span></span></code></pre></div><p>Yep. you&rsquo;re reading this right. 276ms to print 74 lines/4323 characters to screen.</p>
+<p>A while ago I removed the base python binary from man because it kept on confusing me, and breaking things. So I use pyenv exclusively for python.</p>
+<p>OK. let&rsquo;s take a look at it (this is how they tell you how to install in <a href="https://github.com/pyenv/pyenv/tree/f216b4bfb1598347137ecb3c4a8f893baf9ea37f?tab=readme-ov-file#zsh">their official readme</a>, expand ZSH):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># pyenv</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PYENV_ROOT</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.pyenv&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">command</span> -v pyenv &gt;/dev/null <span class="o">||</span> <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PYENV_ROOT</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>pyenv init -<span class="k">)</span><span class="s2">&#34;</span>
+</span></span></code></pre></div><p>But let&rsquo;s break it down. What am I actually trying to achieve? because I rarely use <code>pyenv</code> as it is (poetry does). But I do want <strong>python</strong> to be available. And without it - there&rsquo;s just no python in my PATH.</p>
+<p>Oh. Simple. Just put python in my PATH.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ which python
+</span></span><span class="line"><span class="cl">/Users/dormunis/.pyenv/shims/python
+</span></span></code></pre></div><p>Cool cool cool, so let&rsquo;s do:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ln -sf <span class="s2">&#34;</span><span class="nv">$PYENV_ROOT</span><span class="s2">/shims/python&#34;</span>       ~/.local/bin/python 
+</span></span><span class="line"><span class="cl">ln -sf <span class="s2">&#34;</span><span class="nv">$PYENV_ROOT</span><span class="s2">/shims/pip&#34;</span>       ~/.local/bin/pip
+</span></span><span class="line"><span class="cl">ln -sf <span class="s2">&#34;</span><span class="nv">$PYENV_ROOT</span><span class="s2">/shims/python3&#34;</span>       ~/.local/bin/python3
+</span></span><span class="line"><span class="cl">ln -sf <span class="s2">&#34;</span><span class="nv">$PYENV_ROOT</span><span class="s2">/shims/pip3&#34;</span>       ~/.local/bin/pip3
+</span></span></code></pre></div><p>And as for pyenv - let&rsquo;s just lazy load it. When I do need it - make the first time a bit slower.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PYENV_ROOT</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.pyenv&#34;</span>
+</span></span><span class="line"><span class="cl">pyenv<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">unset</span> -f pyenv
+</span></span><span class="line"><span class="cl">  <span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span><span class="nb">command</span> pyenv init -<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  pyenv <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>This basically creates a function called <code>pyenv</code>, and since it&rsquo;s not in my PATH yet - that&rsquo;s the one that would be used when I type in <code>pyenv</code> in my shell. The first thing it does is unsets itself (because we&rsquo;re about to put the binary in the PATH), evaluates their init thing (whatever the hell they do there) and starts it.</p>
+<h3 id="docker-you-nasty-b">Docker you nasty b****</h3>
+<p>Remember this guy? with the cold-start taking over 200ms?</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">source</span> &lt;<span class="o">(</span>docker completion zsh<span class="o">)</span>
+</span></span></code></pre></div><p>This one <em>really</em> bugged me. So I tried compiling it, but it didn&rsquo;t really take - it&rsquo;s just aliases, so it had a very minor effect. So I tried lazy loading it (and went down a rabbit hole of trying to parallelize, or maybe even load it in the background while the shell has already spawned). Nothing worked.</p>
+<p>And then I just removed it. And to my surprise - I had docker completions.</p>
+<p>What? How? Who? What?</p>
+<p>I obviously have this somewhere, and the only place it can be is where I load completions. So I added this script to figure it out:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="k">for</span> dir in <span class="nv">$fpath</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o"><b></span> -f <span class="s2">&#34;</span><span class="nv">$dir</span><span class="s2">/_docker&#34;</span> <span class="o"></b></span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;Found _docker in: </span><span class="nv">$dir</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span></code></pre></div><p>And what do you know, docker exists there already (in <code>$ZSH/plugins/zsh-completions/src</code>).</p>
+<p>Onwards and upwards!</p>
+<h3 id="colors">Colors</h3>
+<p>There&rsquo;s really no justification to take 25ms to color the prompt and put some extra information there.</p>
+<p>So I tried looking at what <a href="https://github.com/dracula/zsh/tree/master">dracula</a> does, and I played around with it to see how long it takes. And then I figured - this shell is almost perfect for me&hellip; what do I <strong>actually</strong> need? just to see some git information, and basic colors for the prompt.</p>
+<p>So I created <code>$ZSH/themes/minimal-falcon.zsh-theme</code>.</p>
+<p>I&rsquo;ve been meaning to do that for a while now, but I never got to it - I use <a href="https://github.com/fenetikm/falcon">falcon</a> for <a href="https://neovim.io/">neovim</a> and I really like it, but they don&rsquo;t have an official ZSH theme. Which is good, because it probably would have been with bloat as well. Let&rsquo;s just take it&rsquo;s colors and create:</p>
+<p>ChatGPT was actually very helpful here - I just took a screenshot of my colors, and copied over the falcon colors. Told it that I want to color my zsh prompt, and it suggested to give me fzf colors as well - why not! This is after some minor tweaking.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># zsh/themes/minimal-falcon.zsh-theme</span>
+</span></span><span class="line"><span class="cl">autoload -Uz colors <span class="o">&amp;&amp;</span> colors
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># LS colors and such (8-bit color)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">CLICOLOR</span><span class="o">=</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">LSCOLORS</span><span class="o">=</span>dxfxfxdxfxdedeacacad
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># fzf</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">FZF_DEFAULT_OPTS</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$FZF_DEFAULT_OPTS</span><span class="s2"> \
+</span></span></span><span class="line"><span class="cl"><span class="s2">--color=&#39;dark\
+</span></span></span><span class="line"><span class="cl"><span class="s2">,fg:#b4b4b9\
+</span></span></span><span class="line"><span class="cl"><span class="s2">,bg:#000000\
+</span></span></span><span class="line"><span class="cl"><span class="s2">,hl:#ffc552\
+</span></span></span><span class="line"><span class="cl"><span class="s2">,fg+:#f8f8ff\
+</span></span></span><span class="line"><span class="cl"><span class="s2">,bg+:#36363a\
+</span></span></span><span class="line"><span class="cl"><span class="s2">,hl+:#ffc552\
+</span></span></span><span class="line"><span class="cl"><span class="s2">,query:#f8f8ff\
+</span></span></span><span class="line"><span class="cl"><span class="s2">,gutter:#020221\
+</span></span></span><span class="line"><span class="cl"><span class="s2">,prompt:#ffc552\
+</span></span></span><span class="line"><span class="cl"><span class="s2">,header:#ffd392\
+</span></span></span><span class="line"><span class="cl"><span class="s2">,info:#bfdaff\
+</span></span></span><span class="line"><span class="cl"><span class="s2">,pointer:#ffe8c8\
+</span></span></span><span class="line"><span class="cl"><span class="s2">,marker:#ff3600\
+</span></span></span><span class="line"><span class="cl"><span class="s2">,spinner:#bfdaff\
+</span></span></span><span class="line"><span class="cl"><span class="s2">,border:#36363a&#39;\
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># prompt</span>
+</span></span><span class="line"><span class="cl"><span class="k">function</span> git_prompt<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  git rev-parse --is-inside-work-tree <span class="p">&amp;</span>&gt;/dev/null <span class="o">||</span> <span class="k">return</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">ref</span><span class="o">=</span><span class="k">$(</span>git symbolic-ref --short HEAD 2&gt;/dev/null <span class="o">||</span> git describe --tags --always<span class="k">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;%F{173}(</span><span class="nv">$ref</span><span class="s2">)%f&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">setopt PROMPT_SUBST
+</span></span><span class="line"><span class="cl"><span class="nv">PROMPT</span><span class="o">=</span><span class="s1">&#39;%F{245}%1~%f$(git_prompt) %F{180}❯%f &#39;</span>
+</span></span></code></pre></div><p>Simple, elegant, everything I need, and <strong>FAST</strong>.</p>
+<h3 id="compiling">Compiling</h3>
+<p>Here I wanted to address those coldstarts that I&rsquo;ve been experiencing on and off with everything relating <code>compinit</code>. I didn&rsquo;t really know what it is, so I asked ChatGPT what is it, and what are the common ways to make it faster.</p>
+<p>Apparently - <code>compinit</code> is <code>zsh</code>&rsquo;s completion system. So this is why it&rsquo;s needed by autosuggestion, git-completions, zsh-completions, etc.</p>
+<p>And it also told me 2 more interesting things:</p>
+<ul>
+<li>The entire zshrc file can be compiled as well, and the dump loaded with <code>compinit</code></li>
+<li>You can compile zsh scripts with <code>zcompile</code> - it creates a <code>{filename}.zwc</code> file that is the compiled version of it (which is obviously faster)</li>
+</ul>
+<p>Just don&rsquo;t forget to add these to my <code>.gitignore</code> for my dotfiles:</p>
+<pre tabindex="0"><code>zsh/.zcompdump
+*.zwc
+</code></pre><h4 id="compiling-zshrc-as-a-whole">Compiling zshrc as a whole</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">autoload -Uz compinit
+</span></span><span class="line"><span class="cl"><span class="nv">ZSH_COMPDUMP</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">ZSH</span><span class="si">}</span><span class="s2">/.zcompdump&#34;</span>
+</span></span><span class="line"><span class="cl">compinit -d <span class="s2">&#34;</span><span class="nv">$ZSH_COMPDUMP</span><span class="s2">&#34;</span>
+</span></span></code></pre></div><blockquote>
+<p><strong>Note:</strong> you can also add <code>-C</code> to bypass the check for rebuilding the dumpfile and the call to <code>compaudit</code>. This can shave 15ms more.</p>
+</blockquote>
+<h4 id="zsource">zsource</h4>
+<p>I created a minor helper function:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">zsource<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">file</span><span class="o">=</span><span class="nv">$1</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">zwc</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">file</span><span class="si">}</span><span class="s2">.zwc&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o"><b></span> -f <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span> <span class="o">&amp;&amp;</span> <span class="o">(</span>! -f <span class="s2">&#34;</span><span class="nv">$zwc</span><span class="s2">&#34;</span> <span class="o">||</span> <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span> -nt <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span><span class="o">)</span> <span class="o"></b></span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    zcompile <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">source</span> <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><p>This just checks if there&rsquo;s a zwc file exists, and if it doesn&rsquo;t or the main file has been modified - it uses <code>zcompile</code> on the file. And then it sources the file (zsh automatically checks if a zwc file is present, and uses it if it is).</p>
+<p>And then every time I just replaced all my <code>source</code> functions with <code>zsource</code>, like so:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">zsource <span class="nv">$ZSH</span>/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+</span></span><span class="line"><span class="cl">zsource <span class="nv">$ZSH</span>/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">zsource <span class="nv">$ZSH</span>/themes/minimal-falcon.zsh-theme
+</span></span></code></pre></div><h3 id="consolidating">Consolidating</h3>
+<p>Some final cleanup, now that the file has been optimized is to consolidate some things - like putting all the PATH into one (this actually isn&rsquo;t necessary, it&rsquo;s not like that it takes too long to concat to PATH)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PATH</span><span class="s2">:</span><span class="nv">$HOME</span><span class="s2">/.local/bin/:</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/go/bin:</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.platformio/packages/toolchain-xtensa/bin&#34;</span>
+</span></span></code></pre></div><p>However - do you see this nice golang optimization? <code>$(go env GOPATH)/bin</code> turned to <code>${HOME}/go/bin</code>. Apparently, <code>go env GOPATH</code> took 9ms. So this just very easily shaved it off.</p>
+<h3 id="are-we-done">Are we done?</h3>
+<p>Yep. 30ms for the content, 38ms for a vanilla shell experience. <strong>68ms</strong>. This is good enough for now. We&rsquo;re done.</p>
+<p><strong>68ms</strong>. I can work with that.</p>
+<p>Throughout this process I constantly kept asking myself - am I done? am I exaggerating? am I too tunnel-visioned? And often time I was. But my goal was to get it under 100ms, and since I got the big things down first, and I could see a clear path (from my newfound knowledge) to remove other things to shave it off even more - I did those as well.</p>
+<p><strong>And here is the final product:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># use this for profiling in case the shell becomes slow</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PROFILING_MODE</span><span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$PROFILING_MODE</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    zmodload zsh/zprof
+</span></span><span class="line"><span class="cl">    <span class="nv">zsh_start_time</span><span class="o">=</span><span class="k">$(</span>python3 -c <span class="s1">&#39;import time; print(int(time.time() * 1000))&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># compile zsh file, and source them - first run is slower</span>
+</span></span><span class="line"><span class="cl">zsource<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">file</span><span class="o">=</span><span class="nv">$1</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">zwc</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">file</span><span class="si">}</span><span class="s2">.zwc&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o"><b></span> -f <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span> <span class="o">&amp;&amp;</span> <span class="o">(</span>! -f <span class="s2">&#34;</span><span class="nv">$zwc</span><span class="s2">&#34;</span> <span class="o">||</span> <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span> -nt <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span><span class="o">)</span> <span class="o"></b></span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    zcompile <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">source</span> <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># general settings</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ZSH</span><span class="o">=</span><span class="k">$(</span>readlink -f <span class="nv">$HOME</span>/.config/zsh<span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HISTFILE</span><span class="o">=</span><span class="nv">$ZSH</span>/.zsh_history
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HISTSIZE</span><span class="o">=</span><span class="m">10000</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SAVEHIST</span><span class="o">=</span><span class="m">10000</span>
+</span></span><span class="line"><span class="cl">setopt HIST_IGNORE_ALL_DUPS
+</span></span><span class="line"><span class="cl">setopt HIST_FIND_NO_DUPS
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">KUBE_EDITOR</span><span class="o">=</span>nvim
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># NOTE : using ${HOME}/go/bin instead of $(go env GOPATH)/bin for optimization</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PATH</span><span class="s2">:</span><span class="nv">$HOME</span><span class="s2">/.local/bin/:</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/go/bin:</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.platformio/packages/toolchain-xtensa/bin&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># theme</span>
+</span></span><span class="line"><span class="cl">zsource <span class="nv">$ZSH</span>/themes/minimal-falcon.zsh-theme
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># plugins</span>
+</span></span><span class="line"><span class="cl">zsource <span class="nv">$ZSH</span>/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+</span></span><span class="line"><span class="cl">zsource <span class="nv">$ZSH</span>/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+</span></span><span class="line"><span class="cl">zstyle <span class="s1">&#39;:completion:*:*:git:*&#39;</span> script <span class="nv">$ZSH</span>/plugins/git-completions/git-completion.bash
+</span></span><span class="line"><span class="cl"><span class="nv">fpath</span><span class="o">=(</span><span class="nv">$ZSH</span>/plugins/zsh-completions/src <span class="nv">$ZSH</span>/plugins/git-completions <span class="nv">$fpath</span> ~/.zfunc<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">autoload -Uz compinit
+</span></span><span class="line"><span class="cl"><span class="nv">ZSH_COMPDUMP</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">ZSH</span><span class="si">}</span><span class="s2">/.zcompdump&#34;</span>
+</span></span><span class="line"><span class="cl">compinit -C -d <span class="s2">&#34;</span><span class="nv">$ZSH_COMPDUMP</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># aliases</span>
+</span></span><span class="line"><span class="cl">zsource <span class="nv">$ZSH</span>/aliases/customized.plugin.zsh
+</span></span><span class="line"><span class="cl">zsource <span class="nv">$ZSH</span>/aliases/kubectl.plugin.zsh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># pyenv</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PYENV_ROOT</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.pyenv&#34;</span>
+</span></span><span class="line"><span class="cl">pyenv<span class="o">()</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">unset</span> -f pyenv
+</span></span><span class="line"><span class="cl">  <span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span><span class="nb">command</span> pyenv init -<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  pyenv <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># utilities</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span> -f ~/.fzf.zsh <span class="o">]</span> <span class="o">&amp;&amp;</span> zsource ~/.fzf.zsh
+</span></span><span class="line"><span class="cl">bindkey -s <span class="s1">&#39;^f&#39;</span> <span class="s2">&#34;tmux-sessionizer\n&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># profiling</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$PROFILING_MODE</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">zsh_end_time</span><span class="o">=</span><span class="k">$(</span>python3 -c <span class="s1">&#39;import time; print(int(time.time() * 1000))&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">    zprof
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;Shell init time: </span><span class="k">$((</span>zsh_end_time <span class="o">-</span> zsh_start_time <span class="o">-</span> <span class="m">21</span><span class="k">))</span><span class="s2"> ms&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span></code></pre></div><h2 id="was-it-a-waste-of-time-my-thoughts-on-tools">Was it a waste of time? (my thoughts on tools)</h2>
+<p>Have you ever been to a really good craftsman shop? Have you seen their tools? I bet you they&rsquo;re well-oiled, functioning JUST RIGHT (they might be missing a few nuts and bolts, but nothing that hinders their main flow), and I bet you they also disassembled and assembled their bigger tools AT LEAST once, if not just to look under the hood.</p>
+<p>And that&rsquo;s the thing, isn&rsquo;t it? It doesn&rsquo;t have to be perfect - especially not for everything - it has to fit <em>you</em>. That&rsquo;s what makes it perfect. There can never be a one-size-fits-all - not for tools, and definitely not for workflows.</p>
+<p>Tools are the extensions of our mind and body. Without tools we would still be animals (we love you, opposable thumbs). If your tools slow you down, they’re no longer tools — they’re obstacles. And those are worth removing.</p>
+<p>Therefore, I believe that, as professionals, we should <strong>respect our tools</strong>.</p>
+<p>By understanding them. By taking care of them once in a while. By making them our own - They will pay dividends in professionalism, in the quality of the product and our overall joy of the craft.</p>
+
+            </div>
+        </article></main>
+</div>
+
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/thesantacloud" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://x.com/thesantacloud" target="_blank" rel="noopener noreferrer me"
+    title="X">
+    <svg viewBox="0 0 1200 1227" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path
+        d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/>
+</svg>
+</a>
+<a href="dor@santacloud.dev" target="_blank" rel="noopener noreferrer me"
+    title="Email">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2025 Dor Munis.
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
+
+    
+
+</body>
+</html>

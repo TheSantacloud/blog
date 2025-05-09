@@ -1,0 +1,16 @@
+<span id="reading-time" class="post-meta"></span>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const content = document.querySelector('.page-content');
+        if (!content) return;
+
+        const rawText = content.innerText || content.textContent || '';
+        const noCodeBlocks = rawText.replace(/```[\s\S]*?```/g, '');
+        const words = noCodeBlocks.trim().split(/\s+/).filter(Boolean);
+        const wordCount = words.length;
+        const minutes = Math.ceil(wordCount / 250);
+
+        document.getElementById('reading-time').textContent =
+            `Estimated Reading time: ${minutes} minute${minutes !== 1 ? 's' : ''}`;
+    });
+</script>

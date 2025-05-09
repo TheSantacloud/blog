@@ -2,20 +2,34 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Santacloud</title>
-    <link>https://santacloud.dev/posts/</link>
+    <link>http://localhost:1313/posts/</link>
     <description>Recent content in Posts on Santacloud</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 10 Aug 2024 19:48:37 +0300</lastBuildDate><atom:link href="https://santacloud.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 May 2025 20:07:07 +0300</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Speed Matters: How I Optimized My ZSH Startup to Under 70ms</title>
+      <link>http://localhost:1313/posts/optimizing-zsh-startup-performance/</link>
+      <pubDate>Fri, 09 May 2025 20:07:07 +0300</pubDate>
+      
+      <guid>http://localhost:1313/posts/optimizing-zsh-startup-performance/</guid>
+      
+      <description>&lt;h1 id=&#34;speed-matters-how-i-optimized-my-zsh-startup-to-under-70ms&#34;&gt;Speed Matters: How I Optimized My ZSH Startup to Under 70ms&lt;/h1&gt;
+&lt;p&gt;Speed isn’t just about shaving milliseconds for fun (although&amp;hellip; that &lt;em&gt;is&lt;/em&gt; kind of fun). It’s about protecting &lt;strong&gt;flow&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;When you’re in the zone, every interruption counts - even a half-second delay opening a terminal. These delays break momentum. They add friction. And over time, they affect your behavior subconsciously: you stop opening new shells, hesitate to try quick commands, avoid the very tools that should be helping you.&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>Creating My Blog: A Developer&#39;s Tale of Over-Engineering (Using Obsidian, Hugo and GitHub Pages)</title>
-      <link>https://santacloud.dev/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/</link>
+      <link>http://localhost:1313/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/</link>
       <pubDate>Sat, 10 Aug 2024 19:48:37 +0300</pubDate>
       
-      <guid>https://santacloud.dev/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/</guid>
+      <guid>http://localhost:1313/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/</guid>
       
-      <description>Intro TL;DR: If you just wanna know how to do this, and don&amp;rsquo;t care about the actual post.
-I&amp;rsquo;ve wanted to start a blog for quite a while now, and never got around to it because of various nonsense excuses. When I finally decided to start, I struggled to choose the content for the first post. And so I did what every decent software developer would do when they begin: over-engineered the shit out of the blog itself rather than focus on what matters - the content.</description>
+      <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;#dead-eyed-tutorial&#34;&gt;TL;DR:&lt;/a&gt; If you just wanna know how to do this, and don&amp;rsquo;t care about the actual post.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve wanted to start a blog for quite a while now, and never got around to it because of various nonsense excuses. When I finally decided to start, I struggled to choose the content for the first post. And so I did what every decent software developer would do when they begin: over-engineered the shit out of the blog itself rather than focus on what matters - the content. But this over-engineering was quick, integrated smoothly with my workflow, was relatively isolated and not super opinionated, and presented an integration issue that, once solved, ended up being pretty damn convenient.&lt;/p&gt;</description>
       
     </item>
     

@@ -10,6 +10,14 @@ ignoreErrors = ["additional-script-loading-error"]
 noClasses = false
 [markup.goldmark.renderer]
 unsafe = true
+[markup.goldmark.parser]
+autoHeadingID = true
+[markup.goldmark.extensions]
+[markup.goldmark.extensions.passthrough]
+enable = true
+[markup.goldmark.extensions.passthrough.delimiters]
+block = [["\\[", "\\]"], ["$$", "$$"]]
+inline = [["\\(", "\\)"]]
 [markup.tableOfContents]
 startLevel = 2
 endLevel = 4
@@ -48,6 +56,7 @@ toc = false                             # set to false to disable table of conte
 tocOpen = false                         # set to true to open table of contents by default
 goToTop = true                          # set to false to disable 'go to top' button
 rssFeedDescription = "summary"
+math = true
 
 [params.author]
 intro = "Santacloud"
