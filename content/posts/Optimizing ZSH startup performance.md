@@ -228,7 +228,7 @@ Oh. Simple. Just put python in my PATH.
 
 ```bash
 $ which python
-/Users/dormunis/.pyenv/shims/python
+/Users/santacloud/.pyenv/shims/python
 ```
 
 Cool cool cool, so let's do:
