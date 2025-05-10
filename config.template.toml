@@ -33,7 +33,7 @@ url = "https://x.com/thesantacloud"
 
 [[params.socialIcons]]
 name = "email"
-url = "dormunis@gmail.com"
+url = "mailto:dor@santacloud.dev"
 
 [menu]
 [[menu.main]]
