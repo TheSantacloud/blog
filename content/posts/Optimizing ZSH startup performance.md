@@ -1,6 +1,6 @@
 ---
 timestamp: 2025-05-09T13:07:07+03:00
-modified: 2025-05-09T20:07:07+03:00
+modified: 2025-05-10T07:37:07+03:00
 draft: "false"
 title: "Speed Matters: How I Optimized My ZSH Startup to Under 70ms"
 creation_date: 2025-05-09T20:07:07+03:00
@@ -351,10 +351,10 @@ zsh/.zcompdump
 ```bash
 autoload -Uz compinit
 ZSH_COMPDUMP="${ZSH}/.zcompdump"
-compinit -d "$ZSH_COMPDUMP"
+compinit -C -d "$ZSH_COMPDUMP"
 ```
 
-> **Note:** you can also add `-C` to bypass the check for rebuilding the dumpfile and the call to `compaudit`. This can shave 15ms more.
+> **Note:** `-C` to bypass the check for rebuilding the dumpfile and the call to `compaudit`. This can shave 15ms more. I feel comfortable disable `compaudit` (security check) because it check the security within `fpath`. All of these are trusted sources that I never update, and my computer is just for me. However, if these don't apply to you - I would advice to rethink your decision and understand thoroughly what `compaudit` does.
 
 #### zsource 
 
@@ -395,11 +395,29 @@ However - do you see this nice golang optimization? `$(go env GOPATH)/bin` turne
 
 Yep. 30ms for the content, 38ms for a vanilla shell experience. **68ms**. This is good enough for now. We're done.
 
-**68ms**. I can work with that.
-
 Throughout this process I constantly kept asking myself - am I done? am I exaggerating? am I too tunnel-visioned? And often time I was. But my goal was to get it under 100ms, and since I got the big things down first, and I could see a clear path (from my newfound knowledge) to remove other things to shave it off even more - I did those as well.
 
-**And here is the final product:**
+#### Final time measurements
+
+Overall: **30ms** (full load, not considering vanilla zsh time). I can work with that.
+Like in the previous table, the sum of the individual parts is greater than the actual zshrc runtime. But to illustrate the vast difference:
+
+| Component                    | Duration (in milliseconds) |
+| ---------------------------- | -------------------------- |
+| general settings             | 3ms                        |
+| falcon theme                 | 4ms                        |
+| compinit (with nothing else) | 15ms                       |
+| all plugins + compinit       | 23ms                       |
+| golang PATH                  | 9ms                        |
+| python uv                    | removed                    |
+| docker (w/ compinit)         | removed (already exists)   |
+| pnpm                         | removed                    |
+| fzf+tmux                     | 2ms                        |
+| aliases - all                | 2ms                        |
+| pyenv                        | 0ms                        |
+| google-sdk                   | removed                    |
+
+#### Final product
 
 ```bash
 # use this for profiling in case the shell becomes slow

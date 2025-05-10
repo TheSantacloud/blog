@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Santacloud</title>
-    <link>http://localhost:1313/posts/</link>
+    <link>https://santacloud.dev/posts/</link>
     <description>Recent content in Posts on Santacloud</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 May 2025 20:07:07 +0300</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 May 2025 07:37:07 +0300</lastBuildDate><atom:link href="https://santacloud.dev/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Speed Matters: How I Optimized My ZSH Startup to Under 70ms</title>
-      <link>http://localhost:1313/posts/optimizing-zsh-startup-performance/</link>
-      <pubDate>Fri, 09 May 2025 20:07:07 +0300</pubDate>
+      <link>https://santacloud.dev/posts/optimizing-zsh-startup-performance/</link>
+      <pubDate>Sat, 10 May 2025 07:37:07 +0300</pubDate>
       
-      <guid>http://localhost:1313/posts/optimizing-zsh-startup-performance/</guid>
+      <guid>https://santacloud.dev/posts/optimizing-zsh-startup-performance/</guid>
       
       <description>&lt;h1 id=&#34;speed-matters-how-i-optimized-my-zsh-startup-to-under-70ms&#34;&gt;Speed Matters: How I Optimized My ZSH Startup to Under 70ms&lt;/h1&gt;
 &lt;p&gt;Speed isn’t just about shaving milliseconds for fun (although&amp;hellip; that &lt;em&gt;is&lt;/em&gt; kind of fun). It’s about protecting &lt;strong&gt;flow&lt;/strong&gt;.&lt;/p&gt;
@@ -22,10 +22,10 @@
     
     <item>
       <title>Creating My Blog: A Developer&#39;s Tale of Over-Engineering (Using Obsidian, Hugo and GitHub Pages)</title>
-      <link>http://localhost:1313/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/</link>
+      <link>https://santacloud.dev/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/</link>
       <pubDate>Sat, 10 Aug 2024 19:48:37 +0300</pubDate>
       
-      <guid>http://localhost:1313/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/</guid>
+      <guid>https://santacloud.dev/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/</guid>
       
       <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;#dead-eyed-tutorial&#34;&gt;TL;DR:&lt;/a&gt; If you just wanna know how to do this, and don&amp;rsquo;t care about the actual post.&lt;/p&gt;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<html lang="en-us"><head><meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,7 +18,7 @@
 <meta property="og:locale" content="en-us" />
 <meta name="language" content="en-us" />
 
-  <link rel="alternate" hreflang="en" href="http://localhost:1313/posts/optimizing-zsh-startup-performance/" title="" />
+  <link rel="alternate" hreflang="en" href="https://santacloud.dev/posts/optimizing-zsh-startup-performance/" title="" />
 
 
 
@@ -29,9 +29,9 @@
     
 
     <meta property="og:type" content="article" />
-    <meta property="og:article:published_time" content=2025-05-09T20:07:07&#43;0300 />
-    <meta property="article:published_time" content=2025-05-09T20:07:07&#43;0300 />
-    <meta property="og:url" content="http://localhost:1313/posts/optimizing-zsh-startup-performance/" />
+    <meta property="og:article:published_time" content=2025-05-10T07:37:07&#43;0300 />
+    <meta property="article:published_time" content=2025-05-10T07:37:07&#43;0300 />
+    <meta property="og:url" content="https://santacloud.dev/posts/optimizing-zsh-startup-performance/" />
 
     
     <meta property="og:article:author" content="Dor Munis" />
@@ -51,11 +51,11 @@
         "@type": "Person",
         "name": ""
         },
-        "datePublished": "2025-05-09",
+        "datePublished": "2025-05-10",
         "description": "",
-        "wordCount":  3100 ,
+        "wordCount":  3224 ,
         "mainEntityOfPage": "True",
-        "dateModified": "2025-05-09",
+        "dateModified": "2025-05-10",
         "image": {
         "@type": "imageObject",
         "url": ""
@@ -72,7 +72,7 @@
 
     
 
-    <link rel="canonical" href="http://localhost:1313/posts/optimizing-zsh-startup-performance/">
+    <link rel="canonical" href="https://santacloud.dev/posts/optimizing-zsh-startup-performance/">
     <link href="/style.min.d43bc6c79baa87f006efb2b92be952faeedeb1a3ab626c1d6abda52eae049355.css" rel="stylesheet">
     <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
 
@@ -86,7 +86,7 @@
 
 
 
-<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+<link rel="manifest" href="https://santacloud.dev/site.webmanifest">
 
 <meta name="msapplication-config" content="/browserconfig.xml">
 <meta name="msapplication-TileColor" content="#2d89ef">
@@ -111,14 +111,29 @@
         {left: '$', right: '$', display: false}
       ]
     });"></script>
-</head>
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-31GQMZ5FW8"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-31GQMZ5FW8');
+        }
+      </script></head>
 <body data-theme = "dark" class="notransition">
 
-<script src="/js/theme.js"></script>
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
 
 <div class="navbar" role="navigation">
     <nav class="menu" aria-label="Main Navigation">
-        <a href="http://localhost:1313/" class="logo">
+        <a href="https://santacloud.dev/" class="logo">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
 stroke-linejoin="round" class="feather feather-home">
@@ -195,7 +210,7 @@ stroke-linejoin="round" class="feather feather-home">
                 <div class="meta-line">
                     
                     
-                    <time datetime="2025-05-09T20:07:07&#43;03:00" itemprop="datePublished">May 9, 2025</time>
+                    <time datetime="2025-05-10T07:37:07&#43;03:00" itemprop="datePublished">May 10, 2025</time>
                     
                     <span id="reading-time" class="reading-time"></span>
                 </div>
@@ -556,9 +571,9 @@ $$ Benefit < F(Time, Frustration) $$<h3 id="initial-zsh-config">Initial ZSH Conf
 </code></pre><h4 id="compiling-zshrc-as-a-whole">Compiling zshrc as a whole</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">autoload -Uz compinit
 </span></span><span class="line"><span class="cl"><span class="nv">ZSH_COMPDUMP</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">ZSH</span><span class="si">}</span><span class="s2">/.zcompdump&#34;</span>
-</span></span><span class="line"><span class="cl">compinit -d <span class="s2">&#34;</span><span class="nv">$ZSH_COMPDUMP</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">compinit -C -d <span class="s2">&#34;</span><span class="nv">$ZSH_COMPDUMP</span><span class="s2">&#34;</span>
 </span></span></code></pre></div><blockquote>
-<p><strong>Note:</strong> you can also add <code>-C</code> to bypass the check for rebuilding the dumpfile and the call to <code>compaudit</code>. This can shave 15ms more.</p>
+<p><strong>Note:</strong> <code>-C</code> to bypass the check for rebuilding the dumpfile and the call to <code>compaudit</code>. This can shave 15ms more. I feel comfortable disable <code>compaudit</code> (security check) because it check the security within <code>fpath</code>. All of these are trusted sources that I never update, and my computer is just for me. However, if these don&rsquo;t apply to you - I would advice to rethink your decision and understand thoroughly what <code>compaudit</code> does.</p>
 </blockquote>
 <h4 id="zsource">zsource</h4>
 <p>I created a minor helper function:</p>
@@ -582,9 +597,69 @@ $$ Benefit < F(Time, Frustration) $$<h3 id="initial-zsh-config">Initial ZSH Conf
 </span></span></code></pre></div><p>However - do you see this nice golang optimization? <code>$(go env GOPATH)/bin</code> turned to <code>${HOME}/go/bin</code>. Apparently, <code>go env GOPATH</code> took 9ms. So this just very easily shaved it off.</p>
 <h3 id="are-we-done">Are we done?</h3>
 <p>Yep. 30ms for the content, 38ms for a vanilla shell experience. <strong>68ms</strong>. This is good enough for now. We&rsquo;re done.</p>
-<p><strong>68ms</strong>. I can work with that.</p>
 <p>Throughout this process I constantly kept asking myself - am I done? am I exaggerating? am I too tunnel-visioned? And often time I was. But my goal was to get it under 100ms, and since I got the big things down first, and I could see a clear path (from my newfound knowledge) to remove other things to shave it off even more - I did those as well.</p>
-<p><strong>And here is the final product:</strong></p>
+<h4 id="final-time-measurements">Final time measurements</h4>
+<p>Overall: <strong>30ms</strong> (full load, not considering vanilla zsh time). I can work with that.
+Like in the previous table, the sum of the individual parts is greater than the actual zshrc runtime. But to illustrate the vast difference:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Component</th>
+          <th style="text-align: left">Duration (in milliseconds)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">general settings</td>
+          <td style="text-align: left">3ms</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">falcon theme</td>
+          <td style="text-align: left">4ms</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">compinit (with nothing else)</td>
+          <td style="text-align: left">15ms</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">all plugins + compinit</td>
+          <td style="text-align: left">23ms</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">golang PATH</td>
+          <td style="text-align: left">9ms</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">python uv</td>
+          <td style="text-align: left">removed</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">docker (w/ compinit)</td>
+          <td style="text-align: left">removed (already exists)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pnpm</td>
+          <td style="text-align: left">removed</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">fzf+tmux</td>
+          <td style="text-align: left">2ms</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">aliases - all</td>
+          <td style="text-align: left">2ms</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">pyenv</td>
+          <td style="text-align: left">0ms</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">google-sdk</td>
+          <td style="text-align: left">removed</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="final-product">Final product</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># use this for profiling in case the shell becomes slow</span>
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PROFILING_MODE</span><span class="o">=</span><span class="m">0</span>
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$PROFILING_MODE</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
@@ -711,7 +786,7 @@ $$ Benefit < F(Time, Frustration) $$<h3 id="initial-zsh-config">Initial ZSH Conf
 
 
     
-    <script async src="http://localhost:1313/js/main.js" ></script>
+    <script src="https://santacloud.dev/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
 
     
 
