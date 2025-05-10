@@ -1,16 +1,20 @@
 {{ define "main" }}
 <style>
-.meta-line {
-    display: flex;
-    justify-content: flex-start;
-    gap: 1.25rem;
-    font-size: 0.9rem;
-    color: var(--secondary-text-color, #aaa);
-    margin-top: 0.5rem;
-}
-.meta-line span {
-    opacity: 0.8;
-}
+    .meta-line {
+        display: flex;
+        justify-content: flex-start;
+        gap: 1.25rem;
+        font-size: 0.9rem;
+        color: var(--secondary-text-color, #aaa);
+        margin-top: 0.5rem;
+    }
+
+    .katex-display {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+    }
 </style>
 
 <div class="wrapper post">
@@ -21,8 +25,9 @@
 
                 <div class="meta-line">
                     {{ with .Date }}
-                        {{ $ISO_time := dateFormat "2006-01-02T15:04:05-07:00" . }}
-                        <time datetime="{{ $ISO_time }}" itemprop="datePublished">{{ . | time.Format ":date_medium" }}</time>
+                    {{ $ISO_time := dateFormat "2006-01-02T15:04:05-07:00" . }}
+                    <time datetime="{{ $ISO_time }}" itemprop="datePublished">{{ . | time.Format ":date_medium"
+                        }}</time>
                     {{ end }}
                     <span id="reading-time" class="reading-time"></span>
                 </div>
@@ -40,4 +45,3 @@
 </div>
 
 {{ end }}
-

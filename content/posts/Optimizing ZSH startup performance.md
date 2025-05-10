@@ -210,7 +210,7 @@ poetry  0.22s user 0.05s system 97% cpu 0.276 total
 
 Yep. you're reading this right. 276ms to print 74 lines/4323 characters to screen.
 
-A while ago I removed the base python binary from man because it kept on confusing me, and breaking things. So I use pyenv exclusively for python.
+A while ago I removed the base python binary that comes preinstalled on Mac because it kept on confusing me, and breaking things. So I use pyenv exclusively for python.
 
 OK. let's take a look at it (this is how they tell you how to install in [their official readme](https://github.com/pyenv/pyenv/tree/f216b4bfb1598347137ecb3c4a8f893baf9ea37f?tab=readme-ov-file#zsh), expand ZSH):
 ```bash
@@ -469,13 +469,13 @@ if [ $PROFILING_MODE -ne 0 ]; then
 fi
 ```
 
-## Was it a waste of time? (my thoughts on tools)
+## Summary - was it a waste of time? (and my thoughts on tools)
 
 Have you ever been to a really good craftsman shop? Have you seen their tools? I bet you they're well-oiled, functioning JUST RIGHT (they might be missing a few nuts and bolts, but nothing that hinders their main flow), and I bet you they also disassembled and assembled their bigger tools AT LEAST once, if not just to look under the hood.
 
 And that's the thing, isn't it? It doesn't have to be perfect - especially not for everything - it has to fit *you*. That's what makes it perfect. There can never be a one-size-fits-all - not for tools, and definitely not for workflows.
 
-Tools are the extensions of our mind and body. Without tools we would still be animals (we love you, opposable thumbs). If your tools slow you down, they’re no longer tools — they’re obstacles. And those are worth removing.
+Tools are the extensions of our mind and body. Without tools we would still be animals (we love you, opposable thumbs). If your tools slow you down, they’re no longer tools - they’re obstacles. And those are worth removing.
 
 Therefore, I believe that, as professionals, we should **respect our tools**. 
 

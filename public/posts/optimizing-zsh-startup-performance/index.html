@@ -53,7 +53,7 @@
         },
         "datePublished": "2025-05-09",
         "description": "",
-        "wordCount":  3094 ,
+        "wordCount":  3100 ,
         "mainEntityOfPage": "True",
         "dateModified": "2025-05-09",
         "image": {
@@ -169,17 +169,21 @@ stroke-linejoin="round" class="feather feather-home">
 </div>
 
 <style>
-.meta-line {
-    display: flex;
-    justify-content: flex-start;
-    gap: 1.25rem;
-    font-size: 0.9rem;
-    color: var(--secondary-text-color, #aaa);
-    margin-top: 0.5rem;
-}
-.meta-line span {
-    opacity: 0.8;
-}
+    .meta-line {
+        display: flex;
+        justify-content: flex-start;
+        gap: 1.25rem;
+        font-size: 0.9rem;
+        color: var(--secondary-text-color, #aaa);
+        margin-top: 0.5rem;
+    }
+
+    .katex-display {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+    }
 </style>
 
 <div class="wrapper post">
@@ -190,8 +194,8 @@ stroke-linejoin="round" class="feather feather-home">
 
                 <div class="meta-line">
                     
-                        
-                        <time datetime="2025-05-09T20:07:07&#43;03:00" itemprop="datePublished">May 9, 2025</time>
+                    
+                    <time datetime="2025-05-09T20:07:07&#43;03:00" itemprop="datePublished">May 9, 2025</time>
                     
                     <span id="reading-time" class="reading-time"></span>
                 </div>
@@ -459,7 +463,7 @@ $$ Benefit < F(Time, Frustration) $$<h3 id="initial-zsh-config">Initial ZSH Conf
 </span></span><span class="line"><span class="cl">&lt;<span class="nb">help</span> content&gt;
 </span></span><span class="line"><span class="cl">poetry  0.22s user 0.05s system 97% cpu 0.276 total
 </span></span></code></pre></div><p>Yep. you&rsquo;re reading this right. 276ms to print 74 lines/4323 characters to screen.</p>
-<p>A while ago I removed the base python binary from man because it kept on confusing me, and breaking things. So I use pyenv exclusively for python.</p>
+<p>A while ago I removed the base python binary that comes preinstalled on Mac because it kept on confusing me, and breaking things. So I use pyenv exclusively for python.</p>
 <p>OK. let&rsquo;s take a look at it (this is how they tell you how to install in <a href="https://github.com/pyenv/pyenv/tree/f216b4bfb1598347137ecb3c4a8f893baf9ea37f?tab=readme-ov-file#zsh">their official readme</a>, expand ZSH):</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># pyenv</span>
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PYENV_ROOT</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.pyenv&#34;</span>
@@ -646,10 +650,10 @@ $$ Benefit < F(Time, Frustration) $$<h3 id="initial-zsh-config">Initial ZSH Conf
 </span></span><span class="line"><span class="cl">    zprof
 </span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;Shell init time: </span><span class="k">$((</span>zsh_end_time <span class="o">-</span> zsh_start_time <span class="o">-</span> <span class="m">21</span><span class="k">))</span><span class="s2"> ms&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="k">fi</span>
-</span></span></code></pre></div><h2 id="was-it-a-waste-of-time-my-thoughts-on-tools">Was it a waste of time? (my thoughts on tools)</h2>
+</span></span></code></pre></div><h2 id="summary---was-it-a-waste-of-time-and-my-thoughts-on-tools">Summary - was it a waste of time? (and my thoughts on tools)</h2>
 <p>Have you ever been to a really good craftsman shop? Have you seen their tools? I bet you they&rsquo;re well-oiled, functioning JUST RIGHT (they might be missing a few nuts and bolts, but nothing that hinders their main flow), and I bet you they also disassembled and assembled their bigger tools AT LEAST once, if not just to look under the hood.</p>
 <p>And that&rsquo;s the thing, isn&rsquo;t it? It doesn&rsquo;t have to be perfect - especially not for everything - it has to fit <em>you</em>. That&rsquo;s what makes it perfect. There can never be a one-size-fits-all - not for tools, and definitely not for workflows.</p>
-<p>Tools are the extensions of our mind and body. Without tools we would still be animals (we love you, opposable thumbs). If your tools slow you down, they’re no longer tools — they’re obstacles. And those are worth removing.</p>
+<p>Tools are the extensions of our mind and body. Without tools we would still be animals (we love you, opposable thumbs). If your tools slow you down, they’re no longer tools - they’re obstacles. And those are worth removing.</p>
 <p>Therefore, I believe that, as professionals, we should <strong>respect our tools</strong>.</p>
 <p>By understanding them. By taking care of them once in a while. By making them our own - They will pay dividends in professionalism, in the quality of the product and our overall joy of the craft.</p>
 
