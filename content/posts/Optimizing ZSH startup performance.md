@@ -489,12 +489,16 @@ fi
 
 ## Summary - was it a waste of time? (and my thoughts on tools)
 
-Have you ever been to a really good craftsman shop? Have you seen their tools? I bet you they're well-oiled, functioning JUST RIGHT (they might be missing a few nuts and bolts, but nothing that hinders their main flow), and I bet you they also disassembled and assembled their bigger tools AT LEAST once, if not just to look under the hood.
+Have you ever been to a really good craftsman’s shop? Their tools are often well-worn but finely tuned - oiled, efficient, familiar. They might be missing a few bolts, but nothing that disrupts their flow. And chances are, the craftsman has disassembled and reassembled every one of them, if only to understand what makes them tick.
 
-And that's the thing, isn't it? It doesn't have to be perfect - especially not for everything - it has to fit *you*. That's what makes it perfect. There can never be a one-size-fits-all - not for tools, and definitely not for workflows.
+That’s the thing: tools don’t have to be perfect. They just have to fit _you_. That’s what makes them perfect. There’s no one-size-fits-all - not for tools, and definitely not for workflows.
 
-Tools are the extensions of our mind and body. Without tools we would still be animals (we love you, opposable thumbs). If your tools slow you down, they’re no longer tools - they’re obstacles. And those are worth removing.
+Tools are extensions of our mind and body. Without them, we would've still been animals (we love you, opposable thumbs). If your tools slow you down, they’re no longer tools - they’re obstacles. And obstacles are worth removing.
 
-Therefore, I believe that, as professionals, we should **respect our tools**. 
+So yes, we should **respect our tools**.
 
-By understanding them. By taking care of them once in a while. By making them our own - They will pay dividends in professionalism, in the quality of the product and our overall joy of the craft.
+But we should also remember why they exist in the first place: **to help us get the *actual* work done**. The best way to understand a tool is to _use_ it - not to obsess over how someone else might configure it or chase every theoretical optimization. Make it work. Use it. Maintain it when needed.
+
+It’s easy to fall into the trap of endlessly tweaking your setup, chasing that last millisecond. But tools are only valuable if they help you _do_ the work - not just prepare to do it.
+
+By understanding our tools, shaping them to fit us, and maintaining them from time to time, they’ll repay us - in professionalism, in product quality, and in the joy of the craft.
