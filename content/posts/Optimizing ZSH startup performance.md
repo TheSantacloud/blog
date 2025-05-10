@@ -4,8 +4,10 @@ modified: 2025-05-10T07:37:07+03:00
 draft: "false"
 title: "Speed Matters: How I Optimized My ZSH Startup to Under 70ms"
 creation_date: 2025-05-09T20:07:07+03:00
+tags: ["zsh", "performance", "shell", "macos", "software", "software-development", "dotfiles", "terminal"]
+categories: ["tutorials", "productivity", "software-development"]
 ---
-# Speed Matters: How I Optimized My ZSH Startup to Under 70ms 
+# Speed Matters: How I Optimized My ZSH Startup to Under 70ms
 
 Speed isn’t just about shaving milliseconds for fun (although... that _is_ kind of fun). It’s about protecting **flow**.
 
@@ -23,28 +25,28 @@ This is the story of how I fixed one of my most important tools in my toolkit wh
 
 I got up this morning, started working on some project ([Lance](https://github.com/TheSantacloud/lance), fyi), put on some music to get the flow going, and opened up my terminal - and then I noticed that my shell takes FOREVER to load. Which is weird because I fixed it like a year ago. It **really** bugged me. I tried ignoring it, but it has a compounding effect every time I opened a new shell (which is ALL the time, in my workflow).
 
-This wasn't the "right" thing to do at the moment, I thought... but I knew that I had a hard stop in 1 hour anyway, so down the rabbit-hole I went. 
+This wasn't the "right" thing to do at the moment, I thought... but I knew that I had a hard stop in 1 hour anyway, so down the rabbit-hole I went.
 ## What I'm using
 
 - [Macbook Pro M1](https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs) 2020, 8-core 3.2GHz CPU
 * macOS Sequoia 15.4.1
 - [Ghostty](https://ghostty.org/)
-- [ZSH](https://en.wikipedia.org/wiki/Z_shell) obviously  
+- [ZSH](https://en.wikipedia.org/wiki/Z_shell) obviously
 - My IP address is 127.0.0.1
 
 ## Initial state
 
-### Why are you not using `zsh-defer`, `oh-my-zsh`, `zplug`, `zdeeznut`
+### Why are you not using `zsh-defer`, `oh-my-zsh`, `zplug`, `zdeeznuts`
 
 I did use [oh-my-zsh](https://ohmyz.sh/) for a long time (years, actually) - but it became too tedious and slow. I had a lot of custom plugins that modified my prompt in zsh so I was somewhat familiar with zsh, so I just resorted to creating my own `~/.zshrc` file, because I figured - how hard can it be? it wasn't. It also gave me power that I didn't have before - in not using this "declarative" style configuration for it with oh-my-zsh (by just having a list that contains all the plugins I want from a magical and unknown location), I gained the ability to control my shell **and its load order** myself using ✨code✨.
 
 As for the other things - I haven't tried most of them. But I find it hard to believe that they are something that I HAVE TO HAVE. They just sound simple enough... defer is just doing something later. zplug? just use a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules). Less dependencies == Less things to break (I actually briefly wrote about it in my first blogpost about [isolating unknowns](https://santacloud.dev/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/#isolating-unknowns))
 
-I should really write sometime about the dependency hellscape jungle in the modern software age that we live in right now, but that's not the point right now. 
+I should really write sometime about the dependency hellscape jungle in the modern software age that we live in right now, but that's not the point right now.
 
 ### So- my baseline was 452ms startup time
 
-Honestly, at that point I didn't measure how much my startup time takes. It just felt slow and tedious. For this blogpost I reverted and measured it and got that it takes ~**452ms** to load using: 
+Honestly, at that point I didn't measure how much my startup time takes. It just felt slow and tedious. For this blogpost I reverted and measured it and got that it takes ~**452ms** to load using:
 
 ```bash
 time zsh -i -c exit
@@ -63,7 +65,7 @@ That's ~**20.34B** instructions for EVERY TIME I run the shell (and that's being
 - Reads from disk (I guess we call it drive now) and loads system wide config
 - Some terminal emulator overhead
 
-takes ~**38ms**, or ~**1.71B** instructions (according to previous calculation). 
+takes ~**38ms**, or ~**1.71B** instructions (according to previous calculation).
 
 This means that my very custom setup takes ~**414ms** / ~**18.63B** instructions / **91.59%** of the time for every shell spawn.
 
@@ -147,10 +149,10 @@ if [ -f "${HOME}/Downloads/google-cloud-sdk/completion.zsh.inc" ]; then . "${HOM
 desc
 ```
 
-## Profiling and optimizing 
+## Profiling and optimizing
 
 What do you know - thank you past-self for giving me this profiling thing to work with (literally the first line of code), I had absolutely no recollection of doing this.
-### Figuring out the primary culprits 
+### Figuring out the primary culprits
 
 I switched the `PROFILING_MODE` flag to 1 and fired a new shell (I won't show the output here, because it's very big and the formatting just doesn't work here. Just try it for yourself to see) -
 
@@ -163,7 +165,7 @@ zsh_end_time=$(python3 -c 'import time; print(int(time.time() * 1000))')
 echo "Shell init time: $((zsh_end_time - zsh_start_time)) ms"
 ```
 
-This wouldn't give me the initial shell startup (that we already know takes 38ms), but I have nothing I can do about it, so this is plenty good enough, and I just subtracted this time (21ms) in the table below. 
+This wouldn't give me the initial shell startup (that we already know takes 38ms), but I have nothing I can do about it, so this is plenty good enough, and I just subtracted this time (21ms) in the table below.
 
 I proceeded to comment out everything, and start with a basic binary search to find the major culprits. For this test I created a new shell to avoid cache as much as possible (since the issue I wanted to solve was **new** shell spawns). This here is the breakdown I did after the fact (for the purposes of this blogpost. In reality I just binary searched, and squashed the biggest problems in order until I was happy)
 
@@ -188,7 +190,7 @@ I proceeded to comment out everything, and start with a basic binary search to f
 | pyenv                                  | 172ms                      |                     |
 | google-sdk                             | 1ms                        |                     |
 
-### Removing everything I don't need 
+### Removing everything I don't need
 
 Pretty straight forward, and easiest
 
@@ -200,7 +202,7 @@ Pretty straight forward, and easiest
 
 This one bugged me. I use Python pretty frequently, and [pyenv](https://github.com/pyenv/pyenv) is a good tool to manage python versions, and integrates well with the rest of the python virtualenv programs like `poetry`.
 
-But this program man... Just try to type in `poetry` in your terminal to get the help menu. 
+But this program man... Just try to type in `poetry` in your terminal to get the help menu.
 
 ```bash
 $ time poetry
@@ -232,7 +234,7 @@ $ which python
 Cool cool cool, so let's do:
 
 ```bash
-ln -sf "$PYENV_ROOT/shims/python"       ~/.local/bin/python 
+ln -sf "$PYENV_ROOT/shims/python"       ~/.local/bin/python
 ln -sf "$PYENV_ROOT/shims/pip"       ~/.local/bin/pip
 ln -sf "$PYENV_ROOT/shims/python3"       ~/.local/bin/python3
 ln -sf "$PYENV_ROOT/shims/pip3"       ~/.local/bin/pip3
@@ -266,7 +268,7 @@ What? How? Who? What?
 
 I obviously have this somewhere, and the only place it can be is where I load completions. So I added this script to figure it out:
 
-```bash 
+```bash
 for dir in $fpath; do
   if [[ -f "$dir/_docker" ]]; then
     echo "Found _docker in: $dir"
@@ -278,7 +280,7 @@ And what do you know, docker exists there already (in `$ZSH/plugins/zsh-completi
 
 Onwards and upwards!
 
-### Colors 
+### Colors
 
 There's really no justification to take 25ms to color the prompt and put some extra information there.
 
@@ -356,7 +358,7 @@ compinit -C -d "$ZSH_COMPDUMP"
 
 > **Note:** `-C` to bypass the check for rebuilding the dumpfile and the call to `compaudit`. This can shave 15ms more. I feel comfortable disable `compaudit` (security check) because it check the security within `fpath`. All of these are trusted sources that I never update, and my computer is just for me. However, if these don't apply to you - I would advice to rethink your decision and understand thoroughly what `compaudit` does.
 
-#### zsource 
+#### zsource
 
 I created a minor helper function:
 ```bash

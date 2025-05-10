@@ -4,6 +4,8 @@ modified: 2024-08-10T19:48:37+03:00
 draft: "false"
 title: "Creating My Blog: A Developer's Tale of Over-Engineering (Using Obsidian, Hugo and GitHub Pages)"
 creation_date: 2024-08-10T19:48:37+03:00
+tags: ["hugo", "obsidian", "static site generator", "developer blog", "github pages", "personal workflow", "templater plugin", "zettelkasten", "automation", "overengineering"]
+categories: ["tutorials", "software-development", "devtools"]
 ---
 ## Intro
 
@@ -13,7 +15,7 @@ I've wanted to start a blog for quite a while now, and never got around to it be
 
 *Lightbulb* - this would be the topic of my first post! Instead of just a tutorial, it will be a walkthrough on how an actual development process of something pretty simple actually goes and how I personally approach things (I'll save the obligatory 'what I think about all this AI shenanigans' post for later. This is not LinkedIn after all.)
 
-**P.S.:** I'm well aware that there are probably more blog creation platforms available out there than the amount of stars in the visible universe. And I guess that with some research I would probably find something pretty damn fantastic. But I wanted do it myself because of reasons. So there. 
+**P.S.:** I'm well aware that there are probably more blog creation platforms available out there than the amount of stars in the visible universe. And I guess that with some research I would probably find something pretty damn fantastic. But I wanted do it myself because of reasons. So there.
 
 ## What I want
 
@@ -23,15 +25,15 @@ I want a blog that will blend seamlessly with my daily driver for note taking, a
 1. Use [Obsidian](https://obsidian.md/) exclusively for writing, editing, and managing posts. No extra [vaults](https://help.obsidian.md/Files+and+folders/Manage+vaults). The blog should integrate smoothly with my existing workflow (because I have automatic backups and versioning, and because I said so.)
 2. Nice looking blog - plain HTML with won't cut it because of my Obsidian requirement, so I need a markdown parser of some sort.
 
-## How I chose the tools 
+## How I chose the tools
 
 1. [Obsidian](https://obsidian.md/) - My go-to for all note-taking. I use a [Zettlekasten](https://zettelkasten.de/introduction/)-esque method, dumping all notes into one directory with timestamps and links. It's markdown-based and has vim-mode, plugins, [internal linking](https://help.obsidian.md/Linking+notes+and+files/Internal+links) and [searching](https://help.obsidian.md/Plugins/Search) capabilities. This made it a no-brainer for me.
 3. [GitHub Pages](https://pages.github.com/) - I've been using [GitHub](https://github.com) for years, so it was the obvious choice for hosting and publishing. Static pages fit my needs perfectly, avoiding unnecessary complexity. I was thinking about hosting it on one of my Raspberry PIs I have lying around but then I figured... nah.
-4. [Hugo](https://gohugo.io/) - This Go-based website framework won out after some research (Googling "Github static blog serving" and then "Jekyll vs. "). I considered [Jekyll](https://jekyllrb.com/), [11ty](https://www.11ty.dev/), and [Astro](https://astro.build/), and since this is a website building framework, I was pretty sure Hugo's use of Go will use its native templating language. Plus, Go > Ruby, tsx, and JavaScript in my book. 
+4. [Hugo](https://gohugo.io/) - This Go-based website framework won out after some research (Googling "Github static blog serving" and then "Jekyll vs. "). I considered [Jekyll](https://jekyllrb.com/), [11ty](https://www.11ty.dev/), and [Astro](https://astro.build/), and since this is a website building framework, I was pretty sure Hugo's use of Go will use its native templating language. Plus, Go > Ruby, tsx, and JavaScript in my book.
 
 ## Hello blorgd (nailed it) - initial setup
 
-Nice, We've got the tools. Let's put them to use. 
+Nice, We've got the tools. Let's put them to use.
 
 A [quick intro to Hugo](https://gohugo.io/getting-started/quick-start/) yielded the following to get started:
 
@@ -249,12 +251,12 @@ My options:
 2. Automate copying files from Obsidian—not ideal due to more moving parts and potential sync issues.
 4. Use [gitmodules](https://git-scm.com/docs/gitmodules) - this would require me to manage my blog posts in a separate git, and have an automation to update it. Lets leave this as an absolute last resort
 
-The assumptions rabbit-hole ends here. **Time to read the docs**. I'm looking for a flag for symlinks/shortcuts/modules/links/mounts or ways to import another directory. 
+The assumptions rabbit-hole ends here. **Time to read the docs**. I'm looking for a flag for symlinks/shortcuts/modules/links/mounts or ways to import another directory.
 
 The docs' side-panel showed (along many more items):
 1. **Content management** - Mainly about formatting.
-2. **Hugo modules** - Interesting! 
-3. Hosting and deployment - remember for later. 
+2. **Hugo modules** - Interesting!
+3. Hosting and deployment - remember for later.
 
 > **Hugo Modules** are the core building blocks in Hugo. A _module_ can be your main project or a smaller module providing one or more of the 7 component types defined in Hugo: **static**, **content**, **layouts**, **data**, **assets**, **i18n**, and **archetypes**.
 
@@ -276,7 +278,7 @@ Got it.
 - [ ] Find some plugin/script that allows me to automatically move notes that are tagged (or something of that sort) to that directory automatically
 - [ ] Automate the publish process using [GitHub Actions](https://docs.github.com/en/actions)
 
-### Automatically injecting the metadata 
+### Automatically injecting the metadata
 
 OK now that I know that this works, all I need to do is to make Obsidian create the files like Hugo wants it to. Since the files can be created within Obsidian I have 3 ways to go about it:
 1. Make Hugo read Obsidian metadata—preferable.
@@ -348,21 +350,21 @@ Also this plugin is seriously cool. It has some features like [tp.file.cursor](h
 
 This took me on a side-quest of making my other templates better that I won't get into here, because by now you're probably hungry and tired. It was important for me to note this, because we often get distracted, and often link things to other things. The important things is to know yourself - should this be done later? should I write a note to myself to maybe do this in the future? should I even do this? is it small enough for me to do it now? There are no good answers here and it really depends on the project, its priority, your goal and yourself. But we're humans - and we get excited, and that's fine. We just have to be self aware about it.
 
-## Automatic publish 
+## Automatic publish
 
 So to recap - in order to create a post, I  need to:
 1. Create a new note/navigate to an existing note in Obsidian
-2. CMD+T (my binding for templates) and choose Blog - this automatically moves the file to the blog directory, which is in turn mounted to Hugo's content 
+2. CMD+T (my binding for templates) and choose Blog - this automatically moves the file to the blog directory, which is in turn mounted to Hugo's content
 
 Nice. Simple.
 
 Lets set up a [pre-commit hook in git](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) in `.git/hooks/pre-commit`:
 ```bash
-hugo 
-if [ $? -ne 0 ]; then 
-	echo "Hugo build failed. Aborting commit." 
-	exit 1 
-fi 
+hugo
+if [ $? -ne 0 ]; then
+	echo "Hugo build failed. Aborting commit."
+	exit 1
+fi
 git add public resources
 ```
 
@@ -400,7 +402,7 @@ For all you people who just wanna follow the recipe, here it is:
 brew install hugo
 
 # create new hugo website
-hugo new site deadeye-tut 
+hugo new site deadeye-tut
 cd deadeye-tut
 git init
 
@@ -448,11 +450,11 @@ GitHub integration and automation:
 
 Add pre-commit hook in `.git/hooks/pre-commit`
 ```bash
-hugo 
-if [ $? -ne 0 ]; then 
-	echo "Hugo build failed. Aborting commit." 
-	exit 1 
-fi 
+hugo
+if [ $? -ne 0 ]; then
+	echo "Hugo build failed. Aborting commit."
+	exit 1
+fi
 git add public resources
 ```
 

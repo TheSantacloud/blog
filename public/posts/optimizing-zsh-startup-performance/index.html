@@ -184,23 +184,60 @@ stroke-linejoin="round" class="feather feather-home">
         -webkit-overflow-scrolling: touch;
         white-space: nowrap;
     }
+
+    .copy-code-button {
+        color: #272822;
+        background-color: #FFF;
+        border-color: #272822;
+        border: 2px solid;
+        border-radius: 3px 3px 0px 0px;
+
+        display: block;
+        margin-left: auto;
+        margin-right: 0;
+
+        margin-bottom: -2px;
+        padding: 3px 8px;
+        font-size: 0.8em;
+    }
+
+    .copy-code-button:hover {
+        cursor: pointer;
+        background-color: #F2F2F2;
+    }
+
+    .copy-code-button:focus {
+        background-color: #E6E6E6;
+        outline: 0;
+    }
+
+    .copy-code-button:active {
+        background-color: #D9D9D9;
+    }
+
+    .highlight pre {
+        margin: 0;
+    }
 </style>
 
-<div class="wrapper post">
-    <main class="page-content" aria-label="Content">
-        <article>
-            <header class="header">
-                <h1 class="header-title">Speed Matters: How I Optimized My ZSH Startup to Under 70ms</h1>
+ <script src="/js/copy-code-button.js">
+    </script> 
 
-                <div class="meta-line">
-                    
-                    
-                    <time datetime="2025-05-10T07:37:07&#43;03:00" itemprop="datePublished">May 10, 2025</time>
-                    
-                    <span id="reading-time" class="reading-time"></span>
-                </div>
+    <div class="wrapper post">
+        <main class="page-content" aria-label="Content">
+            <article>
+                <header class="header">
+                    <h1 class="header-title">Speed Matters: How I Optimized My ZSH Startup to Under 70ms</h1>
 
-                <span id="reading-time" class="post-meta"></span>
+                    <div class="meta-line">
+                        
+                        
+                        <time datetime="2025-05-10T07:37:07&#43;03:00" itemprop="datePublished">May 10, 2025</time>
+                        
+                        <span id="reading-time" class="reading-time"></span>
+                    </div>
+
+                    <span id="reading-time" class="post-meta"></span>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const content = document.querySelector('.page-content');
@@ -217,11 +254,11 @@ stroke-linejoin="round" class="feather feather-home">
     });
 </script>
 
-            </header>
+                </header>
 
-            
-            <div class="page-content">
-                <h1 id="speed-matters-how-i-optimized-my-zsh-startup-to-under-70ms">Speed Matters: How I Optimized My ZSH Startup to Under 70ms</h1>
+                
+                <div class="page-content">
+                    <h1 id="speed-matters-how-i-optimized-my-zsh-startup-to-under-70ms">Speed Matters: How I Optimized My ZSH Startup to Under 70ms</h1>
 <p>Speed isn’t just about shaving milliseconds for fun (although&hellip; that <em>is</em> kind of fun). It’s about protecting <strong>flow</strong>.</p>
 <p>When you’re in the zone, every interruption counts - even a half-second delay opening a terminal. These delays break momentum. They add friction. And over time, they affect your behavior subconsciously: you stop opening new shells, hesitate to try quick commands, avoid the very tools that should be helping you.</p>
 <p>That’s the thing - tools should feel like extensions of your body. You shouldn’t <em>think</em> about them. They should just be there, ready, seamless. When your tools are fast, they disappear into the background and let you focus entirely on the work.</p>
@@ -719,11 +756,11 @@ Like in the previous table, the sum of the individual parts is greater than the 
 <p>It’s easy to fall into the trap of endlessly tweaking your setup, chasing that last millisecond. But tools are only valuable if they help you <em>do</em> the work - not just prepare to do it.</p>
 <p>By understanding our tools, shaping them to fit us, and maintaining them from time to time, they’ll repay us - in professionalism, in product quality, and in the joy of the craft.</p>
 
-            </div>
-        </article></main>
-</div>
+                </div>
+            </article></main>
+    </div>
 
-<footer class="footer">
+    <footer class="footer">
     <span class="footer_item"> </span>
     &nbsp;
 
