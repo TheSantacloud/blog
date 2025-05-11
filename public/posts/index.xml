@@ -16,6 +16,7 @@
       
       <description>&lt;h1 id=&#34;speed-matters-how-i-optimized-my-zsh-startup-to-under-70ms&#34;&gt;Speed Matters: How I Optimized My ZSH Startup to Under 70ms&lt;/h1&gt;
 &lt;p&gt;Speed isn’t just about shaving milliseconds for fun (although&amp;hellip; that &lt;em&gt;is&lt;/em&gt; kind of fun). It’s about protecting &lt;strong&gt;flow&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;[[Lance]]&lt;/p&gt;
 &lt;p&gt;When you’re in the zone, every interruption counts - even a half-second delay opening a terminal. These delays break momentum. They add friction. And over time, they affect your behavior subconsciously: you stop opening new shells, hesitate to try quick commands, avoid the very tools that should be helping you.&lt;/p&gt;</description>
       
     </item>

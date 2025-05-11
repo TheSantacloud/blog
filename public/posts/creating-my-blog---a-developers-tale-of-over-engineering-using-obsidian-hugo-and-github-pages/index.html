@@ -184,60 +184,23 @@ stroke-linejoin="round" class="feather feather-home">
         -webkit-overflow-scrolling: touch;
         white-space: nowrap;
     }
-
-    .copy-code-button {
-        color: #272822;
-        background-color: #FFF;
-        border-color: #272822;
-        border: 2px solid;
-        border-radius: 3px 3px 0px 0px;
-
-        display: block;
-        margin-left: auto;
-        margin-right: 0;
-
-        margin-bottom: -2px;
-        padding: 3px 8px;
-        font-size: 0.8em;
-    }
-
-    .copy-code-button:hover {
-        cursor: pointer;
-        background-color: #F2F2F2;
-    }
-
-    .copy-code-button:focus {
-        background-color: #E6E6E6;
-        outline: 0;
-    }
-
-    .copy-code-button:active {
-        background-color: #D9D9D9;
-    }
-
-    .highlight pre {
-        margin: 0;
-    }
 </style>
 
- <script src="/js/copy-code-button.js">
-    </script> 
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Creating My Blog: A Developer&#39;s Tale of Over-Engineering (Using Obsidian, Hugo and GitHub Pages)</h1>
 
-    <div class="wrapper post">
-        <main class="page-content" aria-label="Content">
-            <article>
-                <header class="header">
-                    <h1 class="header-title">Creating My Blog: A Developer&#39;s Tale of Over-Engineering (Using Obsidian, Hugo and GitHub Pages)</h1>
+                <div class="meta-line">
+                    
+                    
+                    <time datetime="2024-08-10T19:48:37&#43;03:00" itemprop="datePublished">Aug 10, 2024</time>
+                    
+                    <span id="reading-time" class="reading-time"></span>
+                </div>
 
-                    <div class="meta-line">
-                        
-                        
-                        <time datetime="2024-08-10T19:48:37&#43;03:00" itemprop="datePublished">Aug 10, 2024</time>
-                        
-                        <span id="reading-time" class="reading-time"></span>
-                    </div>
-
-                    <span id="reading-time" class="post-meta"></span>
+                <span id="reading-time" class="post-meta"></span>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const content = document.querySelector('.page-content');
@@ -254,11 +217,11 @@ stroke-linejoin="round" class="feather feather-home">
     });
 </script>
 
-                </header>
+            </header>
 
-                
-                <div class="page-content">
-                    <h2 id="intro">Intro</h2>
+            
+            <div class="page-content">
+                <h2 id="intro">Intro</h2>
 <p><a href="#dead-eyed-tutorial">TL;DR:</a> If you just wanna know how to do this, and don&rsquo;t care about the actual post.</p>
 <p>I&rsquo;ve wanted to start a blog for quite a while now, and never got around to it because of various nonsense excuses. When I finally decided to start, I struggled to choose the content for the first post. And so I did what every decent software developer would do when they begin: over-engineered the shit out of the blog itself rather than focus on what matters - the content. But this over-engineering was quick, integrated smoothly with my workflow, was relatively isolated and not super opinionated, and presented an integration issue that, once solved, ended up being pretty damn convenient.</p>
 <p><em>Lightbulb</em> - this would be the topic of my first post! Instead of just a tutorial, it will be a walkthrough on how an actual development process of something pretty simple actually goes and how I personally approach things (I&rsquo;ll save the obligatory &lsquo;what I think about all this AI shenanigans&rsquo; post for later. This is not LinkedIn after all.)</p>
@@ -289,7 +252,7 @@ stroke-linejoin="round" class="feather feather-home">
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo mod get github.com/hugo-sid/hugo-blog-awesome <span class="c1"># good old Go</span>
 </span></span></code></pre></div><p>and also adding this to the <code>hugo.toml</code> file:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">module</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">  <span class="p"><b></span><span class="nx">module</span><span class="p">.</span><span class="nx">imports</span><span class="p"></b></span>
+</span></span><span class="line"><span class="cl">  <span class="p">[[</span><span class="nx">module</span><span class="p">.</span><span class="nx">imports</span><span class="p">]]</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">path</span> <span class="p">=</span> <span class="s2">&#34;github.com/hugo-sid/hugo-blog-awesome&#34;</span>
 </span></span></code></pre></div><p>Now that I&rsquo;ve set this up, I wandered around the directory to understand the file structure:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">➜ website <span class="o">(</span>main<span class="o">)</span> ✗ ls -lh
@@ -460,11 +423,8 @@ Since it didn&rsquo;t work, I assumed:</p>
 <p><strong>Hugo Modules</strong> are the core building blocks in Hugo. A <em>module</em> can be your main project or a smaller module providing one or more of the 7 component types defined in Hugo: <strong>static</strong>, <strong>content</strong>, <strong>layouts</strong>, <strong>data</strong>, <strong>assets</strong>, <strong>i18n</strong>, and <strong>archetypes</strong>.</p>
 </blockquote>
 <p>Yep, that’s it. Configuring a content module within <code>hugo.toml</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">module</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">  <span class="p"><b></span><span class="nx">module</span><span class="p">.</span><span class="nx">mounts</span><span class="p"></b></span>
-</span></span><span class="line"><span class="cl">    <span class="nx">source</span> <span class="p">=</span> <span class="s1">&#39;/path/to/source/content&#39;</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">target</span> <span class="p">=</span> <span class="s1">&#39;/path/to/target/content&#39;</span>
-</span></span></code></pre></div><p>Got it.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo mod get github.com/hugo-sid/hugo-blog-awesome <span class="c1"># good old Go</span>
+</span></span></code></pre>0</div><p>Got it.</p>
 <h3 id="revisit-plans-and-adjust">Revisit plans and adjust</h3>
 <ul>
 <li><input checked="" disabled="" type="checkbox"> I&rsquo;ll create a dedicated directory for the blog in my Obsidian vault</li>
@@ -487,37 +447,22 @@ Since it didn&rsquo;t work, I assumed:</p>
 </span></span><span class="line"><span class="cl"><span class="nx">title</span> <span class="p">=</span> <span class="s1">&#39;{{ replace .File.ContentBaseName `-` ` ` | title }}&#39;</span>
 </span></span><span class="line"><span class="cl"><span class="err">+++</span>
 </span></span></code></pre></div><p>Looks awful similar to the Obsidian format for metadata, isn&rsquo;t it?</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;date&gt;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">draft</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">Some title</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
-</span></span></span></code></pre></div><p>How was this thing called when we went over the directory? archetypes? Yeah lets find that in the docs under Content Management.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo mod get github.com/hugo-sid/hugo-blog-awesome <span class="c1"># good old Go</span>
+</span></span></code></pre>2</div><p>How was this thing called when we went over the directory? archetypes? Yeah lets find that in the docs under Content Management.</p>
 <p>What do you know? it appears that this is the default <a href="https://toml.io/en/">TOML</a> format, clicking on the YAML format shows me exactly what I want to see. Nice.</p>
 <p>OK. Now - either there&rsquo;s a flag to use TOML/YAML/JSON, or it just works. Let&rsquo;s try YAML just because its easy before trying to find it in the docs. What do you know x2? It works right off the bat.</p>
 <p>Obsidian integration almost complete, all I have to do is massage the metadata like Hugo expects it to be, and we&rsquo;re done. gg ez.</p>
 <h3 id="injecting-metadata-content">Injecting metadata content</h3>
 <p>I&rsquo;ve been using Obsidian long enough, and have been using <a href="https://help.obsidian.md/Plugins/Templates">templates</a> for a while now, I know what I have to do -</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{date:YYYY-MM-DDTHH:mm:ss+03:00}}&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{title}}&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">draft</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
-</span></span></span></code></pre></div><p>All I need to do is move the file to the <code>/path/to/obsidian-vault/blog</code> directory and serve Hugo to test it. Yep - works. Next.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo mod get github.com/hugo-sid/hugo-blog-awesome <span class="c1"># good old Go</span>
+</span></span></code></pre>3</div><p>All I need to do is move the file to the <code>/path/to/obsidian-vault/blog</code> directory and serve Hugo to test it. Yep - works. Next.</p>
 <h3 id="moving-the-note-automatically">Moving the note automatically</h3>
 <p>Since I&rsquo;ve been using Obsidian for a while I know that it has multiple functions that I can access pressing CMD+O, and just searching what I want. I see that there&rsquo;s a move file to directory option so I know that it&rsquo;s possible. I also know that Obsidian is written in Javascript and all of its plugins are as well, and I also know that you can inject a script to do what I want.</p>
 <p>Let&rsquo;s Google: &ldquo;move files automatically Obsidian template.&rdquo; This yielded <a href="https://forum.obsidian.md/t/templater-rename-a-file-and-move-it-to-a-folder/39287">this result</a>.</p>
 <p>Oh I remember this plugin! I used to use <a href="https://github.com/SilentVoid13/Templater">Templater</a> before there was an official support for templates in Obsidian. I thought it was redundant but if it&rsquo;s really as easy as just putting this in the file - let&rsquo;s just get back to it.</p>
 <p>A quick install and going over the <a href="https://silentvoid13.github.io/Templater/">Templater documentation</a>, and a new Blog template was born:</p>
-<pre tabindex="0"><code>---
-timestamp: &lt;% tp.file.creation_date(&#34;YYYY-MM-DDTHH:mm:ss+03:00&#34;) %&gt;
-modified: &lt;% tp.file.last_modified_date(&#34;YYYY-MM-DDTHH:mm:ss+03:00&#34;) %&gt;
-draft: &#34;true&#34;
-title: &lt;% tp.file.title %&gt;
-creation_date: &lt;% tp.file.creation_date(&#34;YYYY-MM-DDTHH:mm:ss+03:00&#34;) %&gt;
----
-&lt;% tp.file.move(&#39;/blog/&#39; + tp.file.title) %&gt;%
-</code></pre><p>Also this plugin is seriously cool. It has some features like <a href="https://silentvoid13.github.io/Templater/internal-functions/internal-modules/file-module.html#tpfilecursororder-number">tp.file.cursor</a> that puts the cursor where I tell it to rather than having it in the end - which helped out my other templates.</p>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo mod get github.com/hugo-sid/hugo-blog-awesome <span class="c1"># good old Go</span>
+</span></span></code></pre>4<p>Also this plugin is seriously cool. It has some features like <a href="https://silentvoid13.github.io/Templater/internal-functions/internal-modules/file-module.html#tpfilecursororder-number">tp.file.cursor</a> that puts the cursor where I tell it to rather than having it in the end - which helped out my other templates.</p>
 <p>This took me on a side-quest of making my other templates better that I won&rsquo;t get into here, because by now you&rsquo;re probably hungry and tired. It was important for me to note this, because we often get distracted, and often link things to other things. The important things is to know yourself - should this be done later? should I write a note to myself to maybe do this in the future? should I even do this? is it small enough for me to do it now? There are no good answers here and it really depends on the project, its priority, your goal and yourself. But we&rsquo;re humans - and we get excited, and that&rsquo;s fine. We just have to be self aware about it.</p>
 <h2 id="automatic-publish">Automatic publish</h2>
 <p>So to recap - in order to create a post, I  need to:</p>
@@ -527,13 +472,8 @@ creation_date: &lt;% tp.file.creation_date(&#34;YYYY-MM-DDTHH:mm:ss+03:00&#34;) 
 </ol>
 <p>Nice. Simple.</p>
 <p>Lets set up a <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">pre-commit hook in git</a> in <code>.git/hooks/pre-commit</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo 
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> 
-</span></span><span class="line"><span class="cl">	<span class="nb">echo</span> <span class="s2">&#34;Hugo build failed. Aborting commit.&#34;</span> 
-</span></span><span class="line"><span class="cl">	<span class="nb">exit</span> <span class="m">1</span> 
-</span></span><span class="line"><span class="cl"><span class="k">fi</span> 
-</span></span><span class="line"><span class="cl">git add public resources
-</span></span></code></pre></div><p>All I have to do it push the website whenever I want (using git) and for it to automatically publish it to the blog.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo mod get github.com/hugo-sid/hugo-blog-awesome <span class="c1"># good old Go</span>
+</span></span></code></pre>5</div><p>All I have to do it push the website whenever I want (using git) and for it to automatically publish it to the blog.</p>
 <p>Enter GitHub Actions. Luckily, we saw earlier in the docs the exact thing we need - Hosting and deployment (in the side bar), and what do you know - <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">Host on GitHub Pages</a>.</p>
 <p>Their tutorial is a bit out-dated, I had to switch to GitHub actions and select a Hugo template that is given there - a quick comparison between what was in their instructions and the actual template from GitHub showed the the template is fine and I just committed it using the GitHub UI.</p>
 <h2 id="summary">Summary</h2>
@@ -551,29 +491,10 @@ creation_date: &lt;% tp.file.creation_date(&#34;YYYY-MM-DDTHH:mm:ss+03:00&#34;) 
 <li><strong>Hugo:</strong> For generating the static site.</li>
 </ul>
 <h3 id="step-by-step-instructions">Step-by-Step Instructions</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># install hugo</span>
-</span></span><span class="line"><span class="cl">brew install hugo
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># create new hugo website</span>
-</span></span><span class="line"><span class="cl">hugo new site deadeye-tut 
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> deadeye-tut
-</span></span><span class="line"><span class="cl">git init
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#  install theme</span>
-</span></span><span class="line"><span class="cl">git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.gitthemes/ananke
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;theme = &#39;ananke&#39;&#34;</span> &gt;&gt; hugo.toml
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># serve</span>
-</span></span><span class="line"><span class="cl">hugo server -D
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># create dedicated blog directory in obsidian</span>
-</span></span><span class="line"><span class="cl">mkdir /path/to/obsidian-vault/blog
-</span></span></code></pre></div><p>Add the following to <code>hugo.toml</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">module</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">  <span class="p"><b></span><span class="nx">module</span><span class="p">.</span><span class="nx">mounts</span><span class="p"></b></span>
-</span></span><span class="line"><span class="cl">    <span class="nx">source</span> <span class="p">=</span> <span class="s1">&#39;/path/to/obsidian-vault/blog&#39;</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">target</span> <span class="p">=</span> <span class="s1">&#39;content&#39;</span>
-</span></span></code></pre></div><p>Install Templater in Obsidian:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo mod get github.com/hugo-sid/hugo-blog-awesome <span class="c1"># good old Go</span>
+</span></span></code></pre>6</div><p>Add the following to <code>hugo.toml</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo mod get github.com/hugo-sid/hugo-blog-awesome <span class="c1"># good old Go</span>
+</span></span></code></pre>7</div><p>Install Templater in Obsidian:</p>
 <ul>
 <li>Go to Obsidian Settings</li>
 <li>Community Plugins</li>
@@ -582,13 +503,8 @@ creation_date: &lt;% tp.file.creation_date(&#34;YYYY-MM-DDTHH:mm:ss+03:00&#34;) 
 <li>Install and enable it</li>
 </ul>
 <p>Create a Templater template:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;% tp.file.creation_date(&#34;YYYY-MM-DDTHH:mm:ss+03:00&#34;) %&gt;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">draft</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">&lt;% tp.file.title %&gt;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">&lt;% tp.file.move(&#39;/blog/&#39; + tp.file.title) %&gt;</span><span class="w">
-</span></span></span></code></pre></div><p>GitHub integration and automation:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo mod get github.com/hugo-sid/hugo-blog-awesome <span class="c1"># good old Go</span>
+</span></span></code></pre>8</div><p>GitHub integration and automation:</p>
 <ol>
 <li>Create a GitHub repo</li>
 <li>Push the code from your local repo</li>
@@ -596,20 +512,17 @@ creation_date: &lt;% tp.file.creation_date(&#34;YYYY-MM-DDTHH:mm:ss+03:00&#34;) 
 <li>Change &ldquo;Source&rdquo; to GitHub actions and choose the Hugo template -&gt; next next next until you&rsquo;re done and commit</li>
 </ol>
 <p>Add pre-commit hook in <code>.git/hooks/pre-commit</code></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo 
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> 
-</span></span><span class="line"><span class="cl">	<span class="nb">echo</span> <span class="s2">&#34;Hugo build failed. Aborting commit.&#34;</span> 
-</span></span><span class="line"><span class="cl">	<span class="nb">exit</span> <span class="m">1</span> 
-</span></span><span class="line"><span class="cl"><span class="k">fi</span> 
-</span></span><span class="line"><span class="cl">git add public resources
-</span></span></code></pre></div><p>Lastly:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git push -u origin main
-</span></span></code></pre></div>
-                </div>
-            </article></main>
-    </div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo mod get github.com/hugo-sid/hugo-blog-awesome <span class="c1"># good old Go</span>
+</span></span></code></pre>5</div><p>Lastly:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">module</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">[[</span><span class="nx">module</span><span class="p">.</span><span class="nx">imports</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">path</span> <span class="p">=</span> <span class="s2">&#34;github.com/hugo-sid/hugo-blog-awesome&#34;</span>
+</span></span></code></pre>0</div>
+            </div>
+        </article></main>
+</div>
 
-    <footer class="footer">
+<footer class="footer">
     <span class="footer_item"> </span>
     &nbsp;
 

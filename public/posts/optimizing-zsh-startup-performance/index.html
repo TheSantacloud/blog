@@ -184,60 +184,23 @@ stroke-linejoin="round" class="feather feather-home">
         -webkit-overflow-scrolling: touch;
         white-space: nowrap;
     }
-
-    .copy-code-button {
-        color: #272822;
-        background-color: #FFF;
-        border-color: #272822;
-        border: 2px solid;
-        border-radius: 3px 3px 0px 0px;
-
-        display: block;
-        margin-left: auto;
-        margin-right: 0;
-
-        margin-bottom: -2px;
-        padding: 3px 8px;
-        font-size: 0.8em;
-    }
-
-    .copy-code-button:hover {
-        cursor: pointer;
-        background-color: #F2F2F2;
-    }
-
-    .copy-code-button:focus {
-        background-color: #E6E6E6;
-        outline: 0;
-    }
-
-    .copy-code-button:active {
-        background-color: #D9D9D9;
-    }
-
-    .highlight pre {
-        margin: 0;
-    }
 </style>
 
- <script src="/js/copy-code-button.js">
-    </script> 
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Speed Matters: How I Optimized My ZSH Startup to Under 70ms</h1>
 
-    <div class="wrapper post">
-        <main class="page-content" aria-label="Content">
-            <article>
-                <header class="header">
-                    <h1 class="header-title">Speed Matters: How I Optimized My ZSH Startup to Under 70ms</h1>
+                <div class="meta-line">
+                    
+                    
+                    <time datetime="2025-05-10T07:37:07&#43;03:00" itemprop="datePublished">May 10, 2025</time>
+                    
+                    <span id="reading-time" class="reading-time"></span>
+                </div>
 
-                    <div class="meta-line">
-                        
-                        
-                        <time datetime="2025-05-10T07:37:07&#43;03:00" itemprop="datePublished">May 10, 2025</time>
-                        
-                        <span id="reading-time" class="reading-time"></span>
-                    </div>
-
-                    <span id="reading-time" class="post-meta"></span>
+                <span id="reading-time" class="post-meta"></span>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const content = document.querySelector('.page-content');
@@ -254,11 +217,11 @@ stroke-linejoin="round" class="feather feather-home">
     });
 </script>
 
-                </header>
+            </header>
 
-                
-                <div class="page-content">
-                    <h1 id="speed-matters-how-i-optimized-my-zsh-startup-to-under-70ms">Speed Matters: How I Optimized My ZSH Startup to Under 70ms</h1>
+            
+            <div class="page-content">
+                <h1 id="speed-matters-how-i-optimized-my-zsh-startup-to-under-70ms">Speed Matters: How I Optimized My ZSH Startup to Under 70ms</h1>
 <p>Speed isn’t just about shaving milliseconds for fun (although&hellip; that <em>is</em> kind of fun). It’s about protecting <strong>flow</strong>.</p>
 <p>When you’re in the zone, every interruption counts - even a half-second delay opening a terminal. These delays break momentum. They add friction. And over time, they affect your behavior subconsciously: you stop opening new shells, hesitate to try quick commands, avoid the very tools that should be helping you.</p>
 <p>That’s the thing - tools should feel like extensions of your body. You shouldn’t <em>think</em> about them. They should just be there, ready, seamless. When your tools are fast, they disappear into the background and let you focus entirely on the work.</p>
@@ -283,7 +246,7 @@ stroke-linejoin="round" class="feather feather-home">
 <li>My IP address is 127.0.0.1</li>
 </ul>
 <h2 id="initial-state">Initial state</h2>
-<h3 id="why-are-you-not-using-zsh-defer-oh-my-zsh-zplug-zdeeznut">Why are you not using <code>zsh-defer</code>, <code>oh-my-zsh</code>, <code>zplug</code>, <code>zdeeznut</code></h3>
+<h3 id="why-are-you-not-using-zsh-defer-oh-my-zsh-zplug-zdeeznuts">Why are you not using <code>zsh-defer</code>, <code>oh-my-zsh</code>, <code>zplug</code>, <code>zdeeznuts</code></h3>
 <p>I did use <a href="https://ohmyz.sh/">oh-my-zsh</a> for a long time (years, actually) - but it became too tedious and slow. I had a lot of custom plugins that modified my prompt in zsh so I was somewhat familiar with zsh, so I just resorted to creating my own <code>~/.zshrc</code> file, because I figured - how hard can it be? it wasn&rsquo;t. It also gave me power that I didn&rsquo;t have before - in not using this &ldquo;declarative&rdquo; style configuration for it with oh-my-zsh (by just having a list that contains all the plugins I want from a magical and unknown location), I gained the ability to control my shell <strong>and its load order</strong> myself using ✨code✨.</p>
 <p>As for the other things - I haven&rsquo;t tried most of them. But I find it hard to believe that they are something that I HAVE TO HAVE. They just sound simple enough&hellip; defer is just doing something later. zplug? just use a <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">git submodule</a>. Less dependencies == Less things to break (I actually briefly wrote about it in my first blogpost about <a href="https://santacloud.dev/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/#isolating-unknowns">isolating unknowns</a>)</p>
 <p>I should really write sometime about the dependency hellscape jungle in the modern software age that we live in right now, but that&rsquo;s not the point right now.</p>
@@ -509,9 +472,9 @@ $$ Benefit < F(Time, Frustration) $$<h3 id="initial-zsh-config">Initial ZSH Conf
 </span></span></code></pre></div><p>But let&rsquo;s break it down. What am I actually trying to achieve? because I rarely use <code>pyenv</code> as it is (poetry does). But I do want <strong>python</strong> to be available. And without it - there&rsquo;s just no python in my PATH.</p>
 <p>Oh. Simple. Just put python in my PATH.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ which python
-</span></span><span class="line"><span class="cl">/Users/dormunis/.pyenv/shims/python
+</span></span><span class="line"><span class="cl">/Users/santacloud/.pyenv/shims/python
 </span></span></code></pre></div><p>Cool cool cool, so let&rsquo;s do:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ln -sf <span class="s2">&#34;</span><span class="nv">$PYENV_ROOT</span><span class="s2">/shims/python&#34;</span>       ~/.local/bin/python 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ln -sf <span class="s2">&#34;</span><span class="nv">$PYENV_ROOT</span><span class="s2">/shims/python&#34;</span>       ~/.local/bin/python
 </span></span><span class="line"><span class="cl">ln -sf <span class="s2">&#34;</span><span class="nv">$PYENV_ROOT</span><span class="s2">/shims/pip&#34;</span>       ~/.local/bin/pip
 </span></span><span class="line"><span class="cl">ln -sf <span class="s2">&#34;</span><span class="nv">$PYENV_ROOT</span><span class="s2">/shims/python3&#34;</span>       ~/.local/bin/python3
 </span></span><span class="line"><span class="cl">ln -sf <span class="s2">&#34;</span><span class="nv">$PYENV_ROOT</span><span class="s2">/shims/pip3&#34;</span>       ~/.local/bin/pip3
@@ -531,7 +494,7 @@ $$ Benefit < F(Time, Frustration) $$<h3 id="initial-zsh-config">Initial ZSH Conf
 <p>What? How? Who? What?</p>
 <p>I obviously have this somewhere, and the only place it can be is where I load completions. So I added this script to figure it out:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="k">for</span> dir in <span class="nv">$fpath</span><span class="p">;</span> <span class="k">do</span>
-</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o"><b></span> -f <span class="s2">&#34;</span><span class="nv">$dir</span><span class="s2">/_docker&#34;</span> <span class="o"></b></span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o">[[</span> -f <span class="s2">&#34;</span><span class="nv">$dir</span><span class="s2">/_docker&#34;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
 </span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;Found _docker in: </span><span class="nv">$dir</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="k">fi</span>
 </span></span><span class="line"><span class="cl"><span class="k">done</span>
@@ -543,42 +506,75 @@ $$ Benefit < F(Time, Frustration) $$<h3 id="initial-zsh-config">Initial ZSH Conf
 <p>So I created <code>$ZSH/themes/minimal-falcon.zsh-theme</code>.</p>
 <p>I&rsquo;ve been meaning to do that for a while now, but I never got to it - I use <a href="https://github.com/fenetikm/falcon">falcon</a> for <a href="https://neovim.io/">neovim</a> and I really like it, but they don&rsquo;t have an official ZSH theme. Which is good, because it probably would have been with bloat as well. Let&rsquo;s just take it&rsquo;s colors and create:</p>
 <p>ChatGPT was actually very helpful here - I just took a screenshot of my colors, and copied over the falcon colors. Told it that I want to color my zsh prompt, and it suggested to give me fzf colors as well - why not! This is after some minor tweaking.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># zsh/themes/minimal-falcon.zsh-theme</span>
-</span></span><span class="line"><span class="cl">autoload -Uz colors <span class="o">&amp;&amp;</span> colors
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># use this for profiling in case the shell becomes slow</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PROFILING_MODE</span><span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$PROFILING_MODE</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    zmodload zsh/zprof
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># LS colors and such (8-bit color)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">CLICOLOR</span><span class="o">=</span><span class="m">1</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">LSCOLORS</span><span class="o">=</span>dxfxfxdxfxdedeacacad
+</span></span><span class="line"><span class="cl"><span class="c1"># general settings</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ZSH</span><span class="o">=</span><span class="k">$(</span>readlink -f <span class="nv">$HOME</span>/.config/zsh<span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HISTFILE</span><span class="o">=</span><span class="nv">$ZSH</span>/.zsh_history
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HISTSIZE</span><span class="o">=</span><span class="m">10000</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SAVEHIST</span><span class="o">=</span><span class="m">10000</span>
+</span></span><span class="line"><span class="cl">setopt HIST_IGNORE_ALL_DUPS
+</span></span><span class="line"><span class="cl">setopt HIST_FIND_NO_DUPS
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PATH</span><span class="s2">:</span><span class="nv">$HOME</span><span class="s2">/.local/bin/&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># fzf</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">FZF_DEFAULT_OPTS</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$FZF_DEFAULT_OPTS</span><span class="s2"> \
-</span></span></span><span class="line"><span class="cl"><span class="s2">--color=&#39;dark\
-</span></span></span><span class="line"><span class="cl"><span class="s2">,fg:#b4b4b9\
-</span></span></span><span class="line"><span class="cl"><span class="s2">,bg:#000000\
-</span></span></span><span class="line"><span class="cl"><span class="s2">,hl:#ffc552\
-</span></span></span><span class="line"><span class="cl"><span class="s2">,fg+:#f8f8ff\
-</span></span></span><span class="line"><span class="cl"><span class="s2">,bg+:#36363a\
-</span></span></span><span class="line"><span class="cl"><span class="s2">,hl+:#ffc552\
-</span></span></span><span class="line"><span class="cl"><span class="s2">,query:#f8f8ff\
-</span></span></span><span class="line"><span class="cl"><span class="s2">,gutter:#020221\
-</span></span></span><span class="line"><span class="cl"><span class="s2">,prompt:#ffc552\
-</span></span></span><span class="line"><span class="cl"><span class="s2">,header:#ffd392\
-</span></span></span><span class="line"><span class="cl"><span class="s2">,info:#bfdaff\
-</span></span></span><span class="line"><span class="cl"><span class="s2">,pointer:#ffe8c8\
-</span></span></span><span class="line"><span class="cl"><span class="s2">,marker:#ff3600\
-</span></span></span><span class="line"><span class="cl"><span class="s2">,spinner:#bfdaff\
-</span></span></span><span class="line"><span class="cl"><span class="s2">,border:#36363a&#39;\
-</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># theme</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/themes/dracula/dracula.zsh-theme
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># prompt</span>
-</span></span><span class="line"><span class="cl"><span class="k">function</span> git_prompt<span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">  git rev-parse --is-inside-work-tree <span class="p">&amp;</span>&gt;/dev/null <span class="o">||</span> <span class="k">return</span>
-</span></span><span class="line"><span class="cl">  <span class="nv">ref</span><span class="o">=</span><span class="k">$(</span>git symbolic-ref --short HEAD 2&gt;/dev/null <span class="o">||</span> git describe --tags --always<span class="k">)</span>
-</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;%F{173}(</span><span class="nv">$ref</span><span class="s2">)%f&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span><span class="line"><span class="cl">setopt PROMPT_SUBST
-</span></span><span class="line"><span class="cl"><span class="nv">PROMPT</span><span class="o">=</span><span class="s1">&#39;%F{245}%1~%f$(git_prompt) %F{180}❯%f &#39;</span>
-</span></span></code></pre></div><p>Simple, elegant, everything I need, and <strong>FAST</strong>.</p>
+</span></span><span class="line"><span class="cl"><span class="c1"># plugins</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+</span></span><span class="line"><span class="cl">zstyle <span class="s1">&#39;:completion:*:*:git:*&#39;</span> script <span class="nv">$ZSH</span>/plugins/git-completions/git-completion.bash
+</span></span><span class="line"><span class="cl"><span class="nv">fpath</span><span class="o">=(</span><span class="nv">$ZSH</span>/plugins/zsh-completions/src <span class="nv">$ZSH</span>/plugins/git-completions <span class="nv">$fpath</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">autoload -Uz compinit <span class="o">&amp;&amp;</span> compinit
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># golang</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="k">$(</span>go env GOPATH<span class="k">)</span>/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># python (uv)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.local/bin/env&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># platformio</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/.platformio/packages/toolchain-xtensa/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># docker</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> &lt;<span class="o">(</span>docker completion zsh<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># pnpm</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PNPM_HOME</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Library/pnpm&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">case</span> <span class="s2">&#34;:</span><span class="nv">$PATH</span><span class="s2">:&#34;</span> in
+</span></span><span class="line"><span class="cl">  *<span class="s2">&#34;:</span><span class="nv">$PNPM_HOME</span><span class="s2">:&#34;</span>*<span class="o">)</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">  *<span class="o">)</span> <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PNPM_HOME</span><span class="s2">:</span><span class="nv">$PATH</span><span class="s2">&#34;</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl"><span class="k">esac</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># tmux</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span> -f ~/.fzf.zsh <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">source</span> ~/.fzf.zsh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># aliases</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/aliases/customized.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/aliases/kubectl.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/aliases/git.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">KUBE_EDITOR</span><span class="o">=</span>nvim
+</span></span><span class="line"><span class="cl">bindkey -s <span class="s1">&#39;^f&#39;</span> <span class="s2">&#34;tmux-sessionizer\n&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># pyenv</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PYENV_ROOT</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.pyenv&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">command</span> -v pyenv &gt;/dev/null <span class="o">||</span> <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PYENV_ROOT</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>pyenv init -<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$PROFILING_MODE</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    zprof
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># google sdk</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/path.zsh.inc&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> . <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/path.zsh.inc&#34;</span><span class="p">;</span> <span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/completion.zsh.inc&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> . <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/completion.zsh.inc&#34;</span><span class="p">;</span> <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">desc
+</span></span></code></pre>0</div><p>Simple, elegant, everything I need, and <strong>FAST</strong>.</p>
 <h3 id="compiling">Compiling</h3>
 <p>Here I wanted to address those coldstarts that I&rsquo;ve been experiencing on and off with everything relating <code>compinit</code>. I didn&rsquo;t really know what it is, so I asked ChatGPT what is it, and what are the common ways to make it faster.</p>
 <p>Apparently - <code>compinit</code> is <code>zsh</code>&rsquo;s completion system. So this is why it&rsquo;s needed by autosuggestion, git-completions, zsh-completions, etc.</p>
@@ -588,35 +584,357 @@ $$ Benefit < F(Time, Frustration) $$<h3 id="initial-zsh-config">Initial ZSH Conf
 <li>You can compile zsh scripts with <code>zcompile</code> - it creates a <code>{filename}.zwc</code> file that is the compiled version of it (which is obviously faster)</li>
 </ul>
 <p>Just don&rsquo;t forget to add these to my <code>.gitignore</code> for my dotfiles:</p>
-<pre tabindex="0"><code>zsh/.zcompdump
-*.zwc
-</code></pre><h4 id="compiling-zshrc-as-a-whole">Compiling zshrc as a whole</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">autoload -Uz compinit
-</span></span><span class="line"><span class="cl"><span class="nv">ZSH_COMPDUMP</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">ZSH</span><span class="si">}</span><span class="s2">/.zcompdump&#34;</span>
-</span></span><span class="line"><span class="cl">compinit -C -d <span class="s2">&#34;</span><span class="nv">$ZSH_COMPDUMP</span><span class="s2">&#34;</span>
-</span></span></code></pre></div><blockquote>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># use this for profiling in case the shell becomes slow</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PROFILING_MODE</span><span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$PROFILING_MODE</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    zmodload zsh/zprof
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># general settings</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ZSH</span><span class="o">=</span><span class="k">$(</span>readlink -f <span class="nv">$HOME</span>/.config/zsh<span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HISTFILE</span><span class="o">=</span><span class="nv">$ZSH</span>/.zsh_history
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HISTSIZE</span><span class="o">=</span><span class="m">10000</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SAVEHIST</span><span class="o">=</span><span class="m">10000</span>
+</span></span><span class="line"><span class="cl">setopt HIST_IGNORE_ALL_DUPS
+</span></span><span class="line"><span class="cl">setopt HIST_FIND_NO_DUPS
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PATH</span><span class="s2">:</span><span class="nv">$HOME</span><span class="s2">/.local/bin/&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># theme</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/themes/dracula/dracula.zsh-theme
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># plugins</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+</span></span><span class="line"><span class="cl">zstyle <span class="s1">&#39;:completion:*:*:git:*&#39;</span> script <span class="nv">$ZSH</span>/plugins/git-completions/git-completion.bash
+</span></span><span class="line"><span class="cl"><span class="nv">fpath</span><span class="o">=(</span><span class="nv">$ZSH</span>/plugins/zsh-completions/src <span class="nv">$ZSH</span>/plugins/git-completions <span class="nv">$fpath</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">autoload -Uz compinit <span class="o">&amp;&amp;</span> compinit
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># golang</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="k">$(</span>go env GOPATH<span class="k">)</span>/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># python (uv)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.local/bin/env&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># platformio</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/.platformio/packages/toolchain-xtensa/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># docker</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> &lt;<span class="o">(</span>docker completion zsh<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># pnpm</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PNPM_HOME</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Library/pnpm&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">case</span> <span class="s2">&#34;:</span><span class="nv">$PATH</span><span class="s2">:&#34;</span> in
+</span></span><span class="line"><span class="cl">  *<span class="s2">&#34;:</span><span class="nv">$PNPM_HOME</span><span class="s2">:&#34;</span>*<span class="o">)</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">  *<span class="o">)</span> <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PNPM_HOME</span><span class="s2">:</span><span class="nv">$PATH</span><span class="s2">&#34;</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl"><span class="k">esac</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># tmux</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span> -f ~/.fzf.zsh <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">source</span> ~/.fzf.zsh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># aliases</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/aliases/customized.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/aliases/kubectl.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/aliases/git.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">KUBE_EDITOR</span><span class="o">=</span>nvim
+</span></span><span class="line"><span class="cl">bindkey -s <span class="s1">&#39;^f&#39;</span> <span class="s2">&#34;tmux-sessionizer\n&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># pyenv</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PYENV_ROOT</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.pyenv&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">command</span> -v pyenv &gt;/dev/null <span class="o">||</span> <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PYENV_ROOT</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>pyenv init -<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$PROFILING_MODE</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    zprof
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># google sdk</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/path.zsh.inc&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> . <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/path.zsh.inc&#34;</span><span class="p">;</span> <span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/completion.zsh.inc&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> . <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/completion.zsh.inc&#34;</span><span class="p">;</span> <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">desc
+</span></span></code></pre>1<h4 id="compiling-zshrc-as-a-whole">Compiling zshrc as a whole</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># use this for profiling in case the shell becomes slow</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PROFILING_MODE</span><span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$PROFILING_MODE</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    zmodload zsh/zprof
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># general settings</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ZSH</span><span class="o">=</span><span class="k">$(</span>readlink -f <span class="nv">$HOME</span>/.config/zsh<span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HISTFILE</span><span class="o">=</span><span class="nv">$ZSH</span>/.zsh_history
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HISTSIZE</span><span class="o">=</span><span class="m">10000</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SAVEHIST</span><span class="o">=</span><span class="m">10000</span>
+</span></span><span class="line"><span class="cl">setopt HIST_IGNORE_ALL_DUPS
+</span></span><span class="line"><span class="cl">setopt HIST_FIND_NO_DUPS
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PATH</span><span class="s2">:</span><span class="nv">$HOME</span><span class="s2">/.local/bin/&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># theme</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/themes/dracula/dracula.zsh-theme
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># plugins</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+</span></span><span class="line"><span class="cl">zstyle <span class="s1">&#39;:completion:*:*:git:*&#39;</span> script <span class="nv">$ZSH</span>/plugins/git-completions/git-completion.bash
+</span></span><span class="line"><span class="cl"><span class="nv">fpath</span><span class="o">=(</span><span class="nv">$ZSH</span>/plugins/zsh-completions/src <span class="nv">$ZSH</span>/plugins/git-completions <span class="nv">$fpath</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">autoload -Uz compinit <span class="o">&amp;&amp;</span> compinit
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># golang</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="k">$(</span>go env GOPATH<span class="k">)</span>/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># python (uv)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.local/bin/env&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># platformio</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/.platformio/packages/toolchain-xtensa/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># docker</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> &lt;<span class="o">(</span>docker completion zsh<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># pnpm</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PNPM_HOME</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Library/pnpm&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">case</span> <span class="s2">&#34;:</span><span class="nv">$PATH</span><span class="s2">:&#34;</span> in
+</span></span><span class="line"><span class="cl">  *<span class="s2">&#34;:</span><span class="nv">$PNPM_HOME</span><span class="s2">:&#34;</span>*<span class="o">)</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">  *<span class="o">)</span> <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PNPM_HOME</span><span class="s2">:</span><span class="nv">$PATH</span><span class="s2">&#34;</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl"><span class="k">esac</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># tmux</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span> -f ~/.fzf.zsh <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">source</span> ~/.fzf.zsh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># aliases</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/aliases/customized.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/aliases/kubectl.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/aliases/git.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">KUBE_EDITOR</span><span class="o">=</span>nvim
+</span></span><span class="line"><span class="cl">bindkey -s <span class="s1">&#39;^f&#39;</span> <span class="s2">&#34;tmux-sessionizer\n&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># pyenv</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PYENV_ROOT</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.pyenv&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">command</span> -v pyenv &gt;/dev/null <span class="o">||</span> <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PYENV_ROOT</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>pyenv init -<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$PROFILING_MODE</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    zprof
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># google sdk</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/path.zsh.inc&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> . <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/path.zsh.inc&#34;</span><span class="p">;</span> <span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/completion.zsh.inc&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> . <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/completion.zsh.inc&#34;</span><span class="p">;</span> <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">desc
+</span></span></code></pre>2</div><blockquote>
 <p><strong>Note:</strong> <code>-C</code> to bypass the check for rebuilding the dumpfile and the call to <code>compaudit</code>. This can shave 15ms more. I feel comfortable disable <code>compaudit</code> (security check) because it check the security within <code>fpath</code>. All of these are trusted sources that I never update, and my computer is just for me. However, if these don&rsquo;t apply to you - I would advice to rethink your decision and understand thoroughly what <code>compaudit</code> does.</p>
 </blockquote>
 <h4 id="zsource">zsource</h4>
 <p>I created a minor helper function:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">zsource<span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">file</span><span class="o">=</span><span class="nv">$1</span>
-</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">zwc</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">file</span><span class="si">}</span><span class="s2">.zwc&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o"><b></span> -f <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span> <span class="o">&amp;&amp;</span> <span class="o">(</span>! -f <span class="s2">&#34;</span><span class="nv">$zwc</span><span class="s2">&#34;</span> <span class="o">||</span> <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span> -nt <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span><span class="o">)</span> <span class="o"></b></span><span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">    zcompile <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
-</span></span><span class="line"><span class="cl">  <span class="nb">source</span> <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><p>This just checks if there&rsquo;s a zwc file exists, and if it doesn&rsquo;t or the main file has been modified - it uses <code>zcompile</code> on the file. And then it sources the file (zsh automatically checks if a zwc file is present, and uses it if it is).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># use this for profiling in case the shell becomes slow</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PROFILING_MODE</span><span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$PROFILING_MODE</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    zmodload zsh/zprof
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># general settings</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ZSH</span><span class="o">=</span><span class="k">$(</span>readlink -f <span class="nv">$HOME</span>/.config/zsh<span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HISTFILE</span><span class="o">=</span><span class="nv">$ZSH</span>/.zsh_history
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HISTSIZE</span><span class="o">=</span><span class="m">10000</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SAVEHIST</span><span class="o">=</span><span class="m">10000</span>
+</span></span><span class="line"><span class="cl">setopt HIST_IGNORE_ALL_DUPS
+</span></span><span class="line"><span class="cl">setopt HIST_FIND_NO_DUPS
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PATH</span><span class="s2">:</span><span class="nv">$HOME</span><span class="s2">/.local/bin/&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># theme</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/themes/dracula/dracula.zsh-theme
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># plugins</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+</span></span><span class="line"><span class="cl">zstyle <span class="s1">&#39;:completion:*:*:git:*&#39;</span> script <span class="nv">$ZSH</span>/plugins/git-completions/git-completion.bash
+</span></span><span class="line"><span class="cl"><span class="nv">fpath</span><span class="o">=(</span><span class="nv">$ZSH</span>/plugins/zsh-completions/src <span class="nv">$ZSH</span>/plugins/git-completions <span class="nv">$fpath</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">autoload -Uz compinit <span class="o">&amp;&amp;</span> compinit
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># golang</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="k">$(</span>go env GOPATH<span class="k">)</span>/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># python (uv)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.local/bin/env&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># platformio</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/.platformio/packages/toolchain-xtensa/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># docker</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> &lt;<span class="o">(</span>docker completion zsh<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># pnpm</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PNPM_HOME</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Library/pnpm&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">case</span> <span class="s2">&#34;:</span><span class="nv">$PATH</span><span class="s2">:&#34;</span> in
+</span></span><span class="line"><span class="cl">  *<span class="s2">&#34;:</span><span class="nv">$PNPM_HOME</span><span class="s2">:&#34;</span>*<span class="o">)</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">  *<span class="o">)</span> <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PNPM_HOME</span><span class="s2">:</span><span class="nv">$PATH</span><span class="s2">&#34;</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl"><span class="k">esac</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># tmux</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span> -f ~/.fzf.zsh <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">source</span> ~/.fzf.zsh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># aliases</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/aliases/customized.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/aliases/kubectl.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/aliases/git.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">KUBE_EDITOR</span><span class="o">=</span>nvim
+</span></span><span class="line"><span class="cl">bindkey -s <span class="s1">&#39;^f&#39;</span> <span class="s2">&#34;tmux-sessionizer\n&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># pyenv</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PYENV_ROOT</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.pyenv&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">command</span> -v pyenv &gt;/dev/null <span class="o">||</span> <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PYENV_ROOT</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>pyenv init -<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$PROFILING_MODE</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    zprof
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># google sdk</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/path.zsh.inc&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> . <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/path.zsh.inc&#34;</span><span class="p">;</span> <span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/completion.zsh.inc&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> . <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/completion.zsh.inc&#34;</span><span class="p">;</span> <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">desc
+</span></span></code></pre>3</div><p>This just checks if there&rsquo;s a zwc file exists, and if it doesn&rsquo;t or the main file has been modified - it uses <code>zcompile</code> on the file. And then it sources the file (zsh automatically checks if a zwc file is present, and uses it if it is).</p>
 <p>And then every time I just replaced all my <code>source</code> functions with <code>zsource</code>, like so:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">zsource <span class="nv">$ZSH</span>/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-</span></span><span class="line"><span class="cl">zsource <span class="nv">$ZSH</span>/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-</span></span><span class="line"><span class="cl">...
-</span></span><span class="line"><span class="cl">zsource <span class="nv">$ZSH</span>/themes/minimal-falcon.zsh-theme
-</span></span></code></pre></div><h3 id="consolidating">Consolidating</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># use this for profiling in case the shell becomes slow</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PROFILING_MODE</span><span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$PROFILING_MODE</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    zmodload zsh/zprof
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># general settings</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ZSH</span><span class="o">=</span><span class="k">$(</span>readlink -f <span class="nv">$HOME</span>/.config/zsh<span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HISTFILE</span><span class="o">=</span><span class="nv">$ZSH</span>/.zsh_history
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HISTSIZE</span><span class="o">=</span><span class="m">10000</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SAVEHIST</span><span class="o">=</span><span class="m">10000</span>
+</span></span><span class="line"><span class="cl">setopt HIST_IGNORE_ALL_DUPS
+</span></span><span class="line"><span class="cl">setopt HIST_FIND_NO_DUPS
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PATH</span><span class="s2">:</span><span class="nv">$HOME</span><span class="s2">/.local/bin/&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># theme</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/themes/dracula/dracula.zsh-theme
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># plugins</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+</span></span><span class="line"><span class="cl">zstyle <span class="s1">&#39;:completion:*:*:git:*&#39;</span> script <span class="nv">$ZSH</span>/plugins/git-completions/git-completion.bash
+</span></span><span class="line"><span class="cl"><span class="nv">fpath</span><span class="o">=(</span><span class="nv">$ZSH</span>/plugins/zsh-completions/src <span class="nv">$ZSH</span>/plugins/git-completions <span class="nv">$fpath</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">autoload -Uz compinit <span class="o">&amp;&amp;</span> compinit
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># golang</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="k">$(</span>go env GOPATH<span class="k">)</span>/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># python (uv)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.local/bin/env&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># platformio</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/.platformio/packages/toolchain-xtensa/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># docker</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> &lt;<span class="o">(</span>docker completion zsh<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># pnpm</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PNPM_HOME</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Library/pnpm&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">case</span> <span class="s2">&#34;:</span><span class="nv">$PATH</span><span class="s2">:&#34;</span> in
+</span></span><span class="line"><span class="cl">  *<span class="s2">&#34;:</span><span class="nv">$PNPM_HOME</span><span class="s2">:&#34;</span>*<span class="o">)</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">  *<span class="o">)</span> <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PNPM_HOME</span><span class="s2">:</span><span class="nv">$PATH</span><span class="s2">&#34;</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl"><span class="k">esac</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># tmux</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span> -f ~/.fzf.zsh <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">source</span> ~/.fzf.zsh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># aliases</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/aliases/customized.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/aliases/kubectl.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/aliases/git.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">KUBE_EDITOR</span><span class="o">=</span>nvim
+</span></span><span class="line"><span class="cl">bindkey -s <span class="s1">&#39;^f&#39;</span> <span class="s2">&#34;tmux-sessionizer\n&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># pyenv</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PYENV_ROOT</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.pyenv&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">command</span> -v pyenv &gt;/dev/null <span class="o">||</span> <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PYENV_ROOT</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>pyenv init -<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$PROFILING_MODE</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    zprof
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># google sdk</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/path.zsh.inc&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> . <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/path.zsh.inc&#34;</span><span class="p">;</span> <span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/completion.zsh.inc&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> . <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/completion.zsh.inc&#34;</span><span class="p">;</span> <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">desc
+</span></span></code></pre>4</div><h3 id="consolidating">Consolidating</h3>
 <p>Some final cleanup, now that the file has been optimized is to consolidate some things - like putting all the PATH into one (this actually isn&rsquo;t necessary, it&rsquo;s not like that it takes too long to concat to PATH)</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PATH</span><span class="s2">:</span><span class="nv">$HOME</span><span class="s2">/.local/bin/:</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/go/bin:</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.platformio/packages/toolchain-xtensa/bin&#34;</span>
-</span></span></code></pre></div><p>However - do you see this nice golang optimization? <code>$(go env GOPATH)/bin</code> turned to <code>${HOME}/go/bin</code>. Apparently, <code>go env GOPATH</code> took 9ms. So this just very easily shaved it off.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># use this for profiling in case the shell becomes slow</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PROFILING_MODE</span><span class="o">=</span><span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$PROFILING_MODE</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    zmodload zsh/zprof
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># general settings</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ZSH</span><span class="o">=</span><span class="k">$(</span>readlink -f <span class="nv">$HOME</span>/.config/zsh<span class="k">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HISTFILE</span><span class="o">=</span><span class="nv">$ZSH</span>/.zsh_history
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HISTSIZE</span><span class="o">=</span><span class="m">10000</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SAVEHIST</span><span class="o">=</span><span class="m">10000</span>
+</span></span><span class="line"><span class="cl">setopt HIST_IGNORE_ALL_DUPS
+</span></span><span class="line"><span class="cl">setopt HIST_FIND_NO_DUPS
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PATH</span><span class="s2">:</span><span class="nv">$HOME</span><span class="s2">/.local/bin/&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># theme</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/themes/dracula/dracula.zsh-theme
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># plugins</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+</span></span><span class="line"><span class="cl">zstyle <span class="s1">&#39;:completion:*:*:git:*&#39;</span> script <span class="nv">$ZSH</span>/plugins/git-completions/git-completion.bash
+</span></span><span class="line"><span class="cl"><span class="nv">fpath</span><span class="o">=(</span><span class="nv">$ZSH</span>/plugins/zsh-completions/src <span class="nv">$ZSH</span>/plugins/git-completions <span class="nv">$fpath</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">autoload -Uz compinit <span class="o">&amp;&amp;</span> compinit
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># golang</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="k">$(</span>go env GOPATH<span class="k">)</span>/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># python (uv)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.local/bin/env&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># platformio</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/.platformio/packages/toolchain-xtensa/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># docker</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> &lt;<span class="o">(</span>docker completion zsh<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># pnpm</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PNPM_HOME</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Library/pnpm&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">case</span> <span class="s2">&#34;:</span><span class="nv">$PATH</span><span class="s2">:&#34;</span> in
+</span></span><span class="line"><span class="cl">  *<span class="s2">&#34;:</span><span class="nv">$PNPM_HOME</span><span class="s2">:&#34;</span>*<span class="o">)</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">  *<span class="o">)</span> <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PNPM_HOME</span><span class="s2">:</span><span class="nv">$PATH</span><span class="s2">&#34;</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl"><span class="k">esac</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># tmux</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span> -f ~/.fzf.zsh <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">source</span> ~/.fzf.zsh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># aliases</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/aliases/customized.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/aliases/kubectl.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/aliases/git.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">KUBE_EDITOR</span><span class="o">=</span>nvim
+</span></span><span class="line"><span class="cl">bindkey -s <span class="s1">&#39;^f&#39;</span> <span class="s2">&#34;tmux-sessionizer\n&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># pyenv</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PYENV_ROOT</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.pyenv&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">command</span> -v pyenv &gt;/dev/null <span class="o">||</span> <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PYENV_ROOT</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>pyenv init -<span class="k">)</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$PROFILING_MODE</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    zprof
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># google sdk</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/path.zsh.inc&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> . <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/path.zsh.inc&#34;</span><span class="p">;</span> <span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/completion.zsh.inc&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> . <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/completion.zsh.inc&#34;</span><span class="p">;</span> <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">desc
+</span></span></code></pre>5</div><p>However - do you see this nice golang optimization? <code>$(go env GOPATH)/bin</code> turned to <code>${HOME}/go/bin</code>. Apparently, <code>go env GOPATH</code> took 9ms. So this just very easily shaved it off.</p>
 <h3 id="are-we-done">Are we done?</h3>
 <p>Yep. 30ms for the content, 38ms for a vanilla shell experience. <strong>68ms</strong>. This is good enough for now. We&rsquo;re done.</p>
 <p>Throughout this process I constantly kept asking myself - am I done? am I exaggerating? am I too tunnel-visioned? And often time I was. But my goal was to get it under 100ms, and since I got the big things down first, and I could see a clear path (from my newfound knowledge) to remove other things to shave it off even more - I did those as well.</p>
@@ -686,19 +1004,7 @@ Like in the previous table, the sum of the individual parts is greater than the 
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PROFILING_MODE</span><span class="o">=</span><span class="m">0</span>
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$PROFILING_MODE</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
 </span></span><span class="line"><span class="cl">    zmodload zsh/zprof
-</span></span><span class="line"><span class="cl">    <span class="nv">zsh_start_time</span><span class="o">=</span><span class="k">$(</span>python3 -c <span class="s1">&#39;import time; print(int(time.time() * 1000))&#39;</span><span class="k">)</span>
 </span></span><span class="line"><span class="cl"><span class="k">fi</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># compile zsh file, and source them - first run is slower</span>
-</span></span><span class="line"><span class="cl">zsource<span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">file</span><span class="o">=</span><span class="nv">$1</span>
-</span></span><span class="line"><span class="cl">  <span class="nb">local</span> <span class="nv">zwc</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">file</span><span class="si">}</span><span class="s2">.zwc&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="o"><b></span> -f <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span> <span class="o">&amp;&amp;</span> <span class="o">(</span>! -f <span class="s2">&#34;</span><span class="nv">$zwc</span><span class="s2">&#34;</span> <span class="o">||</span> <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span> -nt <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span><span class="o">)</span> <span class="o"></b></span><span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">    zcompile <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">fi</span>
-</span></span><span class="line"><span class="cl">  <span class="nb">source</span> <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># general settings</span>
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ZSH</span><span class="o">=</span><span class="k">$(</span>readlink -f <span class="nv">$HOME</span>/.config/zsh<span class="k">)</span>
@@ -707,47 +1013,62 @@ Like in the previous table, the sum of the individual parts is greater than the 
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SAVEHIST</span><span class="o">=</span><span class="m">10000</span>
 </span></span><span class="line"><span class="cl">setopt HIST_IGNORE_ALL_DUPS
 </span></span><span class="line"><span class="cl">setopt HIST_FIND_NO_DUPS
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">KUBE_EDITOR</span><span class="o">=</span>nvim
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># NOTE : using ${HOME}/go/bin instead of $(go env GOPATH)/bin for optimization</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PATH</span><span class="s2">:</span><span class="nv">$HOME</span><span class="s2">/.local/bin/:</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/go/bin:</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/.platformio/packages/toolchain-xtensa/bin&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PATH</span><span class="s2">:</span><span class="nv">$HOME</span><span class="s2">/.local/bin/&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># theme</span>
-</span></span><span class="line"><span class="cl">zsource <span class="nv">$ZSH</span>/themes/minimal-falcon.zsh-theme
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/themes/dracula/dracula.zsh-theme
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># plugins</span>
-</span></span><span class="line"><span class="cl">zsource <span class="nv">$ZSH</span>/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-</span></span><span class="line"><span class="cl">zsource <span class="nv">$ZSH</span>/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 </span></span><span class="line"><span class="cl">zstyle <span class="s1">&#39;:completion:*:*:git:*&#39;</span> script <span class="nv">$ZSH</span>/plugins/git-completions/git-completion.bash
-</span></span><span class="line"><span class="cl"><span class="nv">fpath</span><span class="o">=(</span><span class="nv">$ZSH</span>/plugins/zsh-completions/src <span class="nv">$ZSH</span>/plugins/git-completions <span class="nv">$fpath</span> ~/.zfunc<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">fpath</span><span class="o">=(</span><span class="nv">$ZSH</span>/plugins/zsh-completions/src <span class="nv">$ZSH</span>/plugins/git-completions <span class="nv">$fpath</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">autoload -Uz compinit <span class="o">&amp;&amp;</span> compinit
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">autoload -Uz compinit
-</span></span><span class="line"><span class="cl"><span class="nv">ZSH_COMPDUMP</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">ZSH</span><span class="si">}</span><span class="s2">/.zcompdump&#34;</span>
-</span></span><span class="line"><span class="cl">compinit -C -d <span class="s2">&#34;</span><span class="nv">$ZSH_COMPDUMP</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># golang</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="k">$(</span>go env GOPATH<span class="k">)</span>/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># python (uv)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.local/bin/env&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># platformio</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/.platformio/packages/toolchain-xtensa/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># docker</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> &lt;<span class="o">(</span>docker completion zsh<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># pnpm</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PNPM_HOME</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Library/pnpm&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">case</span> <span class="s2">&#34;:</span><span class="nv">$PATH</span><span class="s2">:&#34;</span> in
+</span></span><span class="line"><span class="cl">  *<span class="s2">&#34;:</span><span class="nv">$PNPM_HOME</span><span class="s2">:&#34;</span>*<span class="o">)</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl">  *<span class="o">)</span> <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PNPM_HOME</span><span class="s2">:</span><span class="nv">$PATH</span><span class="s2">&#34;</span> <span class="p">;;</span>
+</span></span><span class="line"><span class="cl"><span class="k">esac</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># tmux</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span> -f ~/.fzf.zsh <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nb">source</span> ~/.fzf.zsh
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># aliases</span>
-</span></span><span class="line"><span class="cl">zsource <span class="nv">$ZSH</span>/aliases/customized.plugin.zsh
-</span></span><span class="line"><span class="cl">zsource <span class="nv">$ZSH</span>/aliases/kubectl.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/aliases/customized.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/aliases/kubectl.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> <span class="nv">$ZSH</span>/aliases/git.plugin.zsh
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">KUBE_EDITOR</span><span class="o">=</span>nvim
+</span></span><span class="line"><span class="cl">bindkey -s <span class="s1">&#39;^f&#39;</span> <span class="s2">&#34;tmux-sessionizer\n&#34;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># pyenv</span>
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PYENV_ROOT</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.pyenv&#34;</span>
-</span></span><span class="line"><span class="cl">pyenv<span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nb">unset</span> -f pyenv
-</span></span><span class="line"><span class="cl">  <span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span><span class="nb">command</span> pyenv init -<span class="k">)</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">  pyenv <span class="s2">&#34;</span><span class="nv">$@</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">command</span> -v pyenv &gt;/dev/null <span class="o">||</span> <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$PYENV_ROOT</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>pyenv init -<span class="k">)</span><span class="s2">&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># utilities</span>
-</span></span><span class="line"><span class="cl"><span class="o">[</span> -f ~/.fzf.zsh <span class="o">]</span> <span class="o">&amp;&amp;</span> zsource ~/.fzf.zsh
-</span></span><span class="line"><span class="cl">bindkey -s <span class="s1">&#39;^f&#39;</span> <span class="s2">&#34;tmux-sessionizer\n&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># profiling</span>
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$PROFILING_MODE</span> -ne <span class="m">0</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">    <span class="nv">zsh_end_time</span><span class="o">=</span><span class="k">$(</span>python3 -c <span class="s1">&#39;import time; print(int(time.time() * 1000))&#39;</span><span class="k">)</span>
 </span></span><span class="line"><span class="cl">    zprof
-</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;Shell init time: </span><span class="k">$((</span>zsh_end_time <span class="o">-</span> zsh_start_time <span class="o">-</span> <span class="m">21</span><span class="k">))</span><span class="s2"> ms&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="k">fi</span>
-</span></span></code></pre></div><h2 id="summary---was-it-a-waste-of-time-and-my-thoughts-on-tools">Summary - was it a waste of time? (and my thoughts on tools)</h2>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># google sdk</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/path.zsh.inc&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> . <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/path.zsh.inc&#34;</span><span class="p">;</span> <span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -f <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/completion.zsh.inc&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> . <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span><span class="s2">/Downloads/google-cloud-sdk/completion.zsh.inc&#34;</span><span class="p">;</span> <span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">desc
+</span></span></code></pre>6</div><h2 id="summary---was-it-a-waste-of-time-and-my-thoughts-on-tools">Summary - was it a waste of time? (and my thoughts on tools)</h2>
 <p>Have you ever been to a really good craftsman’s shop? Their tools are often well-worn but finely tuned - oiled, efficient, familiar. They might be missing a few bolts, but nothing that disrupts their flow. And chances are, the craftsman has disassembled and reassembled every one of them, if only to understand what makes them tick.</p>
 <p>That’s the thing: tools don’t have to be perfect. They just have to fit <em>you</em>. That’s what makes them perfect. There’s no one-size-fits-all - not for tools, and definitely not for workflows.</p>
 <p>Tools are extensions of our mind and body. Without them, we would&rsquo;ve still been animals (we love you, opposable thumbs). If your tools slow you down, they’re no longer tools - they’re obstacles. And obstacles are worth removing.</p>
@@ -756,11 +1077,11 @@ Like in the previous table, the sum of the individual parts is greater than the 
 <p>It’s easy to fall into the trap of endlessly tweaking your setup, chasing that last millisecond. But tools are only valuable if they help you <em>do</em> the work - not just prepare to do it.</p>
 <p>By understanding our tools, shaping them to fit us, and maintaining them from time to time, they’ll repay us - in professionalism, in product quality, and in the joy of the craft.</p>
 
-                </div>
-            </article></main>
-    </div>
+            </div>
+        </article></main>
+</div>
 
-    <footer class="footer">
+<footer class="footer">
     <span class="footer_item"> </span>
     &nbsp;
 

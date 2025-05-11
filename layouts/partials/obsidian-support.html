@@ -1,0 +1,17 @@
+{{- $pattern := `(?s)(<pre.*?>.*?</pre>)` -}}
+    {{- $matches := findRE $pattern .Content -}}
+    {{- $processed := .Content -}}
+
+    {{- range $i, $match := $matches -}}
+    {{- $placeholder := printf "UNIQ_PRE_BLOCK_%d" $i -}}
+    {{- $processed = replace $processed $match $placeholder -}}
+    {{- end -}}
+
+    {{- $processed = $processed | replaceRE "\\[\\[([^\\]]+)\\]\\]" "<b>$1</b>" -}}
+
+    {{- range $i, $match := $matches -}}
+    {{- $placeholder := printf "UNIQ_PRE_BLOCK_%d" $i -}}
+    {{- $processed = replace $processed $placeholder $match -}}
+    {{- end -}}
+
+    {{- $processed | markdownify -}}
