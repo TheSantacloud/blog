@@ -37,7 +37,8 @@
 
             {{ partial "toc.html" . }}
             <div class="page-content">
-                {{ partial "obsidian-support.html" . }}
+                {{ .Content }}
+                <!-- {{ partial "obsidian-support.html" . }} -->
             </div>
         </article>
         {{- partial "comments.html" . -}}
