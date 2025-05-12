@@ -356,7 +356,7 @@ ZSH_COMPDUMP="${ZSH}/.zcompdump"
 compinit -C -d "$ZSH_COMPDUMP"
 ```
 
-> **Note:** `-C` to bypass the check for rebuilding the dumpfile and the call to `compaudit`. This can shave 15ms more. I feel comfortable disable `compaudit` (security check) because it check the security within `fpath`. All of these are trusted sources that I never update, and my computer is just for me. However, if these don't apply to you - I would advice to rethink your decision and understand thoroughly what `compaudit` does.
+> **Note:** `-C` to bypass the check for rebuilding the dumpfile and the call to `compaudit`. This can shave off 15ms more. I feel comfortable disabling `compaudit` (security check) because it checks the security within `fpath` because all of my sources are trusted by me, I never update them, and the fact that my computer is just for me. However, if these don't apply to you - I would advise to rethink your decision and understand thoroughly what `compaudit` does.
 
 #### zsource
 

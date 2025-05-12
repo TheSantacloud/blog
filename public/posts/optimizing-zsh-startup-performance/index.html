@@ -53,7 +53,7 @@
         },
         "datePublished": "2025-05-10",
         "description": "",
-        "wordCount":  3288 ,
+        "wordCount":  3295 ,
         "mainEntityOfPage": "True",
         "dateModified": "2025-05-10",
         "image": {
@@ -573,7 +573,7 @@ $$ Benefit < F(Time, Frustration) $$<h3 id="initial-zsh-config">Initial ZSH Conf
 </span></span><span class="line"><span class="cl"><span class="nv">ZSH_COMPDUMP</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">ZSH</span><span class="si">}</span><span class="s2">/.zcompdump&#34;</span>
 </span></span><span class="line"><span class="cl">compinit -C -d <span class="s2">&#34;</span><span class="nv">$ZSH_COMPDUMP</span><span class="s2">&#34;</span>
 </span></span></code></pre></div><blockquote>
-<p><strong>Note:</strong> <code>-C</code> to bypass the check for rebuilding the dumpfile and the call to <code>compaudit</code>. This can shave 15ms more. I feel comfortable disable <code>compaudit</code> (security check) because it check the security within <code>fpath</code>. All of these are trusted sources that I never update, and my computer is just for me. However, if these don&rsquo;t apply to you - I would advice to rethink your decision and understand thoroughly what <code>compaudit</code> does.</p>
+<p><strong>Note:</strong> <code>-C</code> to bypass the check for rebuilding the dumpfile and the call to <code>compaudit</code>. This can shave off 15ms more. I feel comfortable disabling <code>compaudit</code> (security check) because it checks the security within <code>fpath</code> because all of my sources are trusted by me, I never update them, and the fact that my computer is just for me. However, if these don&rsquo;t apply to you - I would advise to rethink your decision and understand thoroughly what <code>compaudit</code> does.</p>
 </blockquote>
 <h4 id="zsource">zsource</h4>
 <p>I created a minor helper function:</p>
