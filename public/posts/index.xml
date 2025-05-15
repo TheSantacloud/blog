@@ -2,17 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Santacloud</title>
-    <link>https://santacloud.dev/posts/</link>
+    <link>http://localhost:1313/posts/</link>
     <description>Recent content in Posts on Santacloud</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 10 May 2025 07:37:07 +0300</lastBuildDate><atom:link href="https://santacloud.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 May 2025 22:03:18 +0300</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Injecting some HTML into Streamlit&#39;s &lt;head&gt;</title>
+      <link>http://localhost:1313/posts/injecting-to-head-with-streamlit/</link>
+      <pubDate>Thu, 15 May 2025 22:03:18 +0300</pubDate>
+      
+      <guid>http://localhost:1313/posts/injecting-to-head-with-streamlit/</guid>
+      
+      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;
+&lt;p&gt;Streamlit doesn&amp;rsquo;t support head injections. Edit &lt;code&gt;/path/to/your/python/lib/site-packages/streamlit/static/index.html&lt;/code&gt; in the site-packages. This is a guide on how to do it (with Docker)&lt;/p&gt;
+&lt;h2 id=&#34;what-is-this-about&#34;&gt;What is this about&lt;/h2&gt;
+&lt;p&gt;How to add things to &lt;a href=&#34;https://streamlit.io/&#34;&gt;Streamlit&lt;/a&gt; to the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; section. As of version 1.44.1, you cannot manipulate anything in there. And well&amp;hellip; the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; section is important for &lt;code&gt;meta&lt;/code&gt; tags, for different scripts, and some other stuff.&lt;/p&gt;
+&lt;p&gt;This blogpost (right after the rant &lt;a href=&#34;#injecting-stuff-to-the-head&#34;&gt;that you can skip right here&lt;/a&gt;)&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>Speed Matters: How I Optimized My ZSH Startup to Under 70ms</title>
-      <link>https://santacloud.dev/posts/optimizing-zsh-startup-performance/</link>
+      <link>http://localhost:1313/posts/optimizing-zsh-startup-performance/</link>
       <pubDate>Sat, 10 May 2025 07:37:07 +0300</pubDate>
       
-      <guid>https://santacloud.dev/posts/optimizing-zsh-startup-performance/</guid>
+      <guid>http://localhost:1313/posts/optimizing-zsh-startup-performance/</guid>
       
       <description>&lt;h1 id=&#34;speed-matters-how-i-optimized-my-zsh-startup-to-under-70ms&#34;&gt;Speed Matters: How I Optimized My ZSH Startup to Under 70ms&lt;/h1&gt;
 &lt;p&gt;Speed isn’t just about shaving milliseconds for fun (although&amp;hellip; that &lt;em&gt;is&lt;/em&gt; kind of fun). It’s about protecting &lt;strong&gt;flow&lt;/strong&gt;.&lt;/p&gt;
@@ -22,10 +37,10 @@
     
     <item>
       <title>Creating My Blog: A Developer&#39;s Tale of Over-Engineering (Using Obsidian, Hugo and GitHub Pages)</title>
-      <link>https://santacloud.dev/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/</link>
+      <link>http://localhost:1313/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/</link>
       <pubDate>Sat, 10 Aug 2024 19:48:37 +0300</pubDate>
       
-      <guid>https://santacloud.dev/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/</guid>
+      <guid>http://localhost:1313/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/</guid>
       
       <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;#dead-eyed-tutorial&#34;&gt;TL;DR:&lt;/a&gt; If you just wanna know how to do this, and don&amp;rsquo;t care about the actual post.&lt;/p&gt;

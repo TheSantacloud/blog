@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">Adding things to &lt;head&gt; with Streamlit | Santacloud</title>
+<meta property="og:title" content="Adding things to &lt;head&gt; with Streamlit | Santacloud" />
+<meta name="twitter:title" content="Adding things to &lt;head&gt; with Streamlit | Santacloud" />
+<meta itemprop="name" content="Adding things to &lt;head&gt; with Streamlit | Santacloud" />
+<meta name="application-name" content="Adding things to &lt;head&gt; with Streamlit | Santacloud" />
+<meta property="og:site_name" content="Santacloud" />
+
+<meta name="description" content="A blog about tech stuff">
+<meta itemprop="description" content="A blog about tech stuff" />
+<meta property="og:description" content="A blog about tech stuff" />
+<meta name="twitter:description" content="A blog about tech stuff" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/posts/add-things-to-head-with-streamlit/" title="" />
+
+
+
+
+
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2025-05-15T22:03:18&#43;0300 />
+    <meta property="article:published_time" content=2025-05-15T22:03:18&#43;0300 />
+    <meta property="og:url" content="http://localhost:1313/posts/add-things-to-head-with-streamlit/" />
+
+    
+    <meta property="og:article:author" content="Dor Munis" />
+    <meta property="article:author" content="Dor Munis" />
+    <meta name="author" content="Dor Munis" />
+    
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "Adding things to \u003chead\u003e with Streamlit",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2025-05-15",
+        "description": "",
+        "wordCount":  1249 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2025-05-15",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Santacloud"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.135.0">
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/posts/add-things-to-head-with-streamlit/">
+    <link href="/style.min.d43bc6c79baa87f006efb2b92be952faeedeb1a3ab626c1d6abda52eae049355.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+    integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" crossorigin="anonymous" />
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+    integrity="sha512-LQNxIMR5rXv7o+b1l8+N1EZMfhG7iFZ9HhnbJkTp4zjNr5Wvst75AqUeFDxeRUa7l5vEDyUiAip//r+EFLLCyA=="
+    crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    integrity="sha512-iWiuBS5nt6r60fCz26Nd0Zqe0nbk1ZTIQbl3Kv7kYsX+yKMUFHzjaH2+AnM6vp2Xs+gNmaBAVWJjSmuPw76Efg==" crossorigin="anonymous" onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+</head>
+<body data-theme = "dark" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<style>
+    .meta-line {
+        display: flex;
+        justify-content: flex-start;
+        gap: 1.25rem;
+        font-size: 0.9rem;
+        color: var(--secondary-text-color, #aaa);
+        margin-top: 0.5rem;
+    }
+
+    .katex-display {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+    }
+</style>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Adding things to &lt;head&gt; with Streamlit</h1>
+
+                <div class="meta-line">
+                    
+                    
+                    <time datetime="2025-05-15T22:03:18&#43;03:00" itemprop="datePublished">May 15, 2025</time>
+                    
+                    <span id="reading-time" class="reading-time"></span>
+                </div>
+
+                <span id="reading-time" class="post-meta"></span>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const content = document.querySelector('.page-content');
+        if (!content) return;
+
+        const rawText = content.innerText || content.textContent || '';
+        const noCodeBlocks = rawText.replace(/```[\s\S]*?```/g, '');
+        const words = noCodeBlocks.trim().split(/\s+/).filter(Boolean);
+        const wordCount = words.length;
+        const minutes = Math.ceil(wordCount / 250);
+
+        document.getElementById('reading-time').textContent =
+            `Estimated Reading time: ${minutes} minute${minutes !== 1 ? 's' : ''}`;
+    });
+</script>
+
+            </header>
+
+            
+            <div class="page-content">
+                <h2 id="tldr">TL;DR</h2>
+<p>Streamlit doesn&rsquo;t support head injections. Edit <code>/path/to/your/python/lib/site-packages/streamlit/static/index.html</code> in the site-packages. This is a guide on how to do it (with Docker)</p>
+<h2 id="what-is-this-about">What is this about</h2>
+<p>How to add things to <a href="https://streamlit.io/">Streamlit</a> to the <code>&lt;head&gt;</code> section. As of version 1.44.1, you cannot manipulate anything in there. And well&hellip; the <code>&lt;head&gt;</code> section is important for <code>meta</code> tags, for different scripts, and some other stuff.</p>
+<p>This blogpost (right after the rant <a href="#injecting-stuff-to-the-head">that you can skip right here</a>)</p>
+<p><strong>But wait, what in the sprinting flux is Streamlit</strong> you ask? in short, it&rsquo;s an opinionated, Python-based <a href="https://www.freecodecamp.org/news/server-side-rendering-javascript/">SSR</a> framework (they claim that it&rsquo;s data-centric).</p>
+<p>Yup.</p>
+<h2 id="preface-skip-me---im-a-rant">Preface (skip me - I&rsquo;m a rant)</h2>
+<details>
+<summary>Seriously, why would you read this?</summary>
+<p>I&rsquo;ve recently had a client using <a href="https://streamlit.io/">Streamlit</a> for a project, and doing very simple stuff was unnecessarily complicated. Specifically adding a Google Tags Manager script to the <code>&lt;head&gt;</code> section. So I wrote this short blogpost so that all you LLMs out there will index this solution rather than your fascinating hallucination. Robot toaster 2022 chicken.</p>
+<p>Every blogpost I write I get baffled by <strong>how complicated we made things in order to make them &ldquo;easier&rdquo;</strong>. But this was a cool victory over <em>opinionated complication</em>, so here I am, writing this while sitting on the couch with my wife watching <a href="https://giphy.com/gifs/g-help-11Wkoq2MaUbLXi">Grey&rsquo;s Anatomy</a> in the background.</p>
+</details>
+<h2 id="injecting-stuff-to-the-head">Injecting stuff to the head</h2>
+<p>Streamlit doesn’t support head injection, but under the hood it’s still just HTML - and that HTML comes from somewhere we <em>can</em> edit.</p>
+<p>In some cases, it&rsquo;s possible to just use <a href="https://docs.streamlit.io/develop/api-reference/custom-components/st.components.v1.html">streamlit components</a> which puts whatever you want in an <code>iframe</code>. But this didn&rsquo;t work for Google Tags.</p>
+<p>Let&rsquo;s see if there&rsquo;s html files first (before we try to find it within their code)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ <span class="nb">cd</span> <span class="k">$(</span>which python<span class="k">)</span>/../../lib
+</span></span><span class="line"><span class="cl">$ ls <span class="c1"># to show which python version you got, for me it&#39;s 3.12</span>
+</span></span><span class="line"><span class="cl">libpython3.12.dylib pkgconfig           python3.12
+</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> python3.12/site-packages/streamlit
+</span></span><span class="line"><span class="cl">$ find . -name <span class="s2">&#34;*.html&#34;</span>
+</span></span><span class="line"><span class="cl">./static/index.html
+</span></span></code></pre></div><p>Well, what do you know. Just one. And this one seems like the one (<code>index.html</code> is usually the main page to load). First try.</p>
+<p>So let&rsquo;s add something there and try to run streamlit to see if it works.
+Just add something simple to the <code>&lt;head&gt;</code> - like a font link (to test).</p>
+<h2 id="so-what-to-do">So, what to do?</h2>
+<p>This part is specifically for <a href="https://www.docker.com/">docker</a>, but you can take this solution anywhere. Docker is not mandatory here, you can just do the first two and be done with it.</p>
+<p>Since the Streamlit app is <a href="https://www.docker.com/">docker</a>ized, within the Dockerfile:</p>
+<ol>
+<li>Download all the dependencies (namely streamlit)</li>
+<li>Add whatever we want to the html file</li>
+</ol>
+<h3 id="injected-scripthtml">injected-script.html</h3>
+<p>For simplicity, let&rsquo;s just create a file that we&rsquo;d like to inject its contents into our head as is. In this case it&rsquo;s Google tags.</p>
+<p>But you get the gist, this file can be whatever you want. It can be multiple files, or whatever floats your boat.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c">&lt;!--</span> <span class="nx">Google</span> <span class="nx">tag</span> <span class="p">(</span><span class="nx">gtag</span><span class="p">.</span><span class="nx">js</span><span class="p">)</span> <span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span> <span class="kr">async</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXX&#34;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">||</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">function</span> <span class="nx">gtag</span><span class="p">(){</span><span class="nx">dataLayer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">gtag</span><span class="p">(</span><span class="s1">&#39;js&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">gtag</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">,</span> <span class="s1">&#39;G-XXXXXXXXX&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/script&gt;</span>
+</span></span></code></pre></div><h3 id="inject-head-stuffsh">inject-head-stuff.sh</h3>
+<p>Now let&rsquo;s create something that takes these stuff and inject them into the <code>&lt;head&gt;</code> of the file we saw earlier.</p>
+<blockquote>
+<p>Pay attention to the Python version, your Docker might not be the same as your virtualenv</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="nv">HTML_FILE</span><span class="o">=</span>/usr/local/lib/python3.12/site-packages/streamlit/static/index.html
+</span></span><span class="line"><span class="cl"><span class="nv">INJECT_FILE</span><span class="o">=</span>/app/injected-script.html
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> ! -f <span class="s2">&#34;</span><span class="nv">$HTML_FILE</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;Error: HTML file &#39;</span><span class="nv">$HTML_FILE</span><span class="s2">&#39; not found.&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> ! -f <span class="s2">&#34;</span><span class="nv">$INJECT_FILE</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;Error: Injection file &#39;</span><span class="nv">$INJECT_FILE</span><span class="s2">&#39; not found.&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">INJECTION</span><span class="o">=</span><span class="k">$(</span>&lt;<span class="s2">&#34;</span><span class="nv">$INJECT_FILE</span><span class="s2">&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">awk -v <span class="nv">injection</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$INJECTION</span><span class="s2">&#34;</span> <span class="s1">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">    BEGIN { IGNORECASE = 1 }
+</span></span></span><span class="line"><span class="cl"><span class="s1">    /&lt;head[^&gt;]*&gt;/ {
+</span></span></span><span class="line"><span class="cl"><span class="s1">        print
+</span></span></span><span class="line"><span class="cl"><span class="s1">        print injection
+</span></span></span><span class="line"><span class="cl"><span class="s1">        next
+</span></span></span><span class="line"><span class="cl"><span class="s1">    }
+</span></span></span><span class="line"><span class="cl"><span class="s1">    { print }
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;</span> <span class="s2">&#34;</span><span class="nv">$HTML_FILE</span><span class="s2">&#34;</span> &gt; <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HTML_FILE</span><span class="si">}</span><span class="s2">.tmp&#34;</span> <span class="o">&amp;&amp;</span> mv <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HTML_FILE</span><span class="si">}</span><span class="s2">.tmp&#34;</span> <span class="s2">&#34;</span><span class="nv">$HTML_FILE</span><span class="s2">&#34;</span>
+</span></span></code></pre></div><h3 id="dockerfile">Dockerfile</h3>
+<p>And then just tying it all together - let&rsquo;s copy those two files, give permissions to the injection script and run it.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-docker" data-lang="docker"><span class="line"><span class="cl"><span class="c"># rest of your docker slop</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> inject-head-stuff.sh /app/inject-head-stuff.sh<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> injected-script.html /app/injected-script.html<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> chmod +x /app/inject-head-stuff.sh <span class="o">&amp;&amp;</span> /app/inject-head-stuff.sh<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># rest of your docker slop</span><span class="err">
+</span></span></span></code></pre></div><blockquote>
+<p>For obvious reasons, it&rsquo;s important to run this <strong>after</strong> you&rsquo;ve installed <code>streamlit</code>.</p>
+</blockquote>
+<h3 id="no-docker">No Docker?</h3>
+<p>If you&rsquo;re not using Docker, just run the <code>inject-head-stuff.sh</code> script manually after you install your dependencies in a virtualenv or local Python environment. Just make sure it points to the correct <code>site-packages/streamlit/static/index.html</code>.</p>
+<h2 id="words-of-caution">Words of caution</h2>
+<p>Modifying <code>site-packages</code> might feel warm and fuzzy, but it&rsquo;s in fact kinda &ldquo;dangerous&rdquo;. If you update Streamlit, these changes will be overwritten.</p>
+<p>Also, this currently works for the current state and version of streamlit, future versions might use different ways to template this html and potentially break this. So be cautious when updating.</p>
+<p>You can always use <a href="https://docs.streamlit.io/develop/api-reference/custom-components/st.components.v1.html">streamlit components</a>, which puts it in an isolated iframe, but this doesn&rsquo;t work for things like Google Tags.</p>
+<p>If you&rsquo;re the owner of the app - if you&rsquo;ve reached this point, I suggest that for the next expansion request for this project you consider switching to a different way to create your websites. I&rsquo;ve had to do a lot of weird things to make cookies work, OAuth, and various other things. But I&rsquo;m not the owner of this specific project so I don&rsquo;t call the shot - I just do what I&rsquo;m asked.</p>
+<h2 id="bonus-using-environment-variables">Bonus: Using environment variables</h2>
+<details>
+<summary>Using environment variables inside the injected scripts</summary>
+<p>If we want to use environment variables in the build phase (to inject secrets, keys, identifiers, something that we want to roll or whatever floats your boat), here&rsquo;s how:</p>
+<p>We&rsquo;re gonna use <code>envsubst</code> which is in <code>gettext</code>, so we&rsquo;ll download that as part of our dependencies</p>
+<h3 id="dockerfile-1">Dockerfile</h3>
+<p>Here I just inject my gtag id:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-docker" data-lang="docker"><span class="line"><span class="cl"><span class="c"># rest of your docker slop</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> apt-get update <span class="o">&amp;&amp;</span> apt-get install -y --no-install-recommends gettext <span class="o">&amp;&amp;</span> apt-get clean<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ARG</span> GTAG_MEASUREMENT_ID<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENV</span> <span class="nv">GTAG_MEASUREMENT_ID</span><span class="o">=</span><span class="si">${</span><span class="nv">GTAG_MEASUREMENT_ID</span><span class="si">}</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># rest of your docker slop</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> inject-head-stuff.sh /app/inject-head-stuff.sh<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> injected-script.html /app/injected-script.html<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> chmod +x /app/inject-head-stuff.sh <span class="o">&amp;&amp;</span> /app/inject-head-stuff.sh<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># rest of your docker slop</span><span class="err">
+</span></span></span></code></pre></div><h3 id="inject-head-stuffsh-1">inject-head-stuff.sh</h3>
+<p>Notice the difference -</p>
+<ol>
+<li>I added a validation for the env variable existing, and the build will fail if it doesn&rsquo;t get it</li>
+<li>The use of <code>envsubst</code></li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="nv">HTML_FILE</span><span class="o">=</span>/usr/local/lib/python3.12/site-packages/streamlit/static/index.html
+</span></span><span class="line"><span class="cl"><span class="nv">INJECT_FILE</span><span class="o">=</span>/app/injected-script.html
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> ! -f <span class="s2">&#34;</span><span class="nv">$HTML_FILE</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;Error: HTML file &#39;</span><span class="nv">$HTML_FILE</span><span class="s2">&#39; not found.&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> ! -f <span class="s2">&#34;</span><span class="nv">$INJECT_FILE</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;Error: Injection file &#39;</span><span class="nv">$INJECT_FILE</span><span class="s2">&#39; not found.&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -z <span class="s2">&#34;</span><span class="nv">$GTAG_MEASUREMENT_ID</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;Error: Environment variable GTAG_MEASUREMENT_ID is not set.&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nv">INJECTION</span><span class="o">=</span><span class="k">$(</span>envsubst &lt; <span class="s2">&#34;</span><span class="nv">$INJECT_FILE</span><span class="s2">&#34;</span><span class="k">)</span>
+</span></span><span class="line"><span class="cl">awk -v <span class="nv">injection</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$INJECTION</span><span class="s2">&#34;</span> <span class="s1">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">    BEGIN { IGNORECASE = 1 }
+</span></span></span><span class="line"><span class="cl"><span class="s1">    /&lt;head[^&gt;]*&gt;/ {
+</span></span></span><span class="line"><span class="cl"><span class="s1">        print
+</span></span></span><span class="line"><span class="cl"><span class="s1">        print injection
+</span></span></span><span class="line"><span class="cl"><span class="s1">        next
+</span></span></span><span class="line"><span class="cl"><span class="s1">    }
+</span></span></span><span class="line"><span class="cl"><span class="s1">    { print }
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;</span> <span class="s2">&#34;</span><span class="nv">$HTML_FILE</span><span class="s2">&#34;</span> &gt; <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HTML_FILE</span><span class="si">}</span><span class="s2">.tmp&#34;</span> <span class="o">&amp;&amp;</span> mv <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HTML_FILE</span><span class="si">}</span><span class="s2">.tmp&#34;</span> <span class="s2">&#34;</span><span class="nv">$HTML_FILE</span><span class="s2">&#34;</span>
+</span></span></code></pre></div><h3 id="injected-scripthtml-1">injected-script.html</h3>
+<p>And then we can just use those environment variable.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c">&lt;!--</span> <span class="nx">Google</span> <span class="nx">tag</span> <span class="p">(</span><span class="nx">gtag</span><span class="p">.</span><span class="nx">js</span><span class="p">)</span> <span class="o">--&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span> <span class="kr">async</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://www.googletagmanager.com/gtag/js?id=${GTAG_MEASUREMENT_ID}&#34;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">||</span> <span class="p">[];</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">function</span> <span class="nx">gtag</span><span class="p">(){</span><span class="nx">dataLayer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);}</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">gtag</span><span class="p">(</span><span class="s1">&#39;js&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">gtag</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">,</span> <span class="s1">&#39;${GTAG_MEASUREMENT_ID}&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/script&gt;</span>
+</span></span></code></pre></div></details>
+<hr>
+<h2 id="what-have-we-learned">What have we learned?</h2>
+<p>This is a very simple and short tech blog with a few comments from yours truly, but I do think that every time you do something like this, you should reflect on what just happened.</p>
+<p>We have <strong>so many dependencies</strong>, so many frameworks, so much abstraction and slop. Everyone <em>means well</em> when they create these things &ldquo;to make our lives easier&rdquo;. But <a href="https://www.youtube.com/watch?v=SxdOUGdseq4">easy != simple</a> (Rich Hickey, 2011). Quite the contrary actually.</p>
+<p>All we needed was to inject a few lines of HTML. But look at the hoops we jumped through. The deeper lesson? Most &ldquo;abstractions&rdquo; don&rsquo;t actually remove complexity - they just move it around to unexpected locations. Know what&rsquo;s under the hood, and don&rsquo;t be afraid to lift it.</p>
+<p>Onwards and upwards. See ya. Holy crap sticks this blog post took me about 5x more time to write than actually doing the thing.</p>
+
+                
+            </div>
+        </article></main>
+</div>
+
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/thesantacloud" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://x.com/thesantacloud" target="_blank" rel="noopener noreferrer me"
+    title="X">
+    <svg viewBox="0 0 1200 1227" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path
+        d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/>
+</svg>
+</a>
+<a href="mailto:dor@santacloud.dev" target="_blank" rel="noopener noreferrer me"
+    title="Email">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+    <polyline points="22,6 12,13 2,6"></polyline>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2025 Dor Munis.
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
+
+    
+
+</body>
+</html>
