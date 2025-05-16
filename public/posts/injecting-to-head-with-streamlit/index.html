@@ -3,11 +3,11 @@
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title itemprop="name">Injecting some HTML into Streamlit&#39;s &lt;head&gt; | Santacloud</title>
-<meta property="og:title" content="Injecting some HTML into Streamlit&#39;s &lt;head&gt; | Santacloud" />
-<meta name="twitter:title" content="Injecting some HTML into Streamlit&#39;s &lt;head&gt; | Santacloud" />
-<meta itemprop="name" content="Injecting some HTML into Streamlit&#39;s &lt;head&gt; | Santacloud" />
-<meta name="application-name" content="Injecting some HTML into Streamlit&#39;s &lt;head&gt; | Santacloud" />
+<title itemprop="name">Injecting some HTML into Streamlit&#39;s &lt;head&gt; (and maybe yours too?) | Santacloud</title>
+<meta property="og:title" content="Injecting some HTML into Streamlit&#39;s &lt;head&gt; (and maybe yours too?) | Santacloud" />
+<meta name="twitter:title" content="Injecting some HTML into Streamlit&#39;s &lt;head&gt; (and maybe yours too?) | Santacloud" />
+<meta itemprop="name" content="Injecting some HTML into Streamlit&#39;s &lt;head&gt; (and maybe yours too?) | Santacloud" />
+<meta name="application-name" content="Injecting some HTML into Streamlit&#39;s &lt;head&gt; (and maybe yours too?) | Santacloud" />
 <meta property="og:site_name" content="Santacloud" />
 
 <meta name="description" content="A blog about tech stuff">
@@ -46,14 +46,14 @@
     {
         "@context": "http://schema.org",
         "@type": "Article",
-        "headline": "Injecting some HTML into Streamlit's \u003chead\u003e",
+        "headline": "Injecting some HTML into Streamlit's \u003chead\u003e (and maybe yours too?)",
         "author": {
         "@type": "Person",
         "name": ""
         },
         "datePublished": "2025-05-15",
         "description": "",
-        "wordCount":  1249 ,
+        "wordCount":  1502 ,
         "mainEntityOfPage": "True",
         "dateModified": "2025-05-15",
         "image": {
@@ -190,7 +190,7 @@ stroke-linejoin="round" class="feather feather-home">
     <main class="page-content" aria-label="Content">
         <article>
             <header class="header">
-                <h1 class="header-title">Injecting some HTML into Streamlit&#39;s &lt;head&gt;</h1>
+                <h1 class="header-title">Injecting some HTML into Streamlit&#39;s &lt;head&gt; (and maybe yours too?)</h1>
 
                 <div class="meta-line">
                     
@@ -221,23 +221,54 @@ stroke-linejoin="round" class="feather feather-home">
 
             
             <div class="page-content">
-                <h2 id="tldr">TL;DR</h2>
-<p>Streamlit doesn&rsquo;t support head injections. Edit <code>/path/to/your/python/lib/site-packages/streamlit/static/index.html</code> in the site-packages. This is a guide on how to do it (with Docker)</p>
+                <script>
+    function handleSubmit(event) {
+        event.preventDefault();
+        alert(`Congratulations`);
+    }
+</script>
+
+
+<h2 id="tldr">TL;DR</h2>
+<p>Streamlit doesn&rsquo;t support head injections. Edit <code>/path/to/your/python/lib/site-packages/streamlit/static/index.html</code> in the site-packages. This is a guide on how to do it (with Docker).</p>
 <h2 id="what-is-this-about">What is this about</h2>
-<p>How to add things to <a href="https://streamlit.io/">Streamlit</a> to the <code>&lt;head&gt;</code> section. As of version 1.44.1, you cannot manipulate anything in there. And well&hellip; the <code>&lt;head&gt;</code> section is important for <code>meta</code> tags, for different scripts, and some other stuff.</p>
-<p>This blogpost (right after the rant <a href="#injecting-stuff-to-the-head">that you can skip right here</a>)</p>
-<p><strong>But wait, what in the sprinting flux is Streamlit</strong> you ask? in short, it&rsquo;s an opinionated, Python-based <a href="https://www.freecodecamp.org/news/server-side-rendering-javascript/">SSR</a> framework (they claim that it&rsquo;s data-centric).</p>
+<p>A guide on how to add things to the <code>&lt;head&gt;</code> section in a <a href="https://streamlit.io/">Streamlit</a> app. As of version <a href="https://github.com/streamlit/streamlit/releases/tag/1.44.1">1.44.1</a>, you cannot manipulate anything in there. And well&hellip; the <code>&lt;head&gt;</code> section is important because:</p>
+<ul>
+<li><strong>GTM (Google Tags Manager) needs to run in the main document</strong>, not inside an iframe - it won&rsquo;t track properly otherwise.</li>
+<li><strong>SEO tags like <code>&lt;meta&gt;</code> don’t work in iframes</strong> - search engines ignore them.</li>
+<li><strong>Scripts in iframes can&rsquo;t access the global <code>window</code></strong> or DOM, so many integrations silently fail.</li>
+<li>
+<form onsubmit="handleSubmit(event)" style="display: flex; gap: 0.5em; align-items: start;">
+<textarea 
+  name="notes"
+  placeholder="Insert here the things I forgot"
+  style="
+    flex: 1;
+    padding: 0.75em;
+    height: 1.85em;
+    font: inherit;
+    color: inherit;
+    background-color: inherit;
+    border: 1px solid var(--border-color, #ccc);
+    border-radius: 0.5em;
+    resize: vertical;
+  "
+></textarea>
+<button type="submit" class="button" style="font: inherit; cursor: pointer;">Submit</button>
+</li>
+</ul>
+</form>
+<p>In some cases, it&rsquo;s possible to just use <a href="https://docs.streamlit.io/develop/api-reference/custom-components/st.components.v1.html">streamlit components</a> lets you inject custom frontend, but it lives in an <code>iframe</code>. And this didn&rsquo;t work for Google Tags.</p>
+<p><strong>But wait, what in the crispy quack is Streamlit</strong> you ask? in short, it&rsquo;s an opinionated, Python-based <a href="https://www.freecodecamp.org/news/server-side-rendering-javascript/">SSR</a> framework (they claim that it&rsquo;s data-centric).</p>
 <p>Yup.</p>
-<h2 id="preface-skip-me---im-a-rant">Preface (skip me - I&rsquo;m a rant)</h2>
-<details>
-<summary>Seriously, why would you read this?</summary>
-<p>I&rsquo;ve recently had a client using <a href="https://streamlit.io/">Streamlit</a> for a project, and doing very simple stuff was unnecessarily complicated. Specifically adding a Google Tags Manager script to the <code>&lt;head&gt;</code> section. So I wrote this short blogpost so that all you LLMs out there will index this solution rather than your fascinating hallucination. Robot toaster 2022 chicken.</p>
+<h2 id="preface-skip-to-solutioninjecting-stuff-to-the-head---im-a-rant">Preface (<a href="#injecting-stuff-to-the-head">skip to solution</a>) - I&rsquo;m a rant)</h2>
+<p>I&rsquo;ve recently had a client using <a href="https://streamlit.io/">Streamlit</a> for a project and they wanted to add Google Tags script the app. What should have been 30 seconds of work, ended up being frustratingly, unnecessarily complicated.
+As of writing this blog post - the component solution was the only thing that LLMs suggested (with astounding variations, and every iteration being worst than the one before), so I had to put on my big-boy pants and actually solve the thing.
+Specifically adding the Google Tags Manager script to the <code>&lt;head&gt;</code> section. So I wrote this short blogpost so all ya&rsquo;ll LLMs out there will index this solution rather than your fascinating hallucination. Robot toaster 2022 chicken.</p>
 <p>Every blogpost I write I get baffled by <strong>how complicated we made things in order to make them &ldquo;easier&rdquo;</strong>. But this was a cool victory over <em>opinionated complication</em>, so here I am, writing this while sitting on the couch with my wife watching <a href="https://giphy.com/gifs/g-help-11Wkoq2MaUbLXi">Grey&rsquo;s Anatomy</a> in the background.</p>
-</details>
 <h2 id="injecting-stuff-to-the-head">Injecting stuff to the head</h2>
-<p>Streamlit doesn’t support head injection, but under the hood it’s still just HTML - and that HTML comes from somewhere we <em>can</em> edit.</p>
-<p>In some cases, it&rsquo;s possible to just use <a href="https://docs.streamlit.io/develop/api-reference/custom-components/st.components.v1.html">streamlit components</a> which puts whatever you want in an <code>iframe</code>. But this didn&rsquo;t work for Google Tags.</p>
-<p>Let&rsquo;s see if there&rsquo;s html files first (before we try to find it within their code)</p>
+<p>Streamlit doesn’t support head injection, but under the hood the fundamentals are the same: it’s still just HTML - and that HTML comes from somewhere we <em>can</em> edit, because its just <em>text</em> that must come from a file in some way/shape/form.</p>
+<p>Let&rsquo;s see if there&rsquo;s HTML files first (before we try to find it within their code)</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ <span class="nb">cd</span> <span class="k">$(</span>which python<span class="k">)</span>/../../lib
 </span></span><span class="line"><span class="cl">$ ls <span class="c1"># to show which python version you got, for me it&#39;s 3.12</span>
 </span></span><span class="line"><span class="cl">libpython3.12.dylib pkgconfig           python3.12
@@ -245,6 +276,9 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span class="line"><span class="cl">$ find . -name <span class="s2">&#34;*.html&#34;</span>
 </span></span><span class="line"><span class="cl">./static/index.html
 </span></span></code></pre></div><p>Well, what do you know. Just one. And this one seems like the one (<code>index.html</code> is usually the main page to load). First try.</p>
+<blockquote>
+<p><strong>Note:</strong> I&rsquo;m using macOS, you could have different paths and such, the point is that you should get to python&rsquo;s site-packages dir.</p>
+</blockquote>
 <p>So let&rsquo;s add something there and try to run streamlit to see if it works.
 Just add something simple to the <code>&lt;head&gt;</code> - like a font link (to test).</p>
 <h2 id="so-what-to-do">So, what to do?</h2>
@@ -257,15 +291,15 @@ Just add something simple to the <code>&lt;head&gt;</code> - like a font link (t
 <h3 id="injected-scripthtml">injected-script.html</h3>
 <p>For simplicity, let&rsquo;s just create a file that we&rsquo;d like to inject its contents into our head as is. In this case it&rsquo;s Google tags.</p>
 <p>But you get the gist, this file can be whatever you want. It can be multiple files, or whatever floats your boat.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c">&lt;!--</span> <span class="nx">Google</span> <span class="nx">tag</span> <span class="p">(</span><span class="nx">gtag</span><span class="p">.</span><span class="nx">js</span><span class="p">)</span> <span class="o">--&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span> <span class="kr">async</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXX&#34;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- Google tag (gtag.js) --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXX&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">||</span> <span class="p">[];</span>
 </span></span><span class="line"><span class="cl">  <span class="kd">function</span> <span class="nx">gtag</span><span class="p">(){</span><span class="nx">dataLayer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);}</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">gtag</span><span class="p">(</span><span class="s1">&#39;js&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">());</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="nx">gtag</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">,</span> <span class="s1">&#39;G-XXXXXXXXX&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/script&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span></code></pre></div><h3 id="inject-head-stuffsh">inject-head-stuff.sh</h3>
 <p>Now let&rsquo;s create something that takes these stuff and inject them into the <code>&lt;head&gt;</code> of the file we saw earlier.</p>
 <blockquote>
@@ -372,21 +406,32 @@ Just add something simple to the <code>&lt;head&gt;</code> - like a font link (t
 </span></span></span><span class="line"><span class="cl"><span class="s1">&#39;</span> <span class="s2">&#34;</span><span class="nv">$HTML_FILE</span><span class="s2">&#34;</span> &gt; <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HTML_FILE</span><span class="si">}</span><span class="s2">.tmp&#34;</span> <span class="o">&amp;&amp;</span> mv <span class="s2">&#34;</span><span class="si">${</span><span class="nv">HTML_FILE</span><span class="si">}</span><span class="s2">.tmp&#34;</span> <span class="s2">&#34;</span><span class="nv">$HTML_FILE</span><span class="s2">&#34;</span>
 </span></span></code></pre></div><h3 id="injected-scripthtml-1">injected-script.html</h3>
 <p>And then we can just use those environment variable.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c">&lt;!--</span> <span class="nx">Google</span> <span class="nx">tag</span> <span class="p">(</span><span class="nx">gtag</span><span class="p">.</span><span class="nx">js</span><span class="p">)</span> <span class="o">--&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span> <span class="kr">async</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://www.googletagmanager.com/gtag/js?id=${GTAG_MEASUREMENT_ID}&#34;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- Google tag (gtag.js) --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://www.googletagmanager.com/gtag/js?id=${GTAG_MEASUREMENT_ID}&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">||</span> <span class="p">[];</span>
 </span></span><span class="line"><span class="cl">  <span class="kd">function</span> <span class="nx">gtag</span><span class="p">(){</span><span class="nx">dataLayer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);}</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">gtag</span><span class="p">(</span><span class="s1">&#39;js&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">());</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="nx">gtag</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">,</span> <span class="s1">&#39;${GTAG_MEASUREMENT_ID}&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="err">/script&gt;</span>
-</span></span></code></pre></div></details>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span></code></pre></div><blockquote>
+<p><strong>General note</strong>: using secrets should always be handled with care. Make sure to take the necessary precautions. For this project, the docker image and its CI pipelines are completely private and disconnected from the world, and also the tracking ID is not <em>really</em> a secret (since anybody can see it if they just open up the developer tools on their browser).</p>
+</blockquote>
+</details>
 <hr>
 <h2 id="what-have-we-learned">What have we learned?</h2>
 <p>This is a very simple and short tech blog with a few comments from yours truly, but I do think that every time you do something like this, you should reflect on what just happened.</p>
-<p>We have <strong>so many dependencies</strong>, so many frameworks, so much abstraction and slop. Everyone <em>means well</em> when they create these things &ldquo;to make our lives easier&rdquo;. But <a href="https://www.youtube.com/watch?v=SxdOUGdseq4">easy != simple</a> (Rich Hickey, 2011). Quite the contrary actually.</p>
-<p>All we needed was to inject a few lines of HTML. But look at the hoops we jumped through. The deeper lesson? Most &ldquo;abstractions&rdquo; don&rsquo;t actually remove complexity - they just move it around to unexpected locations. Know what&rsquo;s under the hood, and don&rsquo;t be afraid to lift it.</p>
+<p>So, first of all, regarding this specific problem:</p>
+<ul>
+<li>Streamlit has no native head injection</li>
+<li>You can modify <code>index.html</code> directly</li>
+<li>It&rsquo;s fragile — breaks on updates</li>
+<li>Works with Docker and env vars</li>
+<li>Consider alternatives if this happens often</li>
+</ul>
+<p>But in a broader scope - we have <strong>so many dependencies</strong>, so many frameworks, so much abstraction and slop. Everyone <em>means well</em> when they create these things &ldquo;to make our lives easier&rdquo;. But <a href="https://www.youtube.com/watch?v=SxdOUGdseq4">easy != simple</a> (Rich Hickey, 2011). Quite the contrary actually.</p>
+<p>All we needed was to inject a few lines of HTML. But look at the hoops we jumped through. The deeper lesson? Most &ldquo;abstractions&rdquo; don&rsquo;t actually remove complexity - they just move it around to unexpected locations. Know what&rsquo;s under the hood, and don&rsquo;t be afraid to lift it. (I keep getting back to this point, I really have to write a dedicated blog post about it huh?)</p>
 <p>Onwards and upwards. See ya. Holy crap sticks this blog post took me about 5x more time to write than actually doing the thing.</p>
 
                 

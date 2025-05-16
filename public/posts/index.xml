@@ -8,17 +8,50 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 15 May 2025 22:03:18 +0300</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Injecting some HTML into Streamlit&#39;s &lt;head&gt;</title>
+      <title>Injecting some HTML into Streamlit&#39;s &lt;head&gt; (and maybe yours too?)</title>
       <link>http://localhost:1313/posts/injecting-to-head-with-streamlit/</link>
       <pubDate>Thu, 15 May 2025 22:03:18 +0300</pubDate>
       
       <guid>http://localhost:1313/posts/injecting-to-head-with-streamlit/</guid>
       
-      <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;
-&lt;p&gt;Streamlit doesn&amp;rsquo;t support head injections. Edit &lt;code&gt;/path/to/your/python/lib/site-packages/streamlit/static/index.html&lt;/code&gt; in the site-packages. This is a guide on how to do it (with Docker)&lt;/p&gt;
+      <description>&lt;script&gt;
+    function handleSubmit(event) {
+        event.preventDefault();
+        alert(`Congratulations`);
+    }
+&lt;/script&gt;
+
+
+&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;
+&lt;p&gt;Streamlit doesn&amp;rsquo;t support head injections. Edit &lt;code&gt;/path/to/your/python/lib/site-packages/streamlit/static/index.html&lt;/code&gt; in the site-packages. This is a guide on how to do it (with Docker).&lt;/p&gt;
 &lt;h2 id=&#34;what-is-this-about&#34;&gt;What is this about&lt;/h2&gt;
-&lt;p&gt;How to add things to &lt;a href=&#34;https://streamlit.io/&#34;&gt;Streamlit&lt;/a&gt; to the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; section. As of version 1.44.1, you cannot manipulate anything in there. And well&amp;hellip; the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; section is important for &lt;code&gt;meta&lt;/code&gt; tags, for different scripts, and some other stuff.&lt;/p&gt;
-&lt;p&gt;This blogpost (right after the rant &lt;a href=&#34;#injecting-stuff-to-the-head&#34;&gt;that you can skip right here&lt;/a&gt;)&lt;/p&gt;</description>
+&lt;p&gt;A guide on how to add things to the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; section in a &lt;a href=&#34;https://streamlit.io/&#34;&gt;Streamlit&lt;/a&gt; app. As of version &lt;a href=&#34;https://github.com/streamlit/streamlit/releases/tag/1.44.1&#34;&gt;1.44.1&lt;/a&gt;, you cannot manipulate anything in there. And well&amp;hellip; the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; section is important because:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;GTM (Google Tags Manager) needs to run in the main document&lt;/strong&gt;, not inside an iframe - it won&amp;rsquo;t track properly otherwise.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SEO tags like &lt;code&gt;&amp;lt;meta&amp;gt;&lt;/code&gt; don’t work in iframes&lt;/strong&gt; — search engines ignore them.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Scripts in iframes can&amp;rsquo;t access the global &lt;code&gt;window&lt;/code&gt;&lt;/strong&gt; or DOM, so many integrations silently fail.&lt;/li&gt;
+&lt;li&gt;
+&lt;form onsubmit=&#34;handleSubmit(event)&#34; style=&#34;display: flex; gap: 0.5em; align-items: start;&#34;&gt;
+&lt;textarea 
+  name=&#34;notes&#34;
+  placeholder=&#34;Insert here the things I forgot&#34;
+  style=&#34;
+    flex: 1;
+    padding: 0.75em;
+    height: 1.85em;
+    font: inherit;
+    color: inherit;
+    background-color: inherit;
+    border: 1px solid var(--border-color, #ccc);
+    border-radius: 0.5em;
+    resize: vertical;
+  &#34;
+&gt;&lt;/textarea&gt;
+&lt;button type=&#34;submit&#34; class=&#34;button&#34; style=&#34;font: inherit; cursor: pointer;&#34;&gt;Submit&lt;/button&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/form&gt;
+&lt;p&gt;In some cases, it&amp;rsquo;s possible to just use &lt;a href=&#34;https://docs.streamlit.io/develop/api-reference/custom-components/st.components.v1.html&#34;&gt;streamlit components&lt;/a&gt; lets you inject custom frontend, but it lives in an &lt;code&gt;iframe&lt;/code&gt;. And this didn&amp;rsquo;t work for Google Tags.&lt;/p&gt;</description>
       
     </item>
     
