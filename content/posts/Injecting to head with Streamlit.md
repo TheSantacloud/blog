@@ -174,7 +174,7 @@ Also, this currently works for the current state and version of streamlit, futur
 
 You can always use [streamlit components](https://docs.streamlit.io/develop/api-reference/custom-components/st.components.v1.html), which puts it in an isolated iframe, but this doesn't work for things like Google Tags.
 
-If you're the owner of the app - if you've reached this point, I suggest that for the next expansion request for this project you consider switching to a different way to create your websites. I've had to do a lot of weird things to make cookies work, OAuth, and various other things. But I'm not the owner of this specific project so I don't call the shot - I just do what I'm asked.
+If you're the owner of the app - and you've reached this point, I suggest that for the next expansion request for this project you consider switching to a different way to create your websites. I've had to do a lot of weird things to make cookies work, OAuth, and various other things. But I'm not the owner of this specific project so I don't call the shot - I just do what I'm asked.
 
 ## Bonus: Using environment variables
 
@@ -276,7 +276,7 @@ So, first of all, regarding this specific problem:
 
 - Streamlit has no native head injection
 - You can modify `index.html` directly
-- It's fragile — breaks on updates
+- It's fragile - breaks on updates
 - Works with Docker and env vars
 - Consider alternatives if this happens often
 
