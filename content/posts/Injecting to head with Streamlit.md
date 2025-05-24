@@ -2,7 +2,7 @@
 timestamp: 2025-05-15T22:03:18+03:00
 modified: 2025-05-15T22:03:18+03:00
 draft: "false"
-title: Injecting some HTML into Streamlit's <head> (and maybe yours too?)
+title: Injecting some HTML into Streamlit's <head>
 creation_date: 2025-05-15T22:03:18+03:00
 tags:
   - streamlit
@@ -57,7 +57,7 @@ In some cases, it's possible to just use [streamlit components](https://docs.str
 
 Yup.
 
-## Preface ([skip to solution](#injecting-stuff-to-the-head)) - I'm a rant)
+## Preface ([skip to solution](#injecting-stuff-to-the-head) - I'm a rant)
 
 I've recently had a client using [Streamlit](https://streamlit.io/) for a project and they wanted to add Google Tags script the app. What should have been 30 seconds of work, ended up being frustratingly, unnecessarily complicated. 
 As of writing this blog post - the component solution was the only thing that LLMs suggested (with astounding variations, and every iteration being worst than the one before), so I had to put on my big-boy pants and actually solve the thing. 
