@@ -151,6 +151,7 @@ Tools require mastery (remember Technical Proficiency?). More tools won't automa
 You should respect your tools, by knowing them intimately. There is no substitute to experience, and experience is gained only by doing the thing, not by reading about the thing, or optimizing your workflow. Remember - 
 
 > "The main thing is to keep the main this the main thing."
+> 
 > *From "7 Habits of Highly Effective People" by Stephen Covey* 
 
 Fewer tools means that you can give your attention to the ones that you do have, and actually understand their purpose. Once you establish a base ground - expand and grow, only then will you realize what you're missing and either add it, or create it on your own.
