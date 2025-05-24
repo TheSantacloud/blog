@@ -125,7 +125,7 @@ Let's take from a recent experience: I prepped like hell, and used my experience
 
 I often times found myself "falling in-love" with my creation during the prep stage and can't wait to get it going so that we can play out my ideas. Sometimes it works, and it's great and everybody has a good time. Just like DJs we should realize that great sessions aren't ones we just "press play" and let the narrative unfold - they're dynamic and engaging. If you want to play your own story - write a book (seriously, there are some awesome LitRPG ones - I'm reading [Dungeon Crawler Carl](https://www.goodreads.com/book/show/56791389-dungeon-crawler-carl?from_search=true&from_srp=true&qid=1ZUMMZjl97&rank=1) and it's awesome).
 
-### Flexible stories makes for better ones 
+### Flexible stories make for better ones 
 
 Think about a great DJ set. Have you ever seen a DJ notice a subtle shift in the crowd - like more people starting to sway or someone mouthing along to a track - and then lean into that vibe? Maybe they drop a remix that builds on that moment, and suddenly the whole floor is moving. That kind of energy doesn't come from sticking to a playlist - it comes from listening, responding, and building something _with_ the crowd, not just _at_ them.
 
@@ -148,7 +148,7 @@ However, from my years of GMing, I've found every GM does things differently. Yo
 
 Tools require mastery (remember Technical Proficiency?). More tools won't automatically make you better - **running the game will**. Look at a DJ’s deck: it's not huge, but each button serves a purpose they fully understand. I also guarantee you that they even remember when (and for how much) they bought each and every device in their deck.
 
-You should respect your tools, by knowing them intimately. There is no substitute to experience, and experience is gained only by doing the thing, not by reading about the thing, or optimizing your workflow. Remember - 
+You should respect your tools, by knowing them intimately. There is no substitute for experience, and it's gained only by doing the thing; not by reading about it, or "optimizing" your workflow. Remember - 
 
 > "The main thing is to keep the main this the main thing."
 > 
