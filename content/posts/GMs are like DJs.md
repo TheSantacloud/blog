@@ -156,7 +156,7 @@ Fewer tools means that you can give your attention to the ones that you do have,
 
 ## Conclusion - Don’t prep to execute a story. Prep to _run_ one.
 
-Great sessions aren't scripted, they're orchestrated—like a DJ mixing live. You don't hit "play" on your prep and hope it works. You build a toolkit, a vibe, a structure. Then you listen. You adapt. You make it sing.
+Great sessions aren't scripted, they're orchestrated—like a DJ mixing live. You don't hit "play" on your prep and hope it works. You build a toolkit, a vibe, a structure. Then you listen. You adapt.
 
 If you've read my other posts, you know I’m a bit of a tool freak. I love building systems that work the way I think. That’s why this DJ analogy hit me so hard: it explained _why_ I build GM tools the way I do.
 
