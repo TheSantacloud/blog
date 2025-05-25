@@ -60,7 +60,7 @@ I put on my reading pants, and battled with LLMs and consumed a whole bunch of a
 - **Maintaining and Narrating the Flow *(Operation)*** - executing on the plan and orchestrating the energy of the crowd, maintaining flow and adjusting according to real-time changes and demands
 - **Schedule Guide *(Ringmaster)*** - providing audio cues and flexible pacing to support key segments in real-time
 
-These can (quite clearly) be segmented into 2 subsections:
+These can be (quite clearly) segmented into 2 subsections:
 1. **Prep** (Music Selection & Curation, Event Coordination)
 2. **Real-time Execution** (Maintaining and Narrating the Flow, Schedule Guide)
 
@@ -100,17 +100,17 @@ While it's true that [you can draw correlations between almost anything](https:/
 | Communication         | **Table Management** – player dynamics, session zero alignment, tone setting                                      | Getting shy players involved (sharing the spotlight), de-escalating table tension, and keeping the tone inclusive              |
 ## Hold the Sending - where does this analogy break down? 
 
-No analogy is perfect, so now that we're got an understanding at what's the similarities; and before we draw conclusions, lets understand where do they differ. Where GMs and DJs are unlike each-other?
+No analogy is perfect, so now that we're got an understanding what the similarities are; and before we draw conclusions, lets understand where do they differ. Where GMs and DJs are unlike each-other?
 
 - **The party's a lot bigger for DJs** - and they have to find a very common denominator. They can't focus on each individual person at the party, so the theme and their own personal style is more prominent, and that's also why-
 - **GMs are more interactive** - We all know that annoying person that comes up to the DJ to request a song- That's the norm for GMs. Players do things, and we have to respond to them constantly. Doing anything other than that and you put on your conductor hat for the railroad show.
-- **DJs have way more standard tools** - while there's a plethora of GM tools out there, none of them is the state-of-the-art tool that lets us seamlessly transition from the prep stage to the execution stage. That's not for a lack of trying. I think it's because every GM tells stories differently, and because GMing styles change for each party.
+- **DJs have way more standard tools** - while there's a plethora of GM tools out there, none of them are the state-of-the-art tool that lets us seamlessly transition from the prep stage to the execution stage. That's not for a lack of trying. I think it's because every GM tells stories differently, and because GMing styles change for each party.
 - **GMs operate on multiple mediums** - the DJ has the magical domain of sound to master, but a GM has to coordinate between multiple medium such as storytelling, music, lighting, props, minis, terrain, tactics, tracking - this is not to say that the DJs job is simpler, it's just that a good GM is required to be a jack-of-all-trades, but a master of none, while the DJ optimizes for mastery over a specific domain - and within it they can excel at different sub-domain (such as improvisational skills, mixing, etc)
 ## Prep for flexibility - GMing, the DJ-way
 
 This is absolutely my main takeaway here - **Prep for flexibility**. DJs optimize their entire workflow and prep to be able to either press play and "chill" in some moments, and provide themselves with the right tools and agenda to improvise, adapt and make the music flexible to the event at any given moment in time - given everything that's going on. This is the main takeaway for me. They *could* fall in love with their sets and **just press play**, but in so doing - **they would be worst DJs for it**.
 
-I think that this is what [Sly Flourish](https://slyflourish.com/lazydm/) is always trying to say in his (incredible) books [Return of the Lazy Dungeon Master](https://shop.slyflourish.com/products/return-of-the-lazy-dungeon-master), and its supplements (and a lot of other GMs all throughout YouTube). In them, he explains on how to prep "Secrets & Clues" - a list of things that the players *might* find, but the nature of them finding out is unknown to you yet. This promotes active listening by the GM - and lets the GM "complete" incredible stories that by stitching them **directly** as effect for the PCs actions. 
+I think that this is what [Sly Flourish](https://slyflourish.com/lazydm/) is always trying to convey in his (incredible) books [Return of the Lazy Dungeon Master](https://shop.slyflourish.com/products/return-of-the-lazy-dungeon-master), and its supplements (and a lot of other GMs all throughout YouTube). In them, he explains on how to prep "Secrets & Clues" - a list of things that the players *might* find, but the nature of them finding out is unknown to you yet. This promotes active listening by the GM - and lets the GM "complete" incredible stories that by stitching them **directly** as effect for the PCs actions. 
 
 As we speak I'm looking at a picture framed by one of my players of a map I made that the party managed to pickpocket out of a random train conductor while they were trying to search for keys to a cabin. I remember this moment very vividly, and apparently so did they. I had the map of the train, and they *might have* found out about it, given the right circumstance - and out of their own ingenuity they manifested something. I don't know about you, but to me - **this is magic**.
 
@@ -121,7 +121,7 @@ We’ve all been to weddings where the DJ played a song nobody danced to, leavin
 
 Let's take from a recent experience: I prepped like hell, and used my experience not to assume what the party will do, but what they definitely wont do. And they went ahead and did just that. They chose to become drug dealers working for the crime boss who just sent two goons to kill them. And that was one of the best sessions we had.
 
-I often times found myself "falling in-love" with my creation during the prep stage and can't wait to get it going so that we can play out my ideas. Sometimes it works, and it's great and everybody has a good time. Just like DJs we should realize that great sessions aren't ones we just "press play" and let the narrative unfold - they're dynamic and engaging. If you want to play your own story - write a book (seriously, there are some awesome LitRPG ones - I'm reading [Dungeon Crawler Carl](https://www.goodreads.com/book/show/56791389-dungeon-crawler-carl?from_search=true&from_srp=true&qid=1ZUMMZjl97&rank=1) and it's awesome).
+I often find myself "falling in-love" with my creation during the prep stage and can't wait to get it going so that we can play out my ideas. Sometimes it works, and it's great and everybody has a good time. Just like DJs we should realize that great sessions aren't ones we just "press play" and let the narrative unfold - they're dynamic and engaging. If you want to play your own story - write a book (seriously, there are some awesome LitRPG ones - I'm reading [Dungeon Crawler Carl](https://www.goodreads.com/book/show/56791389-dungeon-crawler-carl?from_search=true&from_srp=true&qid=1ZUMMZjl97&rank=1) and it's awesome).
 
 ### Flexible stories make for better ones 
 
@@ -129,7 +129,7 @@ Think about a great DJ set. Have you ever seen a DJ notice a subtle shift in the
 
 Game mastering works the same way.
 
-Can you recall a moment when someone really listened and responded to what you said? It feels great, doesn’t it? When you give that to your players, their engagement grows - and so does yours. That feedback loop creates the best kind of play: the kind that sticks in your memory for years. Everyone feels like they have a stake in this epic tale. Like the world is alive, and their creativity shapes it. **They don’t have to know it was a prefab element that just happened to click.** It's a win-win; you get to prep epic scenarios and they get to activate and surprise you with better stories that you would even imagine. 
+Can you recall a moment when someone really listened and responded to what you said? It feels great, doesn’t it? When you give that to your players, their engagement grows - and so does yours. That feedback loop creates the best kind of play: the kind that sticks in your memory for years. Everyone feels like they have a stake in this epic tale. Like the world is alive, and their creativity shapes it. **They don’t have to know it was a prefab element that just happened to click.** It's a win-win; you get to prep epic scenarios and they get to activate and surprise you with better stories that you could have even imagined.
 
 I know, I know... you're probably just sitting there thinking "yeah but you don't understand, my players aren't like that. They're passive, and just wait for my narration". Some players are naturally more shy/passive than the other - but this doesn't mean that they can't share in the spotlight. A simple *directed* "what do you do?" that leads to a skill check that reveals a secret is enough to make their day. You will see that this pays dividends over time.
 ### Your prep should serve tools, not only stories
@@ -144,7 +144,7 @@ However, from my years of GMing, I've found every GM does things differently. Yo
 
 ### More tools is not mo' betta- Don't overdo it
 
-Tools require mastery (remember Technical Proficiency?). More tools won't automatically make you better - **running the game will**. Look at a DJ’s deck: it's not huge, but each button serves a purpose they fully understand. I also guarantee you that they even remember when (and for how much) they bought each and every device in their deck.
+Tools require mastery - remember Technical Proficiency? More tools won't automatically make you better - **running the game will**. Look at a DJ’s deck: it's not huge, but each button serves a purpose they fully understand. I also guarantee you that they even remember when (and for how much) they bought each and every device in their deck.
 
 You should respect your tools, by knowing them intimately. There is no substitute for experience, and it's gained only by doing the thing; not by reading about it, or "optimizing" your workflow. Remember - 
 
