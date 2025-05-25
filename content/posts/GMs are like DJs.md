@@ -30,6 +30,10 @@ categories:
 I recently had a conversation with a friend that doesn't play any [TTRPG](https://en.wikipedia.org/wiki/Tabletop_role-playing_game)s about the role of a Game Master. And then he hit me with this (awesome) question: "So are GMs like DJs?" And it stuck with me.
 _Are_ GMs like DJs? Analogies like this excite me - if I understand the similarities and differences, I unlock a fresh perspective to learn from. In this case, I was curious about how DJs transition from the **prep stage** to the **execution stage**, and whether I could learn something from that shift (and then struggle with writing a blog about it so that maybe you might benefit from it too).
 
+## TL;DR
+
+Yeah, **I think that GMs and DJs are very similar in nature** - and the main takeaway I got from it is that **DJs prep for flexibility**, and we can learn a lot from that as GMs.
+
 ## Here we go again, who is this guy anyway?
 
 I've been playing TTRPGs for about *20 years now*. The same old story of a game shop that opened at that the time, and we decided to buy some books. I was **immediately** hooked.
