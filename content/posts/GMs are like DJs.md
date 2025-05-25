@@ -48,12 +48,10 @@ Well, actually, I have *some* idea. The only thing I do know is when we wanted t
 
 We interviewed several DJs, and the process was always similar: They talked to us about our musical tastes, played samples that matched our style, and experimented with new mixes to see how we reacted. They outlined our wedding's musical journey, adjusted it based on our feedback, and asked about venue specifics and essential "must-play" songs. Crucially, they emphasized they'd need to improvise on the day, adapting to how the crowd responded.
 
-That was a **classic** Session 0 (the way I run them).
-
-I think that is the part where I understood that I can probably learn a whole bunch more here, because that just happened here was the pre-prep stage - and all I could hear is how they prioritize and emphasize flexibility during the actual event while keeping the main narrative going.
+I think that is the part where I understood I can learn a whole bunch more here. This was a **classic** Session 0.
 ### Further research
 
-I put on my reading pants, and battled with LLMs and consumed a whole bunch of articles from multiple sources, to eventually distill my findings into concise "buckets". I found that it would be best if I split them into [Roles and Responsibilites](#roles-and-responsibilities) and [Essential Skills](#essential-skills).
+I put on my reading pants, and battled with LLMs and consumed a whole bunch of articles from multiple sources, to eventually distill my findings into concise "buckets". I found that it would be best if I split them into [Roles and Responsibilities](#roles-and-responsibilities) and [Essential Skills](#essential-skills).
 
 #### Roles and Responsibilities
 
@@ -110,7 +108,7 @@ No analogy is perfect, so now that we're got an understanding at what's the simi
 - **GMs operate on multiple mediums** - the DJ has the magical domain of sound to master, but a GM has to coordinate between multiple medium such as storytelling, music, lighting, props, minis, terrain, tactics, tracking - this is not to say that the DJs job is simpler, it's just that a good GM is required to be a jack-of-all-trades, but a master of none, while the DJ optimizes for mastery over a specific domain - and within it they can excel at different sub-domain (such as improvisational skills, mixing, etc)
 ## Prep for flexibility - GMing, the DJ-way
 
-This is absolutely my main takeaway here - **Prep for flexibility**. DJs optimize their entire workflow and prep to be able to either press play and "chill" in some moments, and provide themselves with the right tools and agenda to improvise, adapt and make the music flexible to the event at any given moment in time - given everything that's going on. This is the main takeaway for me. The could fall in love with their sets and just press play, but in so doing - they would be worst DJs for it. 
+This is absolutely my main takeaway here - **Prep for flexibility**. DJs optimize their entire workflow and prep to be able to either press play and "chill" in some moments, and provide themselves with the right tools and agenda to improvise, adapt and make the music flexible to the event at any given moment in time - given everything that's going on. This is the main takeaway for me. They *could* fall in love with their sets and **just press play**, but in so doing - **they would be worst DJs for it**.
 
 I think that this is what [Sly Flourish](https://slyflourish.com/lazydm/) is always trying to say in his (incredible) books [Return of the Lazy Dungeon Master](https://shop.slyflourish.com/products/return-of-the-lazy-dungeon-master), and its supplements (and a lot of other GMs all throughout YouTube). In them, he explains on how to prep "Secrets & Clues" - a list of things that the players *might* find, but the nature of them finding out is unknown to you yet. This promotes active listening by the GM - and lets the GM "complete" incredible stories that by stitching them **directly** as effect for the PCs actions. 
 
