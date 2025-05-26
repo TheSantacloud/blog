@@ -1,6 +1,6 @@
 ---
 timestamp: 2025-05-20T08:37:12+03:00
-modified: 2025-05-24508:37:12+03:00
+modified: 2025-05-2508:37:12+03:00
 draft: "false"
 title: GMs are like DJs
 creation_date: 2025-05-25T08:37:12+03:00

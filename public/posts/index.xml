@@ -6,19 +6,7 @@
     <description>Recent content in Posts on Santacloud</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 24 May 2025 08:37:12 +0300</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>GMs are like DJs</title>
-      <link>http://localhost:1313/posts/gms-are-like-djs/</link>
-      <pubDate>Sat, 24 May 2025 08:37:12 +0300</pubDate>
-      
-      <guid>http://localhost:1313/posts/gms-are-like-djs/</guid>
-      
-      <description>&lt;p&gt;I recently had a conversation with a friend that doesn&amp;rsquo;t play any &lt;a href=&#34;https://en.wikipedia.org/wiki/Tabletop_role-playing_game&#34;&gt;TTRPG&lt;/a&gt;s about the role of a Game Master. And then he hit me with this (awesome) question: &amp;ldquo;So are GMs like DJs?&amp;rdquo; And it stuck with me.
-&lt;em&gt;Are&lt;/em&gt; GMs like DJs? Analogies like this excite me - if I understand the similarities and differences, I unlock a fresh perspective to learn from. In this case, I was curious about how DJs transition from the &lt;strong&gt;prep stage&lt;/strong&gt; to the &lt;strong&gt;execution stage&lt;/strong&gt;, and whether I could learn something from that shift (and then struggle with writing a blog about it so that maybe you might benefit from it too).&lt;/p&gt;</description>
-      
-    </item>
-    
+    <lastBuildDate>Thu, 15 May 2025 22:03:18 +0300</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Injecting some HTML into Streamlit&#39;s &lt;head&gt;</title>
       <link>http://localhost:1313/posts/injecting-to-head-with-streamlit/</link>
@@ -129,6 +117,18 @@ I think that software will be consolidated to the device that you&amp;rsquo;re u
       <description>&lt;p&gt;This is a log of my journey on how do large-model inference on my Macbook, rather than having to use a cloud service or buying an expensive PC with a more expensive GPU. And then seeing how fast I can make it go.&lt;/p&gt;
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;So in case you haven&amp;rsquo;t noticed - everybody&amp;rsquo;s talking about AI. And as a software developer, I wanted to test some stuff out and play around with different frameworks, methods, algorithms. But the thing is, that like a lot of developers, I own a Macbook. And to my surprise almost &lt;strong&gt;NOTHING&lt;/strong&gt; is supported, and you&amp;rsquo;re just stuck with &amp;ldquo;Oh well, this is for data scientists and it requires a GPU and/or the cloud&amp;hellip; so either buy those or leave the job to the pros&amp;rdquo;. That bothered me.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>GMs are like DJs</title>
+      <link>http://localhost:1313/posts/gms-are-like-djs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/gms-are-like-djs/</guid>
+      
+      <description>&lt;p&gt;I recently had a conversation with a friend that doesn&amp;rsquo;t play any &lt;a href=&#34;https://en.wikipedia.org/wiki/Tabletop_role-playing_game&#34;&gt;TTRPG&lt;/a&gt;s about the role of a Game Master. And then he hit me with this (awesome) question: &amp;ldquo;So are GMs like DJs?&amp;rdquo; And it stuck with me.
+&lt;em&gt;Are&lt;/em&gt; GMs like DJs? Analogies like this excite me - if I understand the similarities and differences, I unlock a fresh perspective to learn from. In this case, I was curious about how DJs transition from the &lt;strong&gt;prep stage&lt;/strong&gt; to the &lt;strong&gt;execution stage&lt;/strong&gt;, and whether I could learn something from that shift (and then struggle with writing a blog about it so that maybe you might benefit from it too).&lt;/p&gt;</description>
       
     </item>
     
