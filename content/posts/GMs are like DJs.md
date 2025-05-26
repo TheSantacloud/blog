@@ -109,7 +109,7 @@ Think of a DJ's setup. They might have a wild-looking deck with pads, knobs, dia
 
 So as discussed, Secrets & Clues and Potential Scenes are great materials for a prep session because it provides you with tools to unravel the world according to your players. They can be anything that you want (intrigue, twists, encounters, reveals, and even actual props).
 
-But you know you best - what do you need that prevents you from being flabbergasted? 
+But you know you best - what do you need that prevents you from being flabbergasted during actual play?
 
 From my years of GMing, I've found every GM does things differently. You have to build your own way of doing things little by little. It's all about **building proficiency** in **actually using your tools**, rather than have them be there and look pretty. Which leads me to-
 
