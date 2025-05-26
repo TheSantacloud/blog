@@ -161,4 +161,4 @@ Great sessions aren't scripted, they're orchestrated - like a DJ mixing live. Yo
 
 If you've read my other posts, you know I’m a bit of a tool freak. I love building systems that work the way I think. Although this isn't a perfect analogy, I still find it interesting. Analogies like these help me understand _why_ I build tools the way I do, and provided my with deeper understanding on the ones that I use right now.
 
-This has been my first blog posting about something non-technical. Hope it helped you like it did me! Onwards and upwards. 
+This has been my first blog posting about something non-technical. I hope it helped you like it did me! Onwards and upwards. 
