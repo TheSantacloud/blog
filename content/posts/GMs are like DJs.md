@@ -32,7 +32,7 @@ _Are_ GMs like DJs? Analogies like this excite me - if I understand the similari
 
 ## TL;DR
 
-Yeah, **I think that GMs and DJs are very similar in nature** - and the main takeaway I got from it is that **DJs prep for flexibility**, and we can learn a lot from that as GMs.
+Yeah, **I think that GMs and DJs can be similar in nature** - and the main takeaway I got from it is that **DJs prep for flexibility**, and we can learn a lot from that as GMs.
 
 ## Here we go again, who is this guy anyway?
 
