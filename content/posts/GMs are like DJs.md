@@ -112,9 +112,9 @@ No analogy is perfect, so now that we're got an understanding what the similarit
 
 This is my main takeaway here - **Prep for flexibility**. DJs optimize their entire prep to be able to utilize their skills and knowledge **during the event**. They *could* fall in love with their sets and **just press play**, but in so doing - **they would be worst DJs for it**.
 
-I think I understand what [Sly Flourish](https://slyflourish.com/lazydm/) tries to convey in his (incredible) books [Return of the Lazy Dungeon Master](https://shop.slyflourish.com/products/return-of-the-lazy-dungeon-master), and its supplements (and a lot of other GMs all throughout YouTube). In them, he explains on how to prep "Secrets & Clues" - a list of things that the players *might* find, but the nature of them finding out is unknown to you yet. This promotes active listening by the GM - and lets the GM "complete" incredible stories that by stitching them **directly** as effect for the PCs actions **within the session**. 
+I think I understand what [Sly Flourish](https://slyflourish.com/lazydm/) tries to convey in his (incredible) books [Return of the Lazy Dungeon Master](https://shop.slyflourish.com/products/return-of-the-lazy-dungeon-master), and its supplements (and a lot of other GMs all throughout YouTube). In them, he explains on how to prep "Secrets & Clues" - a list of things that the players *might* encounter, but the nature of them finding out is unknown to you yet. This promotes active listening by the GM to find causes, and stitch those prep elements as **direct** effects to the PCs actions that fit **naturally** within the session.
 
-As we speak I'm looking at a picture framed by one of my players of a map I made that the party managed to pickpocket out of a random train conductor while they were trying to search for keys to a cabin. I remember this moment very vividly, and apparently so did they. I had the map of the train, and they *might have* found out about it, given the right circumstance - and out of their own ingenuity they manifested something. I don't know about you, but to me - **this is magic**.
+As I'm writing this, I'm looking at a picture of a handout map I made, framed to me as a gift by one of my players. The party managed to pickpocket it out of a random train conductor while they were trying to search for keys to a different cabin. The reason it was so memorable is because it **felt real**, and it came as a direct reward for their exploration and ingenuity. To me - **this is magic**.
 
 We can prep a theme, a storyline, some general story beats and potential scenes - but all in a way that sets us up for a **better game** rather than a **better sterile story**. 
 ### Don't fall in-love with your prep
@@ -159,6 +159,6 @@ Fewer tools means that you can give your attention to the ones that you do have,
 
 Great sessions aren't scripted, they're orchestrated - like a DJ mixing live. You don't hit play on your prep and hope it works. You build a toolkit, a structure. Then you listen. You adapt.
 
-If you've read my other posts, you know I’m a bit of a tool freak. I love building systems that work the way I think. That’s why this analogies are so interesting to me: they help me understand _why_ I build tools the way I do, and provided my with deeper understanding on the ones that I use right now.
+If you've read my other posts, you know I’m a bit of a tool freak. I love building systems that work the way I think. Although this isn't a perfect analogy, I still find it interesting. Analogies like these help me understand _why_ I build tools the way I do, and provided my with deeper understanding on the ones that I use right now.
 
-this has been my first blog posting about something non-technical. Hope it helped you like it did me! Onwards and upwards. 
+This has been my first blog posting about something non-technical. Hope it helped you like it did me! Onwards and upwards. 
