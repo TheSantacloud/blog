@@ -68,7 +68,7 @@
     </script>
 
 
-<meta name="generator" content="Hugo 0.135.0">
+<meta name="generator" content="Hugo 0.147.9">
 
     
 
@@ -228,8 +228,7 @@ stroke-linejoin="round" class="feather feather-home">
 <p>That’s why I care. Speed isn’t just a metric - it’s a multiplier on creativity, productivity, and joy.</p>
 <p>This is the story of how I fixed one of my most important tools in my toolkit when it started slowing me down.</p>
 <blockquote>
-<p>You can find my existing <a href="https://github.com/TheSantacloud/dotfiles">dotfiles</a> with my <a href="https://github.com/TheSantacloud/dotfiles/blob/main/zsh/.zshrc">zshrc</a> config on my <a href="https://github.com/TheSantacloud">GitHub page</a>.</p>
-</blockquote>
+<p>You can find my existing <a href="https://github.com/TheSantacloud/dotfiles">dotfiles</a> with my <a href="https://github.com/TheSantacloud/dotfiles/blob/main/zsh/.zshrc">zshrc</a> config on my <a href="https://github.com/TheSantacloud">GitHub page</a>.</p></blockquote>
 <h2 id="start-with-why">Start with why</h2>
 <p>I got up this morning, started working on some project (<a href="https://github.com/TheSantacloud/lance">Lance</a>, fyi), put on some music to get the flow going, and opened up my terminal - and then I noticed that my shell takes FOREVER to load. Which is weird because I fixed it like a year ago. It <strong>really</strong> bugged me. I tried ignoring it, but it has a compounding effect every time I opened a new shell (which is ALL the time, in my workflow).</p>
 <p>This wasn&rsquo;t the &ldquo;right&rdquo; thing to do at the moment, I thought&hellip; but I knew that I had a hard stop in 1 hour anyway, so down the rabbit-hole I went.</p>
@@ -351,101 +350,101 @@ $$ Benefit < F(Time, Frustration) $$<h3 id="initial-zsh-config">Initial ZSH Conf
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Component</th>
-          <th style="text-align: left">Duration (in milliseconds)</th>
-          <th style="text-align: left">Comment</th>
+          <th>Component</th>
+          <th>Duration (in milliseconds)</th>
+          <th>Comment</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">general settings</td>
-          <td style="text-align: left">3ms</td>
-          <td style="text-align: left"></td>
+          <td>general settings</td>
+          <td>3ms</td>
+          <td></td>
       </tr>
       <tr>
-          <td style="text-align: left">dracula theme</td>
-          <td style="text-align: left">25ms</td>
-          <td style="text-align: left"></td>
+          <td>dracula theme</td>
+          <td>25ms</td>
+          <td></td>
       </tr>
       <tr>
-          <td style="text-align: left">compinit (with nothing else)</td>
-          <td style="text-align: left">242ms / 25ms</td>
-          <td style="text-align: left">Baseline, coldstart</td>
+          <td>compinit (with nothing else)</td>
+          <td>242ms / 25ms</td>
+          <td>Baseline, coldstart</td>
       </tr>
       <tr>
-          <td style="text-align: left">fast-syntax-highlighting (w/ compinit)</td>
-          <td style="text-align: left">225ms / 13ms</td>
-          <td style="text-align: left">Coldstart</td>
+          <td>fast-syntax-highlighting (w/ compinit)</td>
+          <td>225ms / 13ms</td>
+          <td>Coldstart</td>
       </tr>
       <tr>
-          <td style="text-align: left">zsh-autosuggestions (w/ compinit)</td>
-          <td style="text-align: left">195ms / 26ms</td>
-          <td style="text-align: left">Coldstart</td>
+          <td>zsh-autosuggestions (w/ compinit)</td>
+          <td>195ms / 26ms</td>
+          <td>Coldstart</td>
       </tr>
       <tr>
-          <td style="text-align: left">git-completions (w/ compinit)</td>
-          <td style="text-align: left">242ms / 28ms</td>
-          <td style="text-align: left"></td>
+          <td>git-completions (w/ compinit)</td>
+          <td>242ms / 28ms</td>
+          <td></td>
       </tr>
       <tr>
-          <td style="text-align: left">golang PATH</td>
-          <td style="text-align: left">9ms</td>
-          <td style="text-align: left">This is a funny one</td>
+          <td>golang PATH</td>
+          <td>9ms</td>
+          <td>This is a funny one</td>
       </tr>
       <tr>
-          <td style="text-align: left">python uv</td>
-          <td style="text-align: left">66ms</td>
-          <td style="text-align: left"></td>
+          <td>python uv</td>
+          <td>66ms</td>
+          <td></td>
       </tr>
       <tr>
-          <td style="text-align: left">platformio PATH</td>
-          <td style="text-align: left">1ms</td>
-          <td style="text-align: left"></td>
+          <td>platformio PATH</td>
+          <td>1ms</td>
+          <td></td>
       </tr>
       <tr>
-          <td style="text-align: left">docker (w/ compinit)</td>
-          <td style="text-align: left">218ms / 40ms</td>
-          <td style="text-align: left">Coldstart</td>
+          <td>docker (w/ compinit)</td>
+          <td>218ms / 40ms</td>
+          <td>Coldstart</td>
       </tr>
       <tr>
-          <td style="text-align: left">pnpm</td>
-          <td style="text-align: left">1ms</td>
-          <td style="text-align: left"></td>
+          <td>pnpm</td>
+          <td>1ms</td>
+          <td></td>
       </tr>
       <tr>
-          <td style="text-align: left">fzf</td>
-          <td style="text-align: left">3ms</td>
-          <td style="text-align: left"></td>
+          <td>fzf</td>
+          <td>3ms</td>
+          <td></td>
       </tr>
       <tr>
-          <td style="text-align: left">aliases - customized</td>
-          <td style="text-align: left">1ms</td>
-          <td style="text-align: left"></td>
+          <td>aliases - customized</td>
+          <td>1ms</td>
+          <td></td>
       </tr>
       <tr>
-          <td style="text-align: left">aliases - kubectl</td>
-          <td style="text-align: left">3ms</td>
-          <td style="text-align: left"></td>
+          <td>aliases - kubectl</td>
+          <td>3ms</td>
+          <td></td>
       </tr>
       <tr>
-          <td style="text-align: left">aliases - git</td>
-          <td style="text-align: left">30ms</td>
-          <td style="text-align: left"></td>
+          <td>aliases - git</td>
+          <td>30ms</td>
+          <td></td>
       </tr>
       <tr>
-          <td style="text-align: left">bindkey tmux-sessionizer</td>
-          <td style="text-align: left">1ms</td>
-          <td style="text-align: left"></td>
+          <td>bindkey tmux-sessionizer</td>
+          <td>1ms</td>
+          <td></td>
       </tr>
       <tr>
-          <td style="text-align: left">pyenv</td>
-          <td style="text-align: left">172ms</td>
-          <td style="text-align: left"></td>
+          <td>pyenv</td>
+          <td>172ms</td>
+          <td></td>
       </tr>
       <tr>
-          <td style="text-align: left">google-sdk</td>
-          <td style="text-align: left">1ms</td>
-          <td style="text-align: left"></td>
+          <td>google-sdk</td>
+          <td>1ms</td>
+          <td></td>
       </tr>
   </tbody>
 </table>
@@ -558,8 +557,7 @@ $$ Benefit < F(Time, Frustration) $$<h3 id="initial-zsh-config">Initial ZSH Conf
 </span></span><span class="line"><span class="cl"><span class="nv">ZSH_COMPDUMP</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">ZSH</span><span class="si">}</span><span class="s2">/.zcompdump&#34;</span>
 </span></span><span class="line"><span class="cl">compinit -C -d <span class="s2">&#34;</span><span class="nv">$ZSH_COMPDUMP</span><span class="s2">&#34;</span>
 </span></span></code></pre></div><blockquote>
-<p><strong>Note:</strong> <code>-C</code> to bypass the check for rebuilding the dumpfile and the call to <code>compaudit</code>. This can shave off 15ms more. I feel comfortable disabling <code>compaudit</code> (security check) because it checks the security within <code>fpath</code> because all of my sources are trusted by me, I never update them, and the fact that my computer is just for me. However, if these don&rsquo;t apply to you - I would advise to rethink your decision and understand thoroughly what <code>compaudit</code> does.</p>
-</blockquote>
+<p><strong>Note:</strong> <code>-C</code> to bypass the check for rebuilding the dumpfile and the call to <code>compaudit</code>. This can shave off 15ms more. I feel comfortable disabling <code>compaudit</code> (security check) because it checks the security within <code>fpath</code> because all of my sources are trusted by me, I never update them, and the fact that my computer is just for me. However, if these don&rsquo;t apply to you - I would advise to rethink your decision and understand thoroughly what <code>compaudit</code> does.</p></blockquote>
 <h4 id="zsource">zsource</h4>
 <p>I created a minor helper function:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">zsource<span class="o">()</span> <span class="o">{</span>
@@ -589,58 +587,58 @@ Like in the previous table, the sum of the individual parts is greater than the 
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Component</th>
-          <th style="text-align: left">Duration (in milliseconds)</th>
+          <th>Component</th>
+          <th>Duration (in milliseconds)</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">general settings</td>
-          <td style="text-align: left">3ms</td>
+          <td>general settings</td>
+          <td>3ms</td>
       </tr>
       <tr>
-          <td style="text-align: left">falcon theme</td>
-          <td style="text-align: left">4ms</td>
+          <td>falcon theme</td>
+          <td>4ms</td>
       </tr>
       <tr>
-          <td style="text-align: left">compinit (with nothing else)</td>
-          <td style="text-align: left">15ms</td>
+          <td>compinit (with nothing else)</td>
+          <td>15ms</td>
       </tr>
       <tr>
-          <td style="text-align: left">all plugins + compinit</td>
-          <td style="text-align: left">23ms</td>
+          <td>all plugins + compinit</td>
+          <td>23ms</td>
       </tr>
       <tr>
-          <td style="text-align: left">golang PATH</td>
-          <td style="text-align: left">9ms</td>
+          <td>golang PATH</td>
+          <td>9ms</td>
       </tr>
       <tr>
-          <td style="text-align: left">python uv</td>
-          <td style="text-align: left">removed</td>
+          <td>python uv</td>
+          <td>removed</td>
       </tr>
       <tr>
-          <td style="text-align: left">docker (w/ compinit)</td>
-          <td style="text-align: left">removed (already exists)</td>
+          <td>docker (w/ compinit)</td>
+          <td>removed (already exists)</td>
       </tr>
       <tr>
-          <td style="text-align: left">pnpm</td>
-          <td style="text-align: left">removed</td>
+          <td>pnpm</td>
+          <td>removed</td>
       </tr>
       <tr>
-          <td style="text-align: left">fzf+tmux</td>
-          <td style="text-align: left">2ms</td>
+          <td>fzf+tmux</td>
+          <td>2ms</td>
       </tr>
       <tr>
-          <td style="text-align: left">aliases - all</td>
-          <td style="text-align: left">2ms</td>
+          <td>aliases - all</td>
+          <td>2ms</td>
       </tr>
       <tr>
-          <td style="text-align: left">pyenv</td>
-          <td style="text-align: left">0ms</td>
+          <td>pyenv</td>
+          <td>0ms</td>
       </tr>
       <tr>
-          <td style="text-align: left">google-sdk</td>
-          <td style="text-align: left">removed</td>
+          <td>google-sdk</td>
+          <td>removed</td>
       </tr>
   </tbody>
 </table>

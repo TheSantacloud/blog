@@ -68,7 +68,7 @@
     </script>
 
 
-<meta name="generator" content="Hugo 0.135.0">
+<meta name="generator" content="Hugo 0.147.9">
 
     
 
@@ -384,14 +384,14 @@ First of all - I learned from the flags that in order to see the drafts (I remem
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nx">fileInfo</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Lstat</span><span class="p">(</span><span class="nx">filePath</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="c1">// error reading file
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="k">return</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// error reading file</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nx">target</span> <span class="o">:=</span> <span class="nx">filePath</span>
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">fileInfo</span><span class="p">.</span><span class="nf">Mode</span><span class="p">()</span> <span class="o">&amp;</span> <span class="nx">os</span><span class="p">.</span><span class="nx">ModeSymlink</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="c1">// It is a symbolic link
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">target</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Readlink</span><span class="p">(</span><span class="nx">filePath</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">// It is a symbolic link</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">target</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nf">Readlink</span><span class="p">(</span><span class="nx">filePath</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nx">data</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadFile</span><span class="p">(</span><span class="nx">target</span><span class="p">)</span>
@@ -420,8 +420,7 @@ Since it didn&rsquo;t work, I assumed:</p>
 <li>Hosting and deployment - remember for later.</li>
 </ol>
 <blockquote>
-<p><strong>Hugo Modules</strong> are the core building blocks in Hugo. A <em>module</em> can be your main project or a smaller module providing one or more of the 7 component types defined in Hugo: <strong>static</strong>, <strong>content</strong>, <strong>layouts</strong>, <strong>data</strong>, <strong>assets</strong>, <strong>i18n</strong>, and <strong>archetypes</strong>.</p>
-</blockquote>
+<p><strong>Hugo Modules</strong> are the core building blocks in Hugo. A <em>module</em> can be your main project or a smaller module providing one or more of the 7 component types defined in Hugo: <strong>static</strong>, <strong>content</strong>, <strong>layouts</strong>, <strong>data</strong>, <strong>assets</strong>, <strong>i18n</strong>, and <strong>archetypes</strong>.</p></blockquote>
 <p>Yep, that’s it. Configuring a content module within <code>hugo.toml</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">module</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">  <span class="p">[[</span><span class="nx">module</span><span class="p">.</span><span class="nx">mounts</span><span class="p">]]</span>

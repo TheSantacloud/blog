@@ -6,7 +6,27 @@
     <description>Recent content in Posts on Santacloud</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 25 May 2025 08:37:12 +0300</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 Dec 2025 15:42:17 +0300</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Team task management are bullshit</title>
+      <link>http://localhost:1313/posts/the-4-types-of-developers/</link>
+      <pubDate>Sat, 27 Dec 2025 15:42:17 +0300</pubDate>
+      
+      <guid>http://localhost:1313/posts/the-4-types-of-developers/</guid>
+      
+      <description>&lt;h1 id=&#34;team-task-management-are-bullshit&#34;&gt;Team task management are bullshit&lt;/h1&gt;
+&lt;p&gt;Yesterday, driving home from a trip with my wife, she told me how great she feels her
+&lt;a href=&#34;https://www.notion.com/&#34;&gt;Notion&lt;/a&gt; setup is for knowledge management and task tracking.
+And then it hit me - I finally understand why these team task management platforms are as efficient as
+a hammer made of sponges.&lt;/p&gt;
+&lt;h2 id=&#34;my-point-is&#34;&gt;My point is&lt;/h2&gt;
+&lt;p&gt;Task management platforms that try to synchronize teams don&amp;rsquo;t work because every person has their
+own way of organizing their knowledge and tasks, and its the best way for them. Trying to force a way
+makes us work for the process and compensate for it by schedudling more talks, which lead to more
+micro management, which less to less professionalism.&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>GMs are like DJs</title>
       <link>http://localhost:1313/posts/gms-are-like-djs/</link>
@@ -14,8 +34,8 @@
       
       <guid>http://localhost:1313/posts/gms-are-like-djs/</guid>
       
-      <description>&lt;p&gt;I recently had a conversation with a friend that doesn&amp;rsquo;t play any &lt;a href=&#34;https://en.wikipedia.org/wiki/Tabletop_role-playing_game&#34;&gt;TTRPG&lt;/a&gt;s about the role of a Game Master. And he asked this (great) question: &amp;ldquo;So are GMs like DJs?&amp;rdquo;. It stuck with me.
-&lt;em&gt;Are&lt;/em&gt; GMs like DJs? Analogies like this excite me - if I understand the similarities and differences, I unlock a fresh perspective to learn from. In this case, I was curious about how DJs transition from the &lt;strong&gt;prep stage&lt;/strong&gt; to the &lt;strong&gt;execution stage&lt;/strong&gt;, and whether I could learn something from that shift (and then struggle with writing a blog about it so that maybe you might benefit from it too).&lt;/p&gt;</description>
+      <description>&lt;p&gt;I recently had a conversation with a friend that doesn&amp;rsquo;t play any &lt;a href=&#34;https://en.wikipedia.org/wiki/Tabletop_role-playing_game&#34;&gt;TTRPG&lt;/a&gt;s about the role of a Game Master. And he asked this (great) question:
+&lt;em&gt;Are&lt;/em&gt; GMs like DJs? Analogies like this excite me - if I understand the similarities and differences, I unlock a fresh perspective to learn from. For this case - how do DJs shift from the &lt;strong&gt;prep&lt;/strong&gt; to the &lt;strong&gt;execution&lt;/strong&gt; stage, and what could it teach me about GMing.&lt;/p&gt;</description>
       
     </item>
     
@@ -77,20 +97,6 @@
       <description>&lt;h1 id=&#34;speed-matters-how-i-optimized-my-zsh-startup-to-under-70ms&#34;&gt;Speed Matters: How I Optimized My ZSH Startup to Under 70ms&lt;/h1&gt;
 &lt;p&gt;Speed isn’t just about shaving milliseconds for fun (although&amp;hellip; that &lt;em&gt;is&lt;/em&gt; kind of fun). It’s about protecting &lt;strong&gt;flow&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;When you’re in the zone, every interruption counts - even a half-second delay opening a terminal. These delays break momentum. They add friction. And over time, they affect your behavior subconsciously: you stop opening new shells, hesitate to try quick commands, avoid the very tools that should be helping you.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>The 4 types of developers</title>
-      <link>http://localhost:1313/posts/the-4-types-of-developers/</link>
-      <pubDate>Sun, 25 Aug 2024 13:45:39 +0300</pubDate>
-      
-      <guid>http://localhost:1313/posts/the-4-types-of-developers/</guid>
-      
-      <description>&lt;p&gt;Reading &lt;a href=&#34;https://www.bennorthrop.com/Essays/2013/developer-motivation.php&#34;&gt;The 3 Motivational Forces of Developers&lt;/a&gt; by Ben Northrop from 2013 gave me the nudge I needed to write this post.
-Ben discussed the primary motivators to be: problem, tech and business.
-While I find this article very interesting, I approach this with a different set of parameters (and have been for years now) or what types of developers are there:&lt;/p&gt;
-&lt;p&gt;Developers can be classified into 3 groups (no one is just 1 thing):&lt;/p&gt;</description>
       
     </item>
     
