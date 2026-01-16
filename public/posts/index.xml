@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Santacloud</title>
-    <link>https://santacloud.dev/posts/</link>
+    <link>http://localhost:1313/posts/</link>
     <description>Recent content in Posts on Santacloud</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 Dec 2025 15:42:17 +0300</lastBuildDate><atom:link href="https://santacloud.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 Dec 2025 15:42:17 +0300</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Team task management tools are bullshit</title>
-      <link>https://santacloud.dev/posts/task-management-tools-are-bullshit/</link>
+      <link>http://localhost:1313/posts/task-management-tools-are-bullshit/</link>
       <pubDate>Sat, 27 Dec 2025 15:42:17 +0300</pubDate>
       
-      <guid>https://santacloud.dev/posts/task-management-tools-are-bullshit/</guid>
+      <guid>http://localhost:1313/posts/task-management-tools-are-bullshit/</guid>
       
       <description>&lt;p&gt;Team tasks management tools don&amp;rsquo;t work. Here&amp;rsquo;s why.&lt;/p&gt;
 &lt;h2 id=&#34;the-false-promise&#34;&gt;The false promise&lt;/h2&gt;
@@ -29,10 +29,10 @@ So you discuss how to break down tasks better. The cycle repeats.&lt;/p&gt;</des
     
     <item>
       <title>GMs are like DJs</title>
-      <link>https://santacloud.dev/posts/gms-are-like-djs/</link>
+      <link>http://localhost:1313/posts/gms-are-like-djs/</link>
       <pubDate>Sun, 25 May 2025 08:37:12 +0300</pubDate>
       
-      <guid>https://santacloud.dev/posts/gms-are-like-djs/</guid>
+      <guid>http://localhost:1313/posts/gms-are-like-djs/</guid>
       
       <description>&lt;p&gt;I recently had a conversation with a friend that doesn&amp;rsquo;t play any &lt;a href=&#34;https://en.wikipedia.org/wiki/Tabletop_role-playing_game&#34;&gt;TTRPG&lt;/a&gt;s about the role of a Game Master. And he asked this (great) question:
 &lt;em&gt;Are&lt;/em&gt; GMs like DJs? Analogies like this excite me - if I understand the similarities and differences, I unlock a fresh perspective to learn from. For this case - how do DJs shift from the &lt;strong&gt;prep&lt;/strong&gt; to the &lt;strong&gt;execution&lt;/strong&gt; stage, and what could it teach me about GMing.&lt;/p&gt;</description>
@@ -41,10 +41,10 @@ So you discuss how to break down tasks better. The cycle repeats.&lt;/p&gt;</des
     
     <item>
       <title>Injecting some HTML into Streamlit&#39;s &lt;head&gt;</title>
-      <link>https://santacloud.dev/posts/injecting-to-head-with-streamlit/</link>
+      <link>http://localhost:1313/posts/injecting-to-head-with-streamlit/</link>
       <pubDate>Thu, 15 May 2025 22:03:18 +0300</pubDate>
       
-      <guid>https://santacloud.dev/posts/injecting-to-head-with-streamlit/</guid>
+      <guid>http://localhost:1313/posts/injecting-to-head-with-streamlit/</guid>
       
       <description>&lt;script&gt;
     function handleSubmit(event) {
@@ -89,10 +89,10 @@ So you discuss how to break down tasks better. The cycle repeats.&lt;/p&gt;</des
     
     <item>
       <title>Speed Matters: How I Optimized My ZSH Startup to Under 70ms</title>
-      <link>https://santacloud.dev/posts/optimizing-zsh-startup-performance/</link>
+      <link>http://localhost:1313/posts/optimizing-zsh-startup-performance/</link>
       <pubDate>Sat, 10 May 2025 07:37:07 +0300</pubDate>
       
-      <guid>https://santacloud.dev/posts/optimizing-zsh-startup-performance/</guid>
+      <guid>http://localhost:1313/posts/optimizing-zsh-startup-performance/</guid>
       
       <description>&lt;h1 id=&#34;speed-matters-how-i-optimized-my-zsh-startup-to-under-70ms&#34;&gt;Speed Matters: How I Optimized My ZSH Startup to Under 70ms&lt;/h1&gt;
 &lt;p&gt;Speed isn’t just about shaving milliseconds for fun (although&amp;hellip; that &lt;em&gt;is&lt;/em&gt; kind of fun). It’s about protecting &lt;strong&gt;flow&lt;/strong&gt;.&lt;/p&gt;
@@ -101,15 +101,54 @@ So you discuss how to break down tasks better. The cycle repeats.&lt;/p&gt;</des
     </item>
     
     <item>
+      <title>The 4 types of developers</title>
+      <link>http://localhost:1313/posts/the-4-types-of-developers/</link>
+      <pubDate>Sun, 25 Aug 2024 13:45:39 +0300</pubDate>
+      
+      <guid>http://localhost:1313/posts/the-4-types-of-developers/</guid>
+      
+      <description>&lt;p&gt;Reading &lt;a href=&#34;https://www.bennorthrop.com/Essays/2013/developer-motivation.php&#34;&gt;The 3 Motivational Forces of Developers&lt;/a&gt; by Ben Northrop from 2013 gave me the nudge I needed to write this post.
+Ben discussed the primary motivators to be: problem, tech and business.
+While I find this article very interesting, I approach this with a different set of parameters (and have been for years now) or what types of developers are there:&lt;/p&gt;
+&lt;p&gt;Developers can be classified into 3 groups (no one is just 1 thing):&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>The age of offline</title>
+      <link>http://localhost:1313/posts/return-of-the-offline/</link>
+      <pubDate>Mon, 19 Aug 2024 20:40:36 +0300</pubDate>
+      
+      <guid>http://localhost:1313/posts/return-of-the-offline/</guid>
+      
+      <description>&lt;p&gt;Well, I don&amp;rsquo;t think being completely offline is something that&amp;rsquo;s gonna happen, but I do think that there will be sub-groups of the internet - more specifically sub-groups of networks for privacy and inter-connectivity between agents.
+I think that software will be consolidated to the device that you&amp;rsquo;re using, and you&amp;rsquo;re gonna use a master agent, to tell it what you want or need, and it will make the informed decision with which agents to share what about you - this will in turn use the internet, but the inter-agent communication will be mostly local and private. Therefore, offline work is back, and business models are gonna change (or not? subscription is a piece of shit after all)&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
       <title>Creating My Blog: A Developer&#39;s Tale of Over-Engineering (Using Obsidian, Hugo and GitHub Pages)</title>
-      <link>https://santacloud.dev/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/</link>
+      <link>http://localhost:1313/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/</link>
       <pubDate>Sat, 10 Aug 2024 19:48:37 +0300</pubDate>
       
-      <guid>https://santacloud.dev/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/</guid>
+      <guid>http://localhost:1313/posts/creating-my-blog---a-developers-tale-of-over-engineering-using-obsidian-hugo-and-github-pages/</guid>
       
       <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;#dead-eyed-tutorial&#34;&gt;TL;DR:&lt;/a&gt; If you just wanna know how to do this, and don&amp;rsquo;t care about the actual post.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve wanted to start a blog for quite a while now, and never got around to it because of various nonsense excuses. When I finally decided to start, I struggled to choose the content for the first post. And so I did what every decent software developer would do when they begin: over-engineered the shit out of the blog itself rather than focus on what matters - the content. But this over-engineering was quick, integrated smoothly with my workflow, was relatively isolated and not super opinionated, and presented an integration issue that, once solved, ended up being pretty damn convenient.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Large-Model inference on Mac</title>
+      <link>http://localhost:1313/posts/large-model-inference-on-mac/</link>
+      <pubDate>Sat, 06 Jul 2024 11:06:24 +0300</pubDate>
+      
+      <guid>http://localhost:1313/posts/large-model-inference-on-mac/</guid>
+      
+      <description>&lt;p&gt;This is a log of my journey on how do large-model inference on my Macbook, rather than having to use a cloud service or buying an expensive PC with a more expensive GPU. And then seeing how fast I can make it go.&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;So in case you haven&amp;rsquo;t noticed - everybody&amp;rsquo;s talking about AI. And as a software developer, I wanted to test some stuff out and play around with different frameworks, methods, algorithms. But the thing is, that like a lot of developers, I own a Macbook. And to my surprise almost &lt;strong&gt;NOTHING&lt;/strong&gt; is supported, and you&amp;rsquo;re just stuck with &amp;ldquo;Oh well, this is for data scientists and it requires a GPU and/or the cloud&amp;hellip; so either buy those or leave the job to the pros&amp;rdquo;. That bothered me.&lt;/p&gt;</description>
       
     </item>
     
